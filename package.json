@@ -4,7 +4,7 @@
   "description": "an AirBnb clone with Geckos",
   "main": "./server/index.js",
   "scripts": {
-    "dev:server": "node ./server/index.js"
+    "dev:server": "nodemon ./server/index.js"
   },
   "repository": {
     "type": "git",
