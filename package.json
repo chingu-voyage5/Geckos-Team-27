@@ -1,0 +1,28 @@
+{
+  "name": "geckos-team-27",
+  "version": "1.0.0",
+  "description": "an AirBnb clone with Geckos",
+  "main": "./server/index.js",
+  "scripts": {
+    "client": "npm start --prefix client",
+    "dev:server": "nodemon ./server/index.js",
+    "dev": "concurrently \"npm run dev:server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chingu-voyage5/Geckos-Team-27.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chingu-voyage5/Geckos-Team-27/issues"
+  },
+  "homepage": "https://github.com/chingu-voyage5/Geckos-Team-27#readme",
+  "dependencies": {
+    "concurrently": "^3.5.1",
+    "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.5"
+  }
+}
