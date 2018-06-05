@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/chingu-voyage5/Geckos-Team-27#readme",
   "dependencies": {
+    "concurrently": "^3.5.1",
     "express": "^4.16.3"
   },
   "devDependencies": {
