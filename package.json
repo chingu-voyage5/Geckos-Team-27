@@ -4,7 +4,7 @@
   "description": "an AirBnb clone with Geckos",
   "main": "./server/index.js",
   "scripts": {
-    "precommit": "pretty-quick --staged",
+    "precommit": "lint-staged",
     "client": "npm start --prefix client",
     "dev:server": "nodemon ./server/index.js",
     "dev": "concurrently \"npm run dev:server\" \"npm run client\""
@@ -26,8 +26,16 @@
   "devDependencies": {
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-prettier": "^2.6.0",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.1.3",
     "nodemon": "^1.17.5",
     "prettier": "^1.13.4",
     "pretty-quick": "^1.6.0"
+  },
+  "lint-staged": {
+    "*.{js,json,css,md}": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }
