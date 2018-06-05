@@ -4,7 +4,9 @@
   "description": "an AirBnb clone with Geckos",
   "main": "./server/index.js",
   "scripts": {
-    "dev:server": "nodemon ./server/index.js"
+    "client": "npm start --prefix client",
+    "dev:server": "nodemon ./server/index.js",
+    "dev": "concurrently \"npm run dev:server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
