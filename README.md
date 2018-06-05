@@ -1,2 +1,17 @@
 # Geckos-Team-27
-Add-project-description-here | Voyage-5 | chingu.io
+
+### Our project
+
+An Airbnb clone.
+
+### About us
+
+We are the **Geckos-Team-27** from [Chingu Voyage-4](https://github.com/chingu-voyage5).
+
+[Chingu](https://chingu.io/) cohorts is the best place for self learning web enthusiasts – to learn together, collaborate and work on real projects in remote teams.
+
+#### Our team
+
+[Andrew Salcedo](https://github.com/andrwsalcdo) – project manager / team member
+
+[Panagiotis Skarlas](https://github.com/1qk1) – team member
