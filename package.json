@@ -1,0 +1,22 @@
+{
+  "name": "geckos-team-27",
+  "version": "1.0.0",
+  "description": "an AirBnb clone with Geckos",
+  "main": "./server/index.js",
+  "scripts": {
+    "dev:server": "node ./server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chingu-voyage5/Geckos-Team-27.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chingu-voyage5/Geckos-Team-27/issues"
+  },
+  "homepage": "https://github.com/chingu-voyage5/Geckos-Team-27#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
