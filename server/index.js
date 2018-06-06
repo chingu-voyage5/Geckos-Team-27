@@ -8,11 +8,8 @@ const port = process.env.PORT || 4000;
 const db = require("../key").mongoURI;
 mongoose
   .connect(db)
-  .then(() =>
-    console
-      .log("mongo connected...fireworks!")
-      .catch(err => console.log("oh no! no fireworks....", err))
-  );
+  .then(() => console.log("mongo connected...fireworks!"))
+  .catch(err => console.log("oh no! no fireworks....", err));
 
 app.get("/", (req, res) => res.send(`Let's get started`));
 
