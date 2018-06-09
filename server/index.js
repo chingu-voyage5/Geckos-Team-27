@@ -4,6 +4,7 @@ const passportSetup = require("./services/passport");
 const passport = require("passport");
 const cookieSession = require("cookie-session");
 const keys = require("../key");
+const authRoutes = require("./routes/auth");
 
 const app = express();
 
@@ -27,6 +28,9 @@ app.use(
 // passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
+
+// set up routes
+app.use(authRoutes);
 
 const port = process.env.PORT || 4000;
 app.listen(port, () => console.log(`Example app listening on port ${port}`));
