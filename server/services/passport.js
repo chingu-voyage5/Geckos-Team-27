@@ -3,6 +3,16 @@ const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
 const keys = require("../../key");
 const User = require("../models/user");
 
+passport.serializeUser((user, done) => {
+  done(null, user.id);
+});
+
+passport.deserializeUser((id, done) => {
+  User.findById(id).then(user => {
+    done(null, user);
+  });
+});
+
 passport.use(
   new GoogleStrategy(
     {
