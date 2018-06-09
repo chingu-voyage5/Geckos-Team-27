@@ -21,8 +21,11 @@
   "homepage": "https://github.com/chingu-voyage5/Geckos-Team-27#readme",
   "dependencies": {
     "concurrently": "^3.5.1",
+    "cookie-session": "^2.0.0-beta.3",
     "express": "^4.16.3",
-    "mongoose": "^5.1.4"
+    "mongoose": "^5.1.4",
+    "passport": "^0.4.0",
+    "passport-google-oauth": "^1.0.0"
   },
   "devDependencies": {
     "eslint-config-prettier": "^2.9.0",
