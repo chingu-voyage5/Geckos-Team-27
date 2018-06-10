@@ -7,6 +7,9 @@ const keys = require("../key");
 const authRoutes = require("./routes/auth");
 
 const app = express();
+// body parser middleware
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 // connect to mongodb
 const db = keys.mongoURI;
