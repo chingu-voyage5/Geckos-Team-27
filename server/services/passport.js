@@ -18,7 +18,7 @@ passport.deserializeUser((id, done) => {
 passport.use(
   new LocalStrategy(
     {
-      usnernameField: "email"
+      usernameField: "email"
     },
     (username, password, done) => {
       User.findOne({ email: username }, (err, user) => {
@@ -27,7 +27,7 @@ passport.use(
         }
         if (!user) {
           return done(null, false, {
-            email: "Email not found"
+            email: "Email not found."
           });
         }
         bcrypt.compare(password, user.password, (err, res) => {
