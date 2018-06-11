@@ -1,7 +1,10 @@
 const mongoose = require("mongoose");
 
 const homeSchema = new mongoose.Schema({
-  host: Schema.Types.ObjectId,
+  host: {
+    hostId: Schema.Types.ObjectId,
+    ref: "homes"
+  },
   location: {
     address: String,
     city: String,
@@ -29,4 +32,4 @@ const homeSchema = new mongoose.Schema({
 
 const Home = mongoose.model("homes", homeSchema);
 
-module.exports = User;
+module.exports = Home;
