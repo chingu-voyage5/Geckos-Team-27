@@ -1,6 +1,14 @@
 const router = require("express").Router();
 const passport = require("passport");
 const auth = require("../controllers/auth");
+const { catchErrors } = require("../utils");
+
+/*
+    @route POST /api/register
+    @desc Register User via Email
+    @access public
+*/
+router.post("/api/register", catchErrors(auth.register));
 
 /*
     @route GET /auth/google
