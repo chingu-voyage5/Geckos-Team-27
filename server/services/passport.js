@@ -1,4 +1,6 @@
 const passport = require("passport");
+const bcrypt = require("bcryptjs");
+const LocalStrategy = require("passport-local").Strategy;
 const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
 const keys = require("../../key");
 const User = require("../models/user");
@@ -12,6 +14,36 @@ passport.deserializeUser((id, done) => {
     done(null, user);
   });
 });
+
+passport.use(
+  new LocalStrategy(
+    {
+      usnernameField: "email"
+    },
+    (username, password, done) => {
+      User.findOne({ email: username }, (err, user) => {
+        if (err) {
+          return done(err);
+        }
+        if (!user) {
+          return done(null, false, {
+            email: "Email not found"
+          });
+        }
+        bcrypt.compare(password, user.password, (err, res) => {
+          if (res) {
+            // success
+            return done(null, user);
+          } else {
+            return done(null, false, {
+              password: "Password is incorrect"
+            });
+          }
+        });
+      });
+    }
+  )
+);
 
 passport.use(
   new GoogleStrategy(
