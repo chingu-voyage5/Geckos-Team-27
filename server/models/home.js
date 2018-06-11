@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const homeSchema = new mongoose.Schema({
   host: {
     type: Schema.Types.ObjectId,
-    ref: "homes"
+    ref: "users"
   },
   location: {
     address: String,
