@@ -30,24 +30,28 @@ passport.use(
 
 const findOrCreateUser = (profile, done) => {
   // check if user is existing
-  User.findOne({ googleId: profile.id }).then(currentUser => {
-    if (currentUser) {
-      done(null, currentUser);
-    } else {
+  User.findOne({ email: profile.emails[0].value }, (err, user) => {
+    if (err) {
+      return done(err);
+    }
+    if (!user) {
       // create user
-      const joindate = new Date();
-      new User({
+      const joindate = new Date(); // todo: format date helper fn
+      const newUser = new User({
         googleId: profile.id,
         firstName: profile.name.givenName,
         lastName: profile.name.familyName,
         email: profile.emails[0].value,
         gender: profile.gender,
         phoneNumber: ""
-      })
-        .save()
-        .then(newUser => {
-          done(null, newUser);
-        });
+      });
+      newUser.save((err, newUser) => {
+        if (err) return done(err);
+        return done(null, newUser);
+      });
+    } else {
+      // returns existing user
+      return done(null, user);
     }
   });
 };
