@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const homeSchema = new mongoose.Schema({
   host: {
-    hostId: Schema.Types.ObjectId,
+    type: Schema.Types.ObjectId,
     ref: "homes"
   },
   location: {
