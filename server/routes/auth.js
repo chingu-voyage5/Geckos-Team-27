@@ -11,6 +11,13 @@ const { catchErrors } = require("../utils");
 router.post("/api/register", catchErrors(auth.register));
 
 /*
+    @route POST /api/login
+    @desc Login User via passport local 
+    @access public
+*/
+router.post("/api/login", auth.login);
+
+/*
     @route GET /auth/google
     @desc Login user via Google
     @access private
