@@ -1,4 +1,5 @@
 const User = require("../models/user");
+const passport = require("passport");
 const bcrypt = require("bcryptjs");
 // todo: validateRegister helper fn
 
@@ -41,6 +42,20 @@ const register = async (req, res, next) => {
   res.json(user);
 };
 
+const login = (req, res) => {
+  passport.authenticate("local", (err, user, info) => {
+    if (err) {
+      res.status(401).json(err);
+      return;
+    }
+    if (user) {
+      res.json(user);
+    } else {
+      res.status(401).json(info);
+    }
+  })(req, res);
+};
+
 const google_redirect = (req, res) => {
   res.redirect("/dashboard");
 };
@@ -52,6 +67,7 @@ const logout = (req, res) => {
 
 module.exports = {
   register,
+  login,
   google_redirect,
   logout
 };
