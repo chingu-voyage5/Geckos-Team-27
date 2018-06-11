@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
 const passportSetup = require("./services/passport");
 const passport = require("passport");
 const cookieSession = require("cookie-session");
@@ -35,5 +36,5 @@ app.use(passport.session());
 // set up routes
 app.use(authRoutes);
 
-const port = process.env.PORT || 4000;
-app.listen(port, () => console.log(`Example app listening on port ${port}`));
+const port = 4000;
+app.listen(port, () => console.log(`listening on port ${port}`));
