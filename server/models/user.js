@@ -4,17 +4,24 @@ const userSchema = new mongoose.Schema({
   googleId: String,
   firstName: {
     type: String,
-    required: true
+    required: true,
+    trim: true
   },
   lastName: {
     type: String,
-    required: true
+    required: true,
+    trim: true
   },
   email: {
     type: String,
-    required: true
+    required: true,
+    unique: true,
+    trim: true
   },
-  password: String,
+  password: {
+    type: String,
+    trim: true
+  },
   birthmonth: String,
   birthday: String,
   birthyear: String,
