@@ -1,6 +1,6 @@
 const User = require("../models/user");
 const passport = require("passport");
-const bcrypt = require("bcryptjs");
+const bcrypt = require("bcrypt");
 // todo: validateRegister helper fn
 
 const register = async (req, res, next) => {
