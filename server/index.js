@@ -19,16 +19,6 @@ mongoose
   .then(() => console.log("mongo connected...fireworks!"))
   .catch(err => console.log("oh no! no fireworks....", err));
 
-app.use(
-  cookieSession({
-    // 1 day
-    // maxAge: 24 * 60 * 60 * 1000,
-    // debuggin 3 mins
-    maxAge: 3 * 60 * 1000,
-    keys: [keys.session.cookieKey]
-  })
-);
-
 // passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
