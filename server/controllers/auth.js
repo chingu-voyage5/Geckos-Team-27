@@ -49,7 +49,12 @@ const login = (req, res) => {
       return;
     }
     if (user) {
-      res.json(user);
+      req.login(user, err => {
+        if (err) {
+          return res.status(401).json(err);
+        }
+        res.redirect("/dashboard");
+      });
     } else {
       res.status(401).json(info);
     }
