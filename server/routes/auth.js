@@ -41,6 +41,15 @@ router.get(
 );
 
 /*
+  @route GET /api/current_user 
+  @desc get current user's info after login
+  @access public
+*/
+router.get("/api/current_user", (req, res) => {
+  res.send(req.user);
+});
+
+/*
     @route GET /api/logout
     @desc Logout user
     @access private
