@@ -4,6 +4,7 @@ const LocalStrategy = require("passport-local").Strategy;
 const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
 const keys = require("../../key");
 const User = require("../models/user");
+const { formatDate } = require("../utils");
 
 passport.serializeUser((user, done) => {
   done(null, user.id);
@@ -68,14 +69,15 @@ const findOrCreateUser = (profile, done) => {
     }
     if (!user) {
       // create user
-      const joindate = new Date(); // todo: format date helper fn
+      const joindate = formatDate(new Date());
       const newUser = new User({
         googleId: profile.id,
         firstName: profile.name.givenName,
         lastName: profile.name.familyName,
         email: profile.emails[0].value,
         gender: profile.gender,
-        phoneNumber: ""
+        phoneNumber: "",
+        date: joindate
       });
       newUser.save((err, newUser) => {
         if (err) return done(err);
