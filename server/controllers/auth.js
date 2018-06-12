@@ -1,6 +1,7 @@
 const User = require("../models/user");
 const passport = require("passport");
 const bcrypt = require("bcrypt");
+const { formatDate } = require("../utils");
 // todo: validateRegister helper fn
 
 const register = async (req, res, next) => {
@@ -15,7 +16,7 @@ const register = async (req, res, next) => {
         });
       } else {
         // add new user
-        const date = new Date(); // todo: format date helper fn
+        const date = formatDate(new Date());
         const newUser = new User({
           email: req.body.email,
           firstName: req.body.firstName,
