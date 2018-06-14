@@ -27,7 +27,42 @@ const userSchema = new mongoose.Schema({
   birthyear: String,
   gender: String,
   joindate: String,
-  phoneNumber: Number
+  city: String,
+  state: String,
+  zipcode: String,
+  country: String,
+  school: String,
+  work: String,
+  languages: String,
+  verified: {
+    id: Boolean,
+    info: Boolean,
+    email: Boolean,
+    phone: Boolean,
+    workemail: Boolean
+  },
+  superuser: Boolean,
+  intro: String,
+  image: String,
+  admin: Boolean,
+  homes: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "homes"
+    }
+  ],
+  reviews: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "reviews"
+    }
+  ],
+  references: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "references"
+    }
+  ]
 });
 
 const User = mongoose.model("users", userSchema);
