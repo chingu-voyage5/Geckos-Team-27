@@ -1,0 +1,22 @@
+.Search {
+  /* padding: 0 12px; */
+  padding-left: 12px;
+  box-shadow: 0 1px 7px rgba(0, 0, 0, 0.12);
+  display: inline-block;
+  margin-left: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+}
+.Bar {
+  height: 100%;
+  width: 400px;
+  padding: 10px 16px;
+  border: none;
+  margin-left: 0;
+  background-color: #fff;
+}
+
+.Bar:focus,
+.Bar:active {
+  outline: none;
+}
