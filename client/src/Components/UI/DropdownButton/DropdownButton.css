@@ -1,0 +1,42 @@
+.DropdownButton {
+  display: inline-block;
+  height: 100%;
+  border-bottom: 2px solid transparent;
+  position: relative;
+}
+
+.DropdownButton button {
+  padding: 26px 10px;
+  background-color: #fff;
+  border: none;
+}
+.DropdownButton button:hover {
+  cursor: pointer;
+}
+.DropdownButton button:focus {
+  outline: none;
+}
+
+.DropdownButton:hover {
+  border-bottom: 2px solid #333;
+  cursor: pointer;
+}
+
+.Dropdown-Menu {
+  border-radius: 2px;
+  z-index: 999;
+  display: none;
+  position: absolute;
+  margin: -2px 0 0 0;
+  padding: 0 24px;
+  list-style-type: none;
+  background: #fff;
+  border: 1px solid #aaa;
+  left: -50%;
+  top: 100%;
+  font-size: 12px;
+}
+
+.Dropdown-Open {
+  display: block;
+}
