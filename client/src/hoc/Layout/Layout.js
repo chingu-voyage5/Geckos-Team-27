@@ -5,7 +5,7 @@ class Layout extends Component {
   render() {
     return (
       <Fragment>
-        {/* <Toolbar /> */}
+        <Toolbar />
         <main>{this.props.children}</main>
         {/* footer */}
       </Fragment>

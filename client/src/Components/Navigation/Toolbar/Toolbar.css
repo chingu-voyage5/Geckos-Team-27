@@ -1,0 +1,9 @@
+.Toolbar {
+  border-bottom: 1px solid #dedede;
+  font-size: 1rem;
+  display: flex;
+  padding: 0 1rem;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 12px;
+}
