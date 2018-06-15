@@ -1,6 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 
+import HostButton from "../NavigationItems/HostButton/HostButton";
 import "./Toolbar.css";
 import Search from "../NavigationItems/Search/Search";
 
@@ -22,7 +23,7 @@ const toolbar = props => {
         {search}
       </div>
       <div className="NavButtons">
-        {/* <HostButton /> */}
+        <HostButton />
         {/* <HelpButton /> */}
         {/* if user is authenticated */}
         {/* <Logout /> */}
