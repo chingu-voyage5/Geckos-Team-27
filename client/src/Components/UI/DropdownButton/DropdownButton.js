@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./DropdownButton.css";
+import Backdrop from "../Backdrop/Backdrop";
 
 class DropdownButton extends Component {
   state = {
@@ -19,19 +20,31 @@ class DropdownButton extends Component {
   };
 
   render() {
+    // pass props to this.props.children
+    const Children = this.props.children
+      ? React.cloneElement(this.props.children, {
+          close: this.closeDropdown
+        })
+      : null;
     return (
-      <div className="DropdownButton">
-        <button onBlur={this.closeDropdown} onClick={this.toggle}>
+      <div className="Dropdown">
+        <button className="NavButton" onClick={this.toggle}>
           {this.props.title}
         </button>
+        <Backdrop
+          clicked={this.closeDropdown}
+          visible={this.state.dropDownOpen}
+        />
         <div
           className={
             this.state.dropDownOpen
-              ? "Dropdown-Menu Dropdown-Open " + (this.props.menuClasses || "")
+              ? "Dropdown-Menu " +
+                ("Dropdown-Open " + this.props.activeMenuClasses + " " || "") +
+                (this.props.menuClasses || "")
               : "Dropdown-Menu " + (this.props.menuClasses || "")
           }
         >
-          {this.props.children}
+          {Children}
         </div>
       </div>
     );
