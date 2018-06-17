@@ -1,9 +1,87 @@
 .Toolbar {
   border-bottom: 1px solid #dedede;
-  font-size: 1rem;
   display: flex;
   padding: 0 1rem;
   align-items: baseline;
   justify-content: space-between;
-  padding: 12px;
+}
+
+.NavToggler {
+  display: none;
+}
+
+.Toolbar .NavToggler {
+  font-size: 2rem;
+  padding: 1rem 0.5rem;
+}
+
+.NavButton {
+  padding: 26px 10px;
+  background-color: #fff;
+  border: none;
+  margin: auto 0.7rem;
+  font-weight: 700;
+  border-bottom: 2px solid transparent;
+}
+
+.NavButton:hover {
+  border-bottom: 2px solid #333;
+  cursor: pointer;
+}
+
+.NavButton:focus {
+  outline: none;
+}
+
+.NavButtons {
+  background-color: #fff;
+  transition: all 0.2s;
+}
+
+@media (max-width: 500px) {
+  .Toolbar {
+    align-items: center;
+  }
+
+  .Dropdown {
+    border-bottom: none;
+  }
+
+  .NavButtons {
+    width: 80%;
+    max-width: 380px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    height: 100vh;
+    left: 0;
+    z-index: 50;
+    top: 0;
+    border-right: 1px solid #dedede;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    /* 102% because it has a shadow */
+    transform: translateX(-102%);
+  }
+
+  .NavButtons .NavButton {
+    width: 100%;
+    border-bottom: 1px solid #dedede;
+    border-right: 2px solid transparent;
+    font-weight: 400;
+  }
+
+  .NavButtons .NavButton:hover {
+    /* border: none; */
+    border-right: 2px solid #333;
+    background-color: #fafafa;
+  }
+
+  .NavButton {
+    margin: 0;
+  }
+
+  .center {
+    left: auto;
+    right: auto;
+  }
 }
