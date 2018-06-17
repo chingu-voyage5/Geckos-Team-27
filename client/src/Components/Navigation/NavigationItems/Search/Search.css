@@ -10,8 +10,10 @@
 .Bar {
   height: 100%;
   width: 400px;
-  padding: 10px 16px;
+  padding: 14px 16px;
   border: none;
+  font-size: 1rem;
+  font-weight: 700;
   margin-left: 0;
   background-color: #fff;
 }
