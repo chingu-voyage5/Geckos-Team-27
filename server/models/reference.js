@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
-const referenceSchema = new mongoose.Schema({
+const referenceSchema = new Schema({
   hostId: {
     // user being referenced
     type: Schema.Types.ObjectId,
