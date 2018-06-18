@@ -1,8 +1,8 @@
-import React, { Fragment } from "react";
+import React from "react";
 import "./HostDropdownMenu.css";
 
 const hostDropdownMenu = () => (
-  <Fragment>
+  <div className="Dropdown-Menu HostDropdown">
     <a href="/">
       Host a home
       <p>
@@ -11,7 +11,7 @@ const hostDropdownMenu = () => (
     </a>
     <a href="/">No time to host?</a>
     <a href="/">Host an experience</a>
-  </Fragment>
+  </div>
 );
 
 export default hostDropdownMenu;
