@@ -36,7 +36,16 @@ const allProfiles = async (req, res) => {
   res.json(users);
 };
 
+const editUser = async (req, res) => {
+  const user = await User.findById(req.params.id).then(user => {
+    user.set(req.body);
+    return user.save();
+  });
+  res.json(user);
+};
+
 module.exports = {
   profileById,
-  allProfiles
+  allProfiles,
+  editUser
 };
