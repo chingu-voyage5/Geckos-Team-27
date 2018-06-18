@@ -1,4 +1,5 @@
 const User = require("../models/user");
+const { arrayToObject } = require("../utils");
 
 const profileById = async (req, res) => {
   const _id = req.params.id;
@@ -27,6 +28,15 @@ const profileById = async (req, res) => {
   res.json(profile);
 };
 
+const allProfiles = async (req, res) => {
+  const users = await User.find({}).then(user => {
+    const result = arrayToObject(user, "_id");
+    return result;
+  });
+  res.json(users);
+};
+
 module.exports = {
-  profileById
+  profileById,
+  allProfiles
 };
