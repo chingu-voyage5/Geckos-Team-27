@@ -1,8 +1,8 @@
-import React, { Fragment } from "react";
+import React from "react";
 import "./HelpSideDrawer.css";
 
 const helpSideDrawer = props => (
-  <Fragment>
+  <div className="Dropdown-Menu HelpSideDrawer">
     <h2>
       Geckosbnb Help <i className="fas fa-times" onClick={props.close} />
     </h2>
@@ -40,7 +40,7 @@ const helpSideDrawer = props => (
       <a className="HelpCenterButton">Visit the Help Center</a>
       <a className="FeedbackButton">Give Feedback</a>
     </div>
-  </Fragment>
+  </div>
 );
 
 export default helpSideDrawer;

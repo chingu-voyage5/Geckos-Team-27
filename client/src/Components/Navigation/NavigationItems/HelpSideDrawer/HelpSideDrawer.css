@@ -1,12 +1,12 @@
 .HelpSideDrawer {
-  height: 100%;
+  height: 100vh;
   width: 350px;
   max-width: 100vw;
   top: 0;
   border: none;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
   right: 0;
-  position: fixed;
+  position: absolute;
   background-color: #fff;
   z-index: 999;
   padding: 0;
@@ -73,13 +73,11 @@
 }
 
 .HelpSideDrawer-Footer {
-  /* display: block; */
   padding: 1rem 1.5rem;
   border-top: 1px solid #dadada;
   bottom: 0;
-  /* width: 350px; */
-  /* max-width: 100vh; */
-  /* position: absolute; */
+  width: 100%;
+  position: absolute;
 }
 
 .HelpSideDrawer-Footer a {
@@ -101,14 +99,11 @@
   text-decoration: underline;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 950px) {
   .HelpSideDrawer {
     width: 350px;
     max-width: 100vw;
     height: 100vh;
-    /* top: 0; */
-    right: unset;
-    left: unset;
     position: absolute;
   }
 }
