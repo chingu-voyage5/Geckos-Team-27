@@ -16,9 +16,18 @@ const newHome = async (req, res) => {
   res.json(newHome);
 };
 
-const homeById = async (req, res) => {};
+const homeById = async (req, res) => {
+  const home = await Home.findById({ _id: req.params.id }).then(home => home);
+  res.json(home);
+};
 
-const editHome = async (req, res) => {};
+const editHome = async (req, res) => {
+  const home = await Home.findById(req.params.id).then(home => {
+    home.set(req.body);
+    return home.save();
+  });
+  res.json(home);
+};
 
 const allHomes = async (req, res) => {};
 
