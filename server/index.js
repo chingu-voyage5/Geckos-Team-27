@@ -9,6 +9,7 @@ const passport = require("passport");
 const keys = require("../key");
 const authRoutes = require("./routes/auth");
 const userRoutes = require("./routes/user");
+const homeRoutes = require("./routes/home");
 
 const app = express();
 // body parser middleware
@@ -44,6 +45,7 @@ app.use(passport.session());
 // set up routes
 app.use(authRoutes);
 app.use(userRoutes);
+app.use(homeRoutes);
 
 const port = 4000;
 app.listen(port, () => console.log(`listening on port ${port}`));
