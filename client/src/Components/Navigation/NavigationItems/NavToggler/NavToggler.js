@@ -37,7 +37,7 @@ class NavToggler extends Component {
           }
           onClick={this.toggle}
         >
-          <i class="fas fa-bars" />
+          <i className="fas fa-bars" />
         </button>
       </Fragment>
     );
