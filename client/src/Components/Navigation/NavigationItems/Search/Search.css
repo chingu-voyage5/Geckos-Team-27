@@ -5,7 +5,8 @@
   margin-left: 1rem;
   border: 1px solid #ccc;
   border-radius: 2px;
-  width: 60%;
+  width: 500px;
+  max-width: 60vw;
 }
 .Bar {
   height: 100%;
