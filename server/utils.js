@@ -37,7 +37,26 @@ function monthToNum(month) {
   return index + 1;
 }
 
+/*
+  Array to Object fn()
+  @param: array & string 'keyField'
+    example: take an array such as...
+  const Array = [
+    { id: 123, name: "T'Challa", age: 23 },
+    { id: 456, name: "Thor", age: 1000 },
+  ]
+    and convert it to....
+  const Object = {
+    "123": { id: 123, name: "T'Challa", age: 23 },
+    "456": { id: 456, name: "Thor", age: 1000 },
+  }
+  p.s: immutable. doesn't mutate the array param. 
+*/
+const arrayToObject = (array, keyField) =>
+  array.reduce((soFar, row) => ({ ...soFar, ...{ [row[keyField]]: row } }), {});
+
 module.exports = {
+  arrayToObject,
   formatDate,
   catchErrors
 };
