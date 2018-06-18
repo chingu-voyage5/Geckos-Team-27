@@ -30,11 +30,11 @@ app.use(
     secret: keys.session.cookieKey,
     store: new MongoStore({
       mongooseConnection: mongoose.connection,
-      // debug for 5 mins
-      ttl: 5 * 60
+      // debug for 30 mins: later 7 days
+      ttl: 30 * 60
     }),
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: true
   })
 );
 
