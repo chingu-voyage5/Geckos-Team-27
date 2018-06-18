@@ -1,5 +1,6 @@
 const Home = require("../models/home");
 const User = require("../models/user");
+const { arrayToObject } = require("../utils");
 
 // get user id from session
 const user_id = req => req.session.passport.user;
@@ -29,7 +30,13 @@ const editHome = async (req, res) => {
   res.json(home);
 };
 
-const allHomes = async (req, res) => {};
+const allHomes = async (req, res) => {
+  const homes = await Home.find({}).then(home => {
+    const res = arrayToObject(home, "_id");
+    return res;
+  });
+  res.json(homes);
+};
 
 module.exports = {
   newHome,
