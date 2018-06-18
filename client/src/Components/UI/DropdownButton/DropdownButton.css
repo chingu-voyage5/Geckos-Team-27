@@ -14,8 +14,12 @@
   background: #fff;
   border: 1px solid #aaa;
   font-size: 0.75rem;
+  right: 10rem;
+  top: 100%;
+  /* top: 0; */
+  /* left: 0; */
 }
 
-.Dropdown-Open {
+.Open {
   display: block;
 }

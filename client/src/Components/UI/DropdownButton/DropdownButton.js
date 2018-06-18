@@ -8,44 +8,39 @@ class DropdownButton extends Component {
   };
 
   toggle = () => {
-    this.setState(prevState => ({
-      dropDownOpen: !prevState.dropDownOpen
-    }));
+    this.setState(prevState => {
+      !prevState.dropDownOpen
+        ? document
+            .getElementsByClassName(this.props.divClass)[0]
+            .classList.add("Open")
+        : document
+            .getElementsByClassName(this.props.divClass)[0]
+            .className.remove("Open");
+      return {
+        dropDownOpen: !prevState.dropDownOpen
+      };
+    });
   };
 
   closeDropdown = () => {
+    document
+      .getElementsByClassName(this.props.divClass)[0]
+      .classList.remove("Open");
     this.setState({
       dropDownOpen: false
     });
   };
 
   render() {
-    // pass props to this.props.children
-    const Children = this.props.children
-      ? React.cloneElement(this.props.children, {
-          close: this.closeDropdown
-        })
-      : null;
     return (
       <div className="Dropdown">
-        <button className="NavButton" onClick={this.toggle}>
-          {this.props.title}
-        </button>
         <Backdrop
           clicked={this.closeDropdown}
           visible={this.state.dropDownOpen}
         />
-        <div
-          className={
-            this.state.dropDownOpen
-              ? "Dropdown-Menu " +
-                ("Dropdown-Open " + this.props.activeMenuClasses + " " || "") +
-                (this.props.menuClasses || "")
-              : "Dropdown-Menu " + (this.props.menuClasses || "")
-          }
-        >
-          {Children}
-        </div>
+        <button className="NavButton" onClick={this.toggle}>
+          {this.props.title}
+        </button>
       </div>
     );
   }

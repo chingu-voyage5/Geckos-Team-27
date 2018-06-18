@@ -9,7 +9,7 @@ import Search from "../NavigationItems/Search/Search";
 import HelpSideDrawer from "../NavigationItems/HelpSideDrawer/HelpSideDrawer";
 import NavToggler from "../NavigationItems/NavToggler/NavToggler";
 
-//styles imports
+//style imports
 import "./Toolbar.css";
 
 const toolbar = props => {
@@ -21,7 +21,7 @@ const toolbar = props => {
 
   return (
     <nav className="Toolbar">
-      <div>
+      <div className="Toolbar-Left">
         {/* Logo */}
         <a style={{ textDecoration: "none", color: "red" }} href="/">
           Logo
@@ -29,24 +29,11 @@ const toolbar = props => {
         {/* Search bar */}
         {search}
       </div>
+
       <NavToggler />
       <div className="NavButtons">
-        <DropdownButton
-          title="Become a host"
-          keepDefaultClasses
-          menuClasses="HostDropdown"
-          activeMenuClasses="center"
-        >
-          <HostDropdownMenu />
-        </DropdownButton>
-        <DropdownButton
-          title="Help"
-          menuClasses="HelpSideDrawer"
-          keepDefaultClasses
-          activeMenuClasses="HelpSideDrawer-Open"
-        >
-          <HelpSideDrawer />
-        </DropdownButton>
+        <DropdownButton divClass="HostDropdown" title="Become a host" />
+        <DropdownButton divClass="HelpSideDrawer" title="Help" />
         <button className="NavButton">Log in</button>
         <button className="NavButton">Signup</button>
         {/* if user is authenticated */}
@@ -55,6 +42,8 @@ const toolbar = props => {
         {/* <Signup /> */}
         {/* <LogIn /> */}
       </div>
+      <HostDropdownMenu />
+      <HelpSideDrawer />
     </nav>
   );
 };

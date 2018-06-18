@@ -4,10 +4,15 @@
   padding: 0 1rem;
   align-items: baseline;
   justify-content: space-between;
+  position: relative;
 }
 
 .NavToggler {
   display: none;
+}
+
+.Toolbar-Left {
+  flex: 1;
 }
 
 .Toolbar .NavToggler {
@@ -38,7 +43,7 @@
   transition: all 0.2s;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 950px) {
   .Toolbar {
     align-items: center;
   }
