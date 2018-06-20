@@ -30,3 +30,9 @@
   display: block;
   margin: auto;
 }
+
+@media (max-width: 600px) {
+  .Home-Header {
+    margin: 15vh auto;
+  }
+}
