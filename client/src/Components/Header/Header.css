@@ -1,7 +1,7 @@
 .Home-Header {
   margin: 30vh auto;
   width: 1000px;
-  max-width: 100%;
+  max-width: 80%;
 }
 
 .Home-Header h1,
@@ -18,21 +18,38 @@
 .Home-Header h2 {
   font-size: 3rem;
   color: #555;
-  max-width: 800px;
+  max-width: 90%;
 }
 
 .Home-Search {
   font-size: 1.2rem;
   font-weight: 700;
-  height: 4rem;
+  height: 4em;
   width: 1000px;
   max-width: 100%;
   display: block;
   margin: auto;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 950px) {
   .Home-Header {
     margin: 15vh auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .Home-Header h1 {
+    font-size: 2rem;
+  }
+  
+  .Home-Header h2 {
+    font-size: 1.7rem;
+  }
+  .Home-Search {
+    font-size: 0.8rem;
+    /* height: 3rem; */
+  }
+  .Home-Header {
+    max-width: 96%;
   }
 }
