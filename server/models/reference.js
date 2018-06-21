@@ -17,10 +17,8 @@ const referenceSchema = new Schema({
   content: String,
   firstName: String,
   lastName: String,
-  location: {
-    city: String,
-    state: String
-  }
+  city: String,
+  state: String
 });
 
 const Reference = mongoose.model("references", referenceSchema);
