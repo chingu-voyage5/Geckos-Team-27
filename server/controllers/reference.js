@@ -7,7 +7,10 @@ const user_id = req => req.session.passport.user;
 
 const allReferences = async (req, res) => {};
 
-const referenceById = async (req, res) => {};
+const referenceById = async (req, res) => {
+  const ref = await Reference.findById(req.params.id).then(ref => ref);
+  res.json(ref);
+};
 
 const newReference = async (req, res) => {
   const ref = new Reference(req.body);
@@ -21,7 +24,13 @@ const newReference = async (req, res) => {
   res.json(newRef);
 };
 
-const editReference = async (req, res) => {};
+const editReference = async (req, res) => {
+  const ref = await Reference.findById(req.params.id).then(ref => {
+    ref.set(req.body);
+    return ref.save();
+  });
+  res.json(ref);
+};
 
 module.exports = {
   allReferences,
