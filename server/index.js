@@ -11,6 +11,7 @@ const authRoutes = require("./routes/auth");
 const userRoutes = require("./routes/user");
 const homeRoutes = require("./routes/home");
 const reviewRoutes = require("./routes/review");
+const referenceRoutes = require("./routes/reference");
 
 const app = express();
 // body parser middleware
@@ -48,6 +49,7 @@ app.use(authRoutes);
 app.use(userRoutes);
 app.use(homeRoutes);
 app.use(reviewRoutes);
+app.use(referenceRoutes);
 
 const port = 4000;
 app.listen(port, () => console.log(`listening on port ${port}`));
