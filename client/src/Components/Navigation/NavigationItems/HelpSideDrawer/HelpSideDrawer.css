@@ -14,6 +14,17 @@
   border: 1px solid #dadada;
 }
 
+.HelpSideDrawer.Open {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.HelpSideDrawer-Top {
+  margin: 0;
+  padding: 0;
+}
+
 .HelpSideDrawer-Body {
   border-top: 1px solid #dadada;
   padding: 1rem 1.5rem;
@@ -50,6 +61,7 @@
   /* line-height: 2.5rem; */
   font-size: 0.9rem;
   margin: 0.5rem 0 1rem 0;
+  border: 1px solid #aaa;
 }
 
 .HelpSideDrawer h2 {

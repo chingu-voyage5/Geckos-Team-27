@@ -5,7 +5,7 @@ import { withRouter } from "react-router-dom";
 //component imports
 import DropdownButton from "../../UI/DropdownButton/DropdownButton";
 import HostDropdownMenu from "../NavigationItems/HostDropdownMenu/HostDropdownMenu";
-import Search from "../NavigationItems/Search/Search";
+import Search from "../Search/Search";
 import HelpSideDrawer from "../NavigationItems/HelpSideDrawer/HelpSideDrawer";
 import NavToggler from "../NavigationItems/NavToggler/NavToggler";
 
