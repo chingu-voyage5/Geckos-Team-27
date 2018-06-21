@@ -22,11 +22,9 @@ const reviewSchema = new Schema({
   content: String,
   firstName: String,
   lastName: String,
-  location: {
-    city: String,
-    state: String,
-    country: String
-  }
+  city: String,
+  state: String,
+  country: String
 });
 
 const Review = mongoose.model("reviews", reviewSchema);
