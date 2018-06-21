@@ -1,0 +1,13 @@
+.TogglerBackdrop {
+  z-index: 5;
+}
+
+@media (max-width: 950px) {
+  .NavToggler {
+    display: flex !important;
+  }
+
+  .NavToggler.Open + .NavButtons {
+    transform: translateX(0);
+  }
+}
