@@ -13,7 +13,12 @@ const allReviews = async (req, res) => {
   res.json(reviews);
 };
 
-const reviewById = async (req, res) => {};
+const reviewById = async (req, res) => {
+  const review = await Review.findById({ _id: req.params.id }).then(
+    review => review
+  );
+  res.json(review);
+};
 
 const newReview = async (req, res) => {};
 
