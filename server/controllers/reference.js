@@ -5,7 +5,13 @@ const { arrayToObject, formatDate } = require("../utils");
 // get user id from session
 const user_id = req => req.session.passport.user;
 
-const allReferences = async (req, res) => {};
+const allReferences = async (req, res) => {
+  const refs = await Reference.find({}).then(ref => {
+    const res = arrayToObject(ref, "_id");
+    return res;
+  });
+  res.json(refs);
+};
 
 const referenceById = async (req, res) => {
   const ref = await Reference.findById(req.params.id).then(ref => ref);
