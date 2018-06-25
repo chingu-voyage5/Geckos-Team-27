@@ -22,3 +22,7 @@ html {
   display: flex;
   flex-direction: row;
 }
+
+.unallow-link:hover {
+  cursor: not-allowed;
+}

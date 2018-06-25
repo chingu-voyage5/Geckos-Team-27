@@ -1,0 +1,22 @@
+.ft-links {
+  font-size: 14px;
+  justify-content: space-around;
+}
+.ft-links ul {
+  margin: 25px 60px 50px 50px;
+  padding: 0;
+  height: 200px;
+  list-style: none;
+}
+.bold-ft-link {
+  margin: 10px 0;
+  font-weight: 600;
+}
+.ft-link {
+  margin: 8px 0;
+  color: rgb(118, 118, 118);
+}
+.ft-links ul div i {
+  margin: 8px;
+  font-size: 18px;
+}
