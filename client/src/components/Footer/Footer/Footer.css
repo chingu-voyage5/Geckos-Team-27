@@ -1,0 +1,17 @@
+/* Large Footer */
+.lg-ft {
+  bottom: 0px;
+  position: fixed;
+  transform-origin: center bottom 0px;
+  width: 100%;
+  transform: scaleY(1);
+  padding: 0px;
+  transition: -ms-transform 0.2s ease-out, -webkit-transform 0.2s ease-out,
+    transform 0.2s ease-out;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-top: 1px solid rgb(219, 219, 219);
+  background-color: white;
+}
