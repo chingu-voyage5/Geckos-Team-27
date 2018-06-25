@@ -76,3 +76,23 @@
 .ft-tgg-btn i {
   margin-right: 12px;
 }
+
+/* media queries  */
+@media (max-width: 767px) {
+  .ft-tgg {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .mobile-ft {
+    display: none;
+  }
+}
+
+@media (min-width: 1128px) {
+  .ft-tgg {
+    left: auto;
+    right: 13px;
+  }
+}
