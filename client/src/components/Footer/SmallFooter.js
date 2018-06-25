@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import "./SmallFooter.css";
 
 const SmallFooter = ({ className }) => (
   <Fragment>
@@ -7,14 +8,14 @@ const SmallFooter = ({ className }) => (
         with GeckoBnB's svg/icon in a span or div
       */}
       <div className="sm-ft-brand">Logo © GeckoBnB, Inc.</div>
-      <div className="sm-ft-lang-currency">
-        <div>
+      <div className="flex-row sm-ft-lang-currency">
+        <div className="flex-row">
           <div className="sm-ft-text">English</div>
           <div className="sm-ft-angle-icon">
             <i className="fas fa-angle-down" />
           </div>
         </div>
-        <div>
+        <div className="flex-row">
           <div className="sm-ft-text">USD</div>
           <div className="sm-ft-angle-icon">
             <i className="fas fa-angle-down" />
