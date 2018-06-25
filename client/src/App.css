@@ -17,3 +17,8 @@ html {
   display: inline-block;
   margin: 0 auto;
 }
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
