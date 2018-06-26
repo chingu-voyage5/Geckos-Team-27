@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./Search.css";
 import { withRouter } from "react-router-dom";
 
-class HostButton extends Component {
+class Search extends Component {
   searchHandler = event => {
     event.preventDefault();
     this.props.history.push({
@@ -39,4 +39,4 @@ class HostButton extends Component {
   }
 }
 
-export default withRouter(HostButton);
+export default withRouter(Search);
