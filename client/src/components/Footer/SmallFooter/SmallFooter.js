@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import PropTypes from "prop-types";
 import "./SmallFooter.css";
 
 const SmallFooter = ({ className }) => (
@@ -25,5 +26,9 @@ const SmallFooter = ({ className }) => (
     </footer>
   </Fragment>
 );
+
+SmallFooter.propTypes = {
+  className: PropTypes.string
+};
 
 export default SmallFooter;

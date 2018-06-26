@@ -1,26 +1,9 @@
 import React, { Fragment } from "react";
+import Toggle from "../../../hoc/Toggle/Toggle";
 import ButtonIconText from "../../UI/ButtonIconText/ButtonIconText";
 import SmallFooter from "../SmallFooter/SmallFooter";
-import FooterLinks from "../FooterLinks/FooterLinks";
-import Toggle from "../../../hoc/Toggle/Toggle";
+import LargeFooter from "./LargeFooter";
 import "./Footer.css";
-
-const LargeFooter = ({ toggle }) => (
-  <div className="lg-ft">
-    <div>
-      <FooterLinks />
-      <SmallFooter />
-    </div>
-    <br />
-    <ButtonIconText
-      container="ft-tgg"
-      btnClass="ft-tgg-btn"
-      onClick={toggle}
-      text="Close"
-      icon="fas fa-times"
-    />
-  </div>
-);
 
 const Footer = () => (
   <Fragment>
