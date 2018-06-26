@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import ButtonIconText from "../../UI/ButtonIconText/ButtonIconText";
 import SmallFooter from "../SmallFooter/SmallFooter";
 import FooterLinks from "../FooterLinks/FooterLinks";
@@ -20,5 +21,9 @@ const LargeFooter = ({ toggle }) => (
     />
   </div>
 );
+
+LargeFooter.propTypes = {
+  toggle: PropTypes.func.isRequired
+};
 
 export default LargeFooter;
