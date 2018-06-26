@@ -8,7 +8,6 @@ import Search from "../Search/Search";
 import HelpSideDrawer from "../NavigationItems/HelpSideDrawer/HelpSideDrawer";
 import NavToggler from "../NavigationItems/NavToggler/NavToggler";
 import Toggleable from "../../UI/Toggleable/Toggleable";
-import Modal from "../../UI/Modal/Modal";
 
 //style imports
 import "./Toolbar.css";
