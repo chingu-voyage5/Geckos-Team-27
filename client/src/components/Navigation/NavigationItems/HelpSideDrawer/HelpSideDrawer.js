@@ -2,7 +2,13 @@ import React from "react";
 import "./HelpSideDrawer.css";
 
 const helpSideDrawer = props => (
-  <div className="Dropdown-Menu HelpSideDrawer">
+  <div
+    className={
+      props.open
+        ? "Toggleable-Menu HelpSideDrawer Open"
+        : "Toggleable-Menu HelpSideDrawer"
+    }
+  >
     <div className="HelpSideDrawer-Top">
       <h2>
         Geckosbnb Help <i className="fas fa-times" onClick={props.close} />
