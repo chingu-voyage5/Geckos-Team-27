@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const ButtonIconText = ({ container, btnClass, onClick, icon, text }) => (
   <div className={container}>
@@ -16,5 +17,13 @@ const ButtonIconText = ({ container, btnClass, onClick, icon, text }) => (
     </button>
   </div>
 );
+
+ButtonIconText.propTypes = {
+  container: PropTypes.string,
+  btnClass: PropTypes.string,
+  onClick: PropTypes.func.isRequired,
+  icon: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired
+};
 
 export default ButtonIconText;
