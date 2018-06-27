@@ -1,17 +1,18 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./HelpSideDrawer.css";
 
-const helpSideDrawer = props => (
+const helpSideDrawer = ({ open, close }) => (
   <div
     className={
-      props.open
+      open
         ? "Toggleable-Menu HelpSideDrawer Open"
         : "Toggleable-Menu HelpSideDrawer"
     }
   >
     <div className="HelpSideDrawer-Top">
       <h2>
-        Geckosbnb Help <i className="fas fa-times" onClick={props.close} />
+        Geckosbnb Help <i className="fas fa-times" onClick={close} />
       </h2>
 
       <div className="HelpSideDrawer-Body">
@@ -50,5 +51,10 @@ const helpSideDrawer = props => (
     </div>
   </div>
 );
+
+helpSideDrawer.propTypes = {
+  open: PropTypes.bool.isRequired,
+  close: PropTypes.func.isRequired
+};
 
 export default helpSideDrawer;
