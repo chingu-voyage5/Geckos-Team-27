@@ -9,14 +9,14 @@ const hostDropdownMenu = props => (
         : "Toggleable-Menu HostToggle"
     }
   >
-    <a href="/">
+    <a className="unallow-link">
       Host a home
       <p>
         <small>Earn up to $345 a week hosting</small>
       </p>
     </a>
-    <a href="/">No time to host?</a>
-    <a href="/">Host an experience</a>
+    <a className="unallow-link">No time to host?</a>
+    <a className="unallow-link">Host an experience</a>
   </div>
 );
 
