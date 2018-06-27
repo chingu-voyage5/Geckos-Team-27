@@ -5,7 +5,6 @@ import "./Modal.css";
 import Backdrop from "../Backdrop/Backdrop";
 
 const modal = props => {
-  console.log(props.modalClasses);
   const modalClasses =
     "Modal" + (props.modalClasses ? ` ${props.modalClasses}` : "");
   return (
