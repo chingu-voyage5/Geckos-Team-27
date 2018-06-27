@@ -1,4 +1,4 @@
-.HostDropdown a {
+.HostToggle a {
   display: block;
   padding: 12px;
   white-space: nowrap;
@@ -9,11 +9,21 @@
   font-weight: 700;
 }
 
-.HostDropdown a:hover {
+.HostToggle a:hover {
   border-bottom: 2px solid #333;
 }
 
-.HostDropdown p {
+.HostToggle p {
   margin-bottom: 0;
   padding: 0;
+}
+
+.HostToggle.Open {
+  display: block;
+}
+
+@media (max-width: 950px) {
+  .HostToggle.Open {
+    right: unset;
+  }
 }

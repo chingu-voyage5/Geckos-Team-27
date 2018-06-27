@@ -14,12 +14,10 @@
   background: #fff;
   border: 1px solid #aaa;
   font-size: 0.75rem;
-  right: 10rem;
+  left: 25%;
   top: 100%;
-  /* top: 0; */
-  /* left: 0; */
 }
 
-.Open {
+.Dropdown-Menu.Open {
   display: block;
 }

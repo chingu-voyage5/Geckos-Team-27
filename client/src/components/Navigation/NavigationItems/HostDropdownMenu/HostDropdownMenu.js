@@ -1,8 +1,14 @@
 import React from "react";
 import "./HostDropdownMenu.css";
 
-const hostDropdownMenu = () => (
-  <div className="Dropdown-Menu HostDropdown">
+const hostDropdownMenu = props => (
+  <div
+    className={
+      props.open
+        ? "Toggleable-Menu HostToggle Open"
+        : "Toggleable-Menu HostToggle"
+    }
+  >
     <a href="/">
       Host a home
       <p>

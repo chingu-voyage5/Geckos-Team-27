@@ -3,11 +3,11 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 
 //component imports
-import DropdownButton from "../../UI/DropdownButton/DropdownButton";
 import HostDropdownMenu from "../NavigationItems/HostDropdownMenu/HostDropdownMenu";
 import Search from "../Search/Search";
 import HelpSideDrawer from "../NavigationItems/HelpSideDrawer/HelpSideDrawer";
 import NavToggler from "../NavigationItems/NavToggler/NavToggler";
+import Toggleable from "../../UI/Toggleable/Toggleable";
 
 //style imports
 import "./Toolbar.css";
@@ -32,18 +32,69 @@ const toolbar = props => {
 
       <NavToggler />
       <div className="NavButtons">
-        <DropdownButton divClass="HostDropdown" title="Become a host" />
-        <DropdownButton divClass="HelpSideDrawer" title="Help" />
-        <button className="NavButton">Log in</button>
-        <button className="NavButton">Signup</button>
+        <button
+          onClick={() => props.toggle("hostDropdownOpen")}
+          className="NavButton"
+        >
+          Become a host
+        </button>
+        <button
+          onClick={() => props.toggle("helpSideBarOpen")}
+          className="NavButton"
+        >
+          Help
+        </button>
+        {/* <button
+          onClick={() => props.toggle("loginModalOpen")}
+          className="NavButton"
+        >
+          Log in
+        </button>
+        <button
+          onClick={() => props.toggle("registerModalOpen")}
+          className="NavButton"
+        >
+          Signup
+        </button> */}
         {/* if user is authenticated */}
         {/* <Logout /> */}
         {/* else */}
         {/* <Signup /> */}
         {/* <LogIn /> */}
       </div>
-      <HostDropdownMenu />
-      <HelpSideDrawer />
+
+      <Toggleable
+        open={props.states.hostDropdownOpen}
+        close={() => props.close("hostDropdownOpen")}
+      >
+        <HostDropdownMenu
+          open={props.states.hostDropdownOpen}
+          close={() => props.close("hostDropdownOpen")}
+        />
+      </Toggleable>
+
+      <Toggleable
+        open={props.states.helpSideBarOpen}
+        close={() => props.close("helpSideBarOpen")}
+      >
+        <HelpSideDrawer
+          open={props.states.helpSideBarOpen}
+          close={() => props.close("helpSideBarOpen")}
+        />
+      </Toggleable>
+
+      {/* <Modal
+        open={props.states.loginModalOpen}
+        close={() => props.close("loginModalOpen")}
+      >
+        <h1>Login form</h1>
+      </Modal>
+      <Modal
+        open={props.states.registerModalOpen}
+        close={() => props.close("registerModalOpen")}
+      >
+        <h1>Register form</h1>
+      </Modal> */}
     </nav>
   );
 };
