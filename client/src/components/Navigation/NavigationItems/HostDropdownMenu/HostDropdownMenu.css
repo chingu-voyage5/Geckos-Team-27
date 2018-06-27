@@ -4,7 +4,7 @@
   white-space: nowrap;
   text-decoration: none;
   color: #333;
-  /* right: 0; */
+  right: 0;
   border-bottom: 2px solid transparent;
   font-weight: 700;
 }
@@ -25,5 +25,6 @@
 @media (max-width: 950px) {
   .HostToggle.Open {
     right: unset;
+    position: unset;
   }
 }
