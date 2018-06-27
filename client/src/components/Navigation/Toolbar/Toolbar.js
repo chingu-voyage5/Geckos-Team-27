@@ -8,6 +8,7 @@ import Search from "../Search/Search";
 import HelpSideDrawer from "../NavigationItems/HelpSideDrawer/HelpSideDrawer";
 import NavToggler from "../NavigationItems/NavToggler/NavToggler";
 import Toggleable from "../../UI/Toggleable/Toggleable";
+import Modal from "../../UI/Modal/Modal";
 
 //style imports
 import "./Toolbar.css";
@@ -44,7 +45,7 @@ const toolbar = props => {
         >
           Help
         </button>
-        {/* <button
+        <button
           onClick={() => props.toggle("loginModalOpen")}
           className="NavButton"
         >
@@ -55,7 +56,7 @@ const toolbar = props => {
           className="NavButton"
         >
           Signup
-        </button> */}
+        </button>
         {/* if user is authenticated */}
         {/* <Logout /> */}
         {/* else */}
@@ -83,7 +84,7 @@ const toolbar = props => {
         />
       </Toggleable>
 
-      {/* <Modal
+      <Modal
         open={props.states.loginModalOpen}
         close={() => props.close("loginModalOpen")}
       >
@@ -94,7 +95,7 @@ const toolbar = props => {
         close={() => props.close("registerModalOpen")}
       >
         <h1>Register form</h1>
-      </Modal> */}
+      </Modal>
     </nav>
   );
 };
