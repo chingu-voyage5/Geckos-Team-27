@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./Backdrop.css";
 
 class Toggle extends Component {
   state = {
@@ -7,10 +8,17 @@ class Toggle extends Component {
   toggle = () => {
     this.setState(({ on }) => ({ on: !on }));
   };
+  backdrop = className => (
+    <div
+      onClick={this.toggle}
+      className={className ? `Backdrop ${className}` : "Backdrop"}
+    />
+  );
   getStateAndHelpers = () => {
     return {
       on: this.state.on,
-      toggle: this.toggle
+      toggle: this.toggle,
+      backdrop: this.backdrop
     };
   };
   render() {
