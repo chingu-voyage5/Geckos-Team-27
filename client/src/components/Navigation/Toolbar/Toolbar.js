@@ -1,15 +1,13 @@
 //libraries etc imports
-import React from "react";
+import React, { Fragment } from "react";
 import { withRouter } from "react-router-dom";
-
 //component imports
 import HostDropdownMenu from "../NavigationItems/HostDropdownMenu/HostDropdownMenu";
 import Search from "../Search/Search";
 import HelpSideDrawer from "../NavigationItems/HelpSideDrawer/HelpSideDrawer";
 import NavToggler from "../NavigationItems/NavToggler/NavToggler";
-import Toggleable from "../../UI/Toggleable/Toggleable";
+import Toggle from "../../../hoc/Toggle/Toggle";
 import Modal from "../../UI/Modal/Modal";
-
 //style imports
 import "./Toolbar.css";
 
@@ -30,72 +28,66 @@ const toolbar = props => {
         {/* Search bar */}
         {search}
       </div>
-
       <NavToggler />
       <div className="NavButtons">
-        <button
-          onClick={() => props.toggle("hostDropdownOpen")}
-          className="NavButton"
-        >
-          Become a host
-        </button>
-        <button
-          onClick={() => props.toggle("helpSideBarOpen")}
-          className="NavButton"
-        >
-          Help
-        </button>
-        <button
-          onClick={() => props.toggle("loginModalOpen")}
-          className="NavButton"
-        >
-          Log in
-        </button>
-        <button
-          onClick={() => props.toggle("registerModalOpen")}
-          className="NavButton"
-        >
-          Signup
-        </button>
+        <Toggle>
+          {({ on, toggle, backdrop }) => (
+            <Fragment>
+              <button onClick={toggle} className="NavButton">
+                Become a Host
+              </button>
+              {on && backdrop()}
+              {on && <HostDropdownMenu open={true} />}
+            </Fragment>
+          )}
+        </Toggle>
+        <Toggle>
+          {({ on, toggle, backdrop }) => (
+            <Fragment>
+              <button onClick={toggle} className="NavButton">
+                Help
+              </button>
+              {on && backdrop()}
+              {on && <HelpSideDrawer open={true} close={toggle} />}
+            </Fragment>
+          )}
+        </Toggle>
         {/* if user is authenticated */}
         {/* <Logout /> */}
         {/* else */}
         {/* <Signup /> */}
         {/* <LogIn /> */}
+        <Toggle>
+          {({ on, toggle, backdrop }) => (
+            <Fragment>
+              <button onClick={toggle} className="NavButton">
+                Sign Up
+              </button>
+              {on && backdrop("Modal-Backdrop")}
+              {on && (
+                <Modal open={on}>
+                  <h1>Sign Up Form & Google Button</h1>
+                </Modal>
+              )}
+            </Fragment>
+          )}
+        </Toggle>
+        <Toggle>
+          {({ on, toggle, backdrop }) => (
+            <Fragment>
+              <button onClick={toggle} className="NavButton">
+                Login
+              </button>
+              {on && backdrop("Modal-Backdrop")}
+              {on && (
+                <Modal open={on}>
+                  <h1>Login Form & Google Button</h1>
+                </Modal>
+              )}
+            </Fragment>
+          )}
+        </Toggle>
       </div>
-
-      <Toggleable
-        open={props.states.hostDropdownOpen}
-        close={() => props.close("hostDropdownOpen")}
-      >
-        <HostDropdownMenu
-          open={props.states.hostDropdownOpen}
-          close={() => props.close("hostDropdownOpen")}
-        />
-      </Toggleable>
-
-      <Toggleable
-        open={props.states.helpSideBarOpen}
-        close={() => props.close("helpSideBarOpen")}
-      >
-        <HelpSideDrawer
-          open={props.states.helpSideBarOpen}
-          close={() => props.close("helpSideBarOpen")}
-        />
-      </Toggleable>
-
-      <Modal
-        open={props.states.loginModalOpen}
-        close={() => props.close("loginModalOpen")}
-      >
-        <h1>Login form</h1>
-      </Modal>
-      <Modal
-        open={props.states.registerModalOpen}
-        close={() => props.close("registerModalOpen")}
-      >
-        <h1>Register form</h1>
-      </Modal>
     </nav>
   );
 };
