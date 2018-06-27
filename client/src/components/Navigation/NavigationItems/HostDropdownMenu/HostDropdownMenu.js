@@ -1,12 +1,11 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./HostDropdownMenu.css";
 
-const hostDropdownMenu = props => (
+const hostDropdownMenu = ({ open }) => (
   <div
     className={
-      props.open
-        ? "Toggleable-Menu HostToggle Open"
-        : "Toggleable-Menu HostToggle"
+      open ? "Toggleable-Menu HostToggle Open" : "Toggleable-Menu HostToggle"
     }
   >
     <a className="unallow-link">
@@ -19,5 +18,9 @@ const hostDropdownMenu = props => (
     <a className="unallow-link">Host an experience</a>
   </div>
 );
+
+hostDropdownMenu.propTypes = {
+  open: PropTypes.bool.isRequired
+};
 
 export default hostDropdownMenu;
