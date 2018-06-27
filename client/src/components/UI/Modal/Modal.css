@@ -1,0 +1,20 @@
+.Modal-Backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.Modal {
+  background-color: #fff;
+  z-index: 500;
+  padding: 20px;
+  position: absolute;
+  top: 50vh;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  display: none;
+  max-width: 500px;
+  margin: auto;
+}
+
+.Modal.Open {
+  display: inline-block;
+}
