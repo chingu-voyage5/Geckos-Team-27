@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import "./Search.css";
 import { withRouter } from "react-router-dom";
 
+import Input from "../../UI/Input/Input";
+
 class Search extends Component {
   searchHandler = event => {
     event.preventDefault();
@@ -19,21 +21,23 @@ class Search extends Component {
     if (this.props.location.search) {
       placeholder = this.props.location.search.replace("?query=", "");
     }
-    document.querySelector(".Search .Bar").placeholder = placeholder;
+    document.querySelector(".Search .Search-Bar").placeholder = placeholder;
   }
 
   render() {
     return (
       <form
-        action="/search"
         onSubmit={this.searchHandler}
         className={
-          this.props.formClasses ? "Search " + this.props.formClasses : "Search"
+          this.props.formClasses
+            ? "Search Icon-left " + this.props.formClasses
+            : "Search Icon-left"
         }
       >
-        <i className="fas fa-search Search-Icon" />
-        <input className="Bar" type="text" name="search" />
-        {this.props.children}
+        <Input inputClasses="Search-Bar" name="search">
+          <i className="fas fa-search Input-Icon" />
+          {this.props.children}
+        </Input>
       </form>
     );
   }
