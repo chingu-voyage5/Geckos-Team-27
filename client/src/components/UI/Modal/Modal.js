@@ -1,24 +1,23 @@
-import React, { Fragment } from "react";
-
+import React from "react";
+import PropTypes from "prop-types";
 import "./Modal.css";
 
-import Backdrop from "../Backdrop/Backdrop";
-
-const modal = props => {
-  const modalClasses =
-    "Modal" + (props.modalClasses ? ` ${props.modalClasses}` : "");
+const Modal = ({ children, classNames, open }) => {
+  const modalClasses = "Modal" + (classNames ? ` ${classNames}` : "");
   return (
-    <Fragment>
-      <Backdrop
-        classes="Modal-Backdrop"
-        clicked={props.close}
-        visible={props.open}
-      />
-      <div className={props.open ? `${modalClasses} Open` : `${modalClasses}`}>
-        {props.children}
-      </div>
-    </Fragment>
+    <div className={open ? `${modalClasses} Open` : `${modalClasses}`}>
+      {children}
+    </div>
   );
 };
 
-export default modal;
+Modal.propTypes = {
+  open: PropTypes.bool.isRequired,
+  classNames: PropTypes.string,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]).isRequired
+};
+
+export default Modal;

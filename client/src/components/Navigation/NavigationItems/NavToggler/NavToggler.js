@@ -1,46 +1,25 @@
-import React, { Component, Fragment } from "react";
+import React, { Fragment } from "react";
 import "./NavToggler.css";
-import Backdrop from "../../../UI/Backdrop/Backdrop";
+import Toggle from "../../../../hoc/Toggle/Toggle";
 
-//button that toggles an adjacent element instead of a child component
+const NavToggler = () => (
+  <Fragment>
+    <Toggle>
+      {({ on, toggle, backdrop }) => (
+        <Fragment>
+          {on && backdrop("TogglerBackdrop")}
+          <button
+            className={
+              on ? "NavButton NavToggler Open" : "NavButton NavToggler"
+            }
+            onClick={toggle}
+          >
+            <i className="fas fa-bars" />
+          </button>
+        </Fragment>
+      )}
+    </Toggle>
+  </Fragment>
+);
 
-class NavToggler extends Component {
-  state = {
-    dropDownOpen: false
-  };
-
-  toggle = () => {
-    this.setState(prevState => ({
-      dropDownOpen: !prevState.dropDownOpen
-    }));
-  };
-
-  closeDropdown = () => {
-    this.setState({
-      dropDownOpen: false
-    });
-  };
-
-  render() {
-    return (
-      <Fragment>
-        <Backdrop
-          clicked={this.closeDropdown}
-          visible={this.state.dropDownOpen}
-          classes="TogglerBackdrop"
-        />
-        <button
-          className={
-            this.state.dropDownOpen
-              ? "NavButton NavToggler Open"
-              : "NavButton NavToggler"
-          }
-          onClick={this.toggle}
-        >
-          <i className="fas fa-bars" />
-        </button>
-      </Fragment>
-    );
-  }
-}
 export default NavToggler;
