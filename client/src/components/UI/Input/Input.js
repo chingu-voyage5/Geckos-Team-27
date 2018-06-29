@@ -2,19 +2,22 @@ import React from "react";
 
 import "./Input.css";
 
-const input = props => (
-  <div
-    className={
-      "Input-Container " + (props.divClasses ? props.divClasses : null)
-    }
-  >
+const input = ({
+  divClasses,
+  inputClasses,
+  type,
+  placeholder,
+  name,
+  children
+}) => (
+  <div className={"Input-Container " + (divClasses ? divClasses : null)}>
     <input
-      className={props.inputClasses || null}
-      type={props.type || "text"}
-      placeholder={props.placeholder || null}
-      name={props.name}
+      className={inputClasses || null}
+      type={type || "text"}
+      placeholder={placeholder || null}
+      name={name}
     />
-    {props.children}
+    {children}
   </div>
 );
 
