@@ -1,1 +1,39 @@
-/* styles */
+.carousel-container {
+  width: 1028px;
+  margin: 40px 0;
+  position: relative;
+}
+
+.carousel-wrap {
+  overflow: hidden;
+  margin: 0 -8px;
+}
+
+.carousel-wrap::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel {
+  display: inline-flex;
+  transition-duration: 0.5s;
+}
+
+@media (max-width: 768px) {
+  .carousel-wrap {
+    overflow-x: scroll;
+    position: relative;
+    left: -10vw;
+    width: 100vw;
+  }
+  .carousel {
+    position: relative;
+    left: 10vw;
+    touch-action: pan-x;
+  }
+}
+
+@media (max-width: 1440px) {
+  .carousel-container {
+    width: 80%;
+  }
+}

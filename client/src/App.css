@@ -26,3 +26,7 @@ html {
 .unallow-link:hover {
   cursor: not-allowed;
 }
+
+.hidden {
+  display: none !important;
+}
