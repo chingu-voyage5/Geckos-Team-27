@@ -8,11 +8,14 @@
   width: 500px;
   max-width: 60vw;
   position: relative;
+  height: 3em;
 }
 
-.Bar {
-  height: 100%;
-  width: 100%;
+.Search i {
+  color: #333;
+}
+
+.Search .Search-Bar {
   padding: 0.8em 1em;
   padding-left: 2.2em;
   border: none;
@@ -25,13 +28,6 @@
 .Bar:focus,
 .Bar:active {
   outline: none;
-}
-
-.Search-Icon {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 0.6em;
 }
 
 .Search-Submit {
@@ -47,4 +43,8 @@
   height: 75%;
   font-weight: 700;
   font-size: 0.85em;
+}
+
+.Search-Submit:hover {
+  cursor: pointer;
 }
