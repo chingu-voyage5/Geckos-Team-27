@@ -1,1 +1,56 @@
-/* styles */
+.arrow {
+  position: absolute;
+  display: block;
+  z-index: 1;
+  top: 52%;
+  transform: translateY(-50%);
+}
+.arrow-left {
+  left: -24px;
+}
+.arrow-right {
+  right: -24px;
+}
+.arrow-span {
+  top: -45px;
+  bottom: auto;
+  position: relative;
+}
+.arrow-button {
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  line-height: 1;
+  position: relative;
+  border: 2px solid transparent;
+  background: white;
+  box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.14);
+}
+.arrow-svg {
+  fill: none;
+  stroke-miterlimit: 10;
+  stroke-width: 2px;
+  height: 20px;
+  width: 20px;
+  margin-top: 2px;
+  stroke: #484848;
+}
+
+@media (max-width: 768px) {
+  .arrow {
+    display: none;
+  }
+}
+@media (max-width: 1440px) {
+  .arrow-button {
+    height: 3rem;
+    width: 3rem;
+  }
+  .arrow-svg {
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+}
