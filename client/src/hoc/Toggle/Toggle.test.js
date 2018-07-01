@@ -9,4 +9,11 @@ describe("<Toggle /> Render Prop", () => {
     expect(renderFn.mock.calls.length).toBe(1);
     expect(wrapper.state("on")).toBe(false);
   });
+  it("passes getStateAndHelpers to renderFn", () => {
+    expect(wrapper.instance().getStateAndHelpers()).toEqual({
+      on: false,
+      toggle: expect.any(Function),
+      backdrop: expect.any(Function)
+    });
+  });
 });
