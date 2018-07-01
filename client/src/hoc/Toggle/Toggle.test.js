@@ -16,4 +16,12 @@ describe("<Toggle /> Render Prop", () => {
       backdrop: expect.any(Function)
     });
   });
+  it("toggle on", () => {
+    wrapper.instance().toggle();
+    expect(wrapper.state("on")).toBe(true);
+  });
+  it("toggle off", () => {
+    wrapper.instance().toggle();
+    expect(wrapper.state("on")).toBe(false);
+  });
 });
