@@ -29,4 +29,14 @@ describe("<Footer />", () => {
     // back to off
     expect(wrapper.find(LargeFooter).exists()).toBe(false);
   });
+  it("Toggle on: <ButtonIconText /> with globe icon does not render", () => {
+    // toggle on
+    wrapper
+      .find("div .ft-tgg")
+      .find("button")
+      .simulate("click");
+    const btn = wrapper.find(ButtonIconText);
+    expect(btn.exists()).toBe(true);
+    expect(btn.prop("icon")).not.toBe("fas fa-globe");
+  });
 });
