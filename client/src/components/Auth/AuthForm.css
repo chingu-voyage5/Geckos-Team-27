@@ -1,12 +1,12 @@
-.LoginModal {
+.AuthModal {
   padding: 1.5rem 2rem;
 }
 
-.LoginModal form {
+.AuthModal form {
   margin-top: 12px;
 }
 
-.LoginModal input:focus {
+.AuthModal input:focus {
   outline: none;
   border: 1px solid #008489;
 }
@@ -25,12 +25,25 @@
   color: #333;
 }
 
+.Birth-Date select {
+  padding: 0.8rem 1.5rem;
+  flex: 0 0 calc(33% - 0.25rem);
+  width: 33%;
+  border: 1px solid #ccc;
+  margin-bottom: 0.5rem;
+}
+
+.Birth-Date {
+  display: flex;
+  justify-content: space-between;
+}
+
 .Form-Button span > div > div {
   display: inline-block;
   margin: 0 4px;
 }
 
-.LoginModal-Close {
+.AuthModal-Close {
   border-radius: 100%;
   padding: 4px 7px;
   font-size: 1.5rem;
@@ -38,6 +51,10 @@
   margin-bottom: 0.8rem;
   cursor: pointer;
   color: #333;
+}
+
+.RegisterModal i {
+  margin: 0;
 }
 
 .Button-Blue {

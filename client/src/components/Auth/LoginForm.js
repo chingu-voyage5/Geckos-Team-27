@@ -1,12 +1,12 @@
 import React from "react";
-import Input from "../../UI/Input/Input";
-import Button from "../../UI/ButtonIconText/ButtonIconText";
+import Input from "../UI/Input/Input";
+import Button from "../UI/ButtonIconText/ButtonIconText";
 
-import "./LoginForm.css";
+import "./AuthForm.css";
 
 const loginForm = props => (
-  <div className="LoginModal">
-    <i className="fas fa-times LoginModal-Close" onClick={props.toggle} />
+  <div className="AuthModal">
+    <i className="fas fa-times AuthModal-Close" onClick={props.toggle} />
     <Button
       text="Log in using faceboooook"
       onClick={() => {
@@ -35,17 +35,11 @@ const loginForm = props => (
         <input type="checkbox" name="savePassword" />
         Save Password
       </label>
-      <Button
-        text="Log in"
-        onClick={() => {
-          console.log("xd");
-        }}
-        btnClass="Form-Button Button-Red"
-      />
+      <button className="Form-Button Button-Red">Log in</button>
     </form>
     <p className="text-centered">
       <a href="/forgot_password" className="GreenText">
-        Forgot password?{" "}
+        Forgot password?
       </a>
     </p>
     <hr />
