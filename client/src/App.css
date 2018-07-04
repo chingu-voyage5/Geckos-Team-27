@@ -18,8 +18,14 @@ html {
   margin: 0 auto;
 }
 
-p {
+p,
+small {
   color: #333;
+  margin: 0.75rem 0;
+}
+
+small {
+  font-weight: 400;
 }
 
 .flex-row {
