@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import ReactStars from "react-stars";
 import "./Listing.css";
 
 class Listing extends Component {
@@ -35,16 +36,18 @@ class Listing extends Component {
               {/* weekday price per night */}
               ${listingData.price} per night
             </div>
-            {/* {reviews.length > 0 && (
-                <div className="listing-text-reviews">
-                    <ReviewStars />
-                </div>
-            )} */}
-            {/* temporary: until <ReviewStars /> is made */}
-            <div className="listing-text-reviews">
-              {listingData.review} Stars / 5
-            </div>
-            {/* temporary: until <ReviewStars /> is made */}
+            {listingData.reviewAvg.avg && (
+              <div className="listing-text-reviews">
+                <ReactStars
+                  count={5}
+                  value={listingData.reviewAvg.avg}
+                  color1={"lightgrey"}
+                  color2={"green"}
+                  half={true}
+                  edit={false}
+                />
+              </div>
+            )}
           </div>
         </Link>
       </div>
