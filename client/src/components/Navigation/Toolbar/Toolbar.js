@@ -8,7 +8,8 @@ import HelpSideDrawer from "../NavigationItems/HelpSideDrawer/HelpSideDrawer";
 import NavToggler from "../NavigationItems/NavToggler/NavToggler";
 import Toggle from "../../../hoc/Toggle/Toggle";
 import Modal from "../../UI/Modal/Modal";
-import LoginForm from "../../Auth/LoginForm/LoginForm";
+import LoginForm from "../../Auth/LoginForm";
+import RegisterForm from "../../Auth/RegisterForm";
 
 //style imports
 import "./Toolbar.css";
@@ -68,7 +69,7 @@ const toolbar = props => {
               {on && backdrop("Modal-Backdrop Backdrop-Dark")}
               {on && (
                 <Modal open={on}>
-                  <h1>Sign Up Form & Google Button</h1>
+                  <RegisterForm toggle={toggle} />
                 </Modal>
               )}
             </Fragment>

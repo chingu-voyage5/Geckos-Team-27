@@ -18,8 +18,27 @@ html {
   margin: 0 auto;
 }
 
-p {
+p,
+small {
   color: #333;
+  margin: 0.75rem 0;
+}
+
+small {
+  font-weight: 400;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+hr {
+  margin: 1rem 0;
+  border-top: 1px solid #bbb;
 }
 
 .flex-row {
@@ -33,4 +52,37 @@ p {
 
 .hidden {
   display: none !important;
+}
+
+button.Button-Blue,
+a.Button-Blue {
+  background-color: #3b5998;
+  color: white;
+}
+
+button.Button-White,
+a.Button-White {
+  background-color: #fff;
+  border: 2px solid #777;
+}
+
+button.Button-Red,
+a.Button-Red {
+  background-color: rgb(255, 90, 95);
+  color: white;
+}
+
+.GreenText {
+  color: #008489;
+}
+
+.text-centered {
+  text-align: center;
+}
+
+label {
+  display: inline-block;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  font-size: 0.85em;
 }
