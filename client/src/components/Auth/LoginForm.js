@@ -8,7 +8,7 @@ const loginForm = props => (
   <div className="AuthModal">
     <i className="fas fa-times AuthModal-Close" onClick={props.toggle} />
     <Button
-      text="Log in using faceboooook"
+      text="Log in using Facebook"
       onClick={() => {
         console.log("xd");
       }}
@@ -16,7 +16,7 @@ const loginForm = props => (
       btnClass="Form-Button Button-Blue"
     />
     <Button
-      text="Log in using gooooooooogle"
+      text="Log in using Google"
       onClick={() => {
         console.log("xd");
       }}
@@ -25,10 +25,10 @@ const loginForm = props => (
     />
     <hr />
     <form action="/" method="POST">
-      <Input name="email" placeholder="email address">
+      <Input name="user[email]" placeholder="email address">
         <i className="fas fa-envelope-square Input-Icon" />
       </Input>
-      <Input name="password" type="password" placeholder="Password">
+      <Input name="user[password]" type="password" placeholder="Password">
         <i className="fas fa-lock Input-Icon" />
       </Input>
       <label className="GreenText">
