@@ -158,10 +158,8 @@ const homeSchema = new Schema({
   },
   reviews: [
     {
-      id: {
-        type: Schema.Types.ObjectId,
-        ref: "reviews"
-      }
+      type: Schema.Types.ObjectId,
+      ref: "reviews"
     }
   ],
   booking: [
