@@ -16,6 +16,7 @@ const homeSchema = new Schema({
     lng: Number
   },
   information: {
+    boundary: String,
     title: String,
     price: {
       weekday: Number,
@@ -157,10 +158,8 @@ const homeSchema = new Schema({
   },
   reviews: [
     {
-      id: {
-        type: Schema.Types.ObjectId,
-        ref: "reviews"
-      }
+      type: Schema.Types.ObjectId,
+      ref: "reviews"
     }
   ],
   booking: [
