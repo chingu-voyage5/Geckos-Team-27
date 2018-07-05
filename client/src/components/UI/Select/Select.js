@@ -1,8 +1,6 @@
 import React from "react";
-// import PropTypes from "prop-types";
-// import "./Input.css";
 
-const input = ({ first, last, name, months }) => {
+const select = ({ first, last, name, months }) => {
   let options = [];
   if (!months) {
     const [a, b] = first > last ? [first, last] : [last, first];
@@ -48,16 +46,4 @@ const input = ({ first, last, name, months }) => {
   return <select defaultValue={months ? "Month" : name}>{options}</select>;
 };
 
-// input.propTypes = {
-//   divClasses: PropTypes.string,
-//   inputClasses: PropTypes.string,
-//   type: PropTypes.string,
-//   placeholder: PropTypes.string,
-//   name: PropTypes.string.isRequired,
-//   children: PropTypes.oneOfType([
-//     PropTypes.arrayOf(PropTypes.node),
-//     PropTypes.node
-//   ])
-// };
-
-export default input;
+export default select;
