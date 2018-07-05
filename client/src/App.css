@@ -28,6 +28,19 @@ small {
   font-weight: 400;
 }
 
+a:link {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+hr {
+  margin: 1rem 0;
+  border-top: 1px solid #bbb;
+}
+
 .flex-row {
   display: flex;
   flex-direction: row;
@@ -39,4 +52,34 @@ small {
 
 .hidden {
   display: none !important;
+}
+
+.Button-Blue {
+  background-color: #3b5998;
+  color: white;
+}
+
+.Button-White {
+  background-color: #fff;
+  border: 2px solid #777;
+}
+
+.Button-Red {
+  background-color: rgb(255, 90, 95);
+  color: white;
+}
+
+.GreenText {
+  color: #008489;
+}
+
+.text-centered {
+  text-align: center;
+}
+
+label {
+  display: inline-block;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  font-size: 0.85em;
 }
