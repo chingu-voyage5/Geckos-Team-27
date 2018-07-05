@@ -1,4 +1,5 @@
 const Review = require("../models/review");
+const Home = require("../models/home");
 const User = require("../models/user");
 const { arrayToObject, formatDate } = require("../utils");
 
@@ -29,6 +30,11 @@ const newReview = async (req, res) => {
     // add new review to end of array
     user.reviews = [...user.reviews, newReview];
     return user.save();
+  });
+  // receiver of review
+  const reviewee = await Home.findById(newReview.houseId).then(home => {
+    home.reviews = [...home.reviews, newReview];
+    return home.save();
   });
   res.json(newReview);
 };
