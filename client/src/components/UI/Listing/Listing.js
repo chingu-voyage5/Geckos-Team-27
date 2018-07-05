@@ -15,7 +15,10 @@ class Listing extends Component {
         <div className="listing-img-wrap">
           <Link to={`/${listingData.id}`} className="listing-link">
             <img
-              src={listingData.image}
+              src={
+                // placeholder is temporary
+                listingData.images[0] || "http://via.placeholder.com/250x250"
+              }
               className="listing-img"
               alt="listing description"
             />
@@ -24,30 +27,26 @@ class Listing extends Component {
         <Link to={`/${listingData.id}`} className="listing-link">
           <div className="listing-text">
             <div className="listing-text-overview">
-              {/* overview home info & bed count */}
-              {listingData.overview.toUpperCase()} • {listingData.beds}{" "}
-              {listingData.beds > 1 ? "BEDS" : "BED"}
+              {listingData.information.boundary.toUpperCase()} •{" "}
+              {listingData.information.bedrooms}{" "}
+              {listingData.information.bedrooms > 1 ? "BEDS" : "BED"}
             </div>
             <div className="listing-text-title">
-              {/* overview home title */}
-              {listingData.title}
+              {listingData.information.title}
             </div>
             <div className="listing-text-rate">
-              {/* weekday price per night */}
-              ${listingData.price} per night
+              ${listingData.information.price.weekday} per night
             </div>
-            {listingData.reviewAvg.avg && (
-              <div className="listing-text-reviews">
-                <ReactStars
-                  count={5}
-                  value={listingData.reviewAvg.avg}
-                  color1={"lightgrey"}
-                  color2={"green"}
-                  half={true}
-                  edit={false}
-                />
-              </div>
-            )}
+            <div className="listing-text-reviews">
+              <ReactStars
+                count={5}
+                value={listingData.reviewAvg.avg}
+                color1={"lightgrey"}
+                color2={"green"}
+                half={true}
+                edit={false}
+              />
+            </div>
           </div>
         </Link>
       </div>
