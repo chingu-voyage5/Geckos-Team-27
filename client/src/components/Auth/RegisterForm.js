@@ -14,16 +14,20 @@ const loginForm = props => (
     </p>
     <hr />
     <form action="/" method="POST">
-      <Input name="email" placeholder="Email address">
+      <Input name="user[email]" placeholder="Email address">
         <i className="fas fa-envelope-square Input-Icon" />
       </Input>
-      <Input name="firstName" placeholder="First Name">
+      <Input name="user[firstName]" placeholder="First Name">
         <i className="far fa-user Input-Icon" />
       </Input>
-      <Input name="lastName" placeholder="Last Name">
+      <Input name="user[lastName]" placeholder="Last Name">
         <i className="far fa-user Input-Icon" />
       </Input>
-      <Input name="password" type="password" placeholder="Create a password">
+      <Input
+        name="user[password]"
+        type="password"
+        placeholder="Create a password"
+      >
         <i className="fas fa-lock Input-Icon" />
       </Input>
 
