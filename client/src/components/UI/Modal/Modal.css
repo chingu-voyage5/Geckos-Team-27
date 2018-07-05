@@ -5,13 +5,13 @@
 .Modal {
   background-color: #fff;
   z-index: 500;
-  padding: 20px;
   position: absolute;
   top: 50vh;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
   display: none;
-  max-width: 500px;
+  width: 550px;
+  max-width: 100%;
   margin: auto;
 }
 

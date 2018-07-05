@@ -1,0 +1,83 @@
+.LoginModal {
+  padding: 1.5rem 2rem;
+}
+
+.LoginModal form {
+  margin-top: 12px;
+}
+
+.LoginModal input:focus {
+  outline: none;
+  border: 1px solid #008489;
+}
+
+.Form-Button {
+  width: 100%;
+  background-color: #fff;
+  border: none;
+  margin-bottom: 0.5rem;
+  border-radius: 3px;
+  padding: 0.75rem 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  outline: none;
+  cursor: pointer;
+  color: #333;
+}
+
+.Form-Button span > div > div {
+  display: inline-block;
+  margin: 0 4px;
+}
+
+.LoginModal-Close {
+  border-radius: 100%;
+  padding: 4px 7px;
+  font-size: 1.5rem;
+  /* box-shadow: 0 0 12px rgba(0, 0, 0, 0.4); */
+  margin-bottom: 0.8rem;
+  cursor: pointer;
+  color: #333;
+}
+
+.Button-Blue {
+  background-color: #3b5998;
+  color: white;
+}
+
+.Button-White {
+  background-color: #fff;
+  border: 2px solid #777;
+}
+
+.Button-Red {
+  background-color: rgb(255, 90, 95);
+  color: white;
+}
+
+.GreenText {
+  color: #008489;
+}
+
+.text-centered {
+  text-align: center;
+}
+
+label {
+  display: inline-block;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  font-size: 0.85em;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+hr {
+  border-top: 1px solid #bbb;
+}
