@@ -54,17 +54,20 @@ hr {
   display: none !important;
 }
 
-.Button-Blue {
+button.Button-Blue,
+a.Button-Blue {
   background-color: #3b5998;
   color: white;
 }
 
-.Button-White {
+button.Button-White,
+a.Button-White {
   background-color: #fff;
   border: 2px solid #777;
 }
 
-.Button-Red {
+button.Button-Red,
+a.Button-Red {
   background-color: rgb(255, 90, 95);
   color: white;
 }
