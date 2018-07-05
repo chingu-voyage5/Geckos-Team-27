@@ -16,6 +16,7 @@ const homeSchema = new Schema({
     lng: Number
   },
   information: {
+    boundary: String,
     title: String,
     price: {
       weekday: Number,
