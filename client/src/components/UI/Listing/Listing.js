@@ -13,7 +13,7 @@ class Listing extends Component {
     return (
       <div className="listing">
         <div className="listing-img-wrap">
-          <Link to={`/${listingData.id}`} className="listing-link">
+          <Link to={`/${listingData._id}`} className="listing-link">
             <img
               src={
                 // placeholder is temporary
