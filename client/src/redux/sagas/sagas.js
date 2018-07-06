@@ -1,9 +1,7 @@
-import { all } from "redux-saga/effects";
-
-function* helloSaga() {
-  yield console.log("Hello Sagas!");
-}
+import { takeLatest, all } from "redux-saga/effects";
+import { fetchAllHomes } from "./homeSagas";
+import { FETCH_ALL_HOMES_REQUEST } from "../actions/types";
 
 export default function* rootSaga() {
-  yield all([helloSaga()]);
+  yield all([yield takeLatest(FETCH_ALL_HOMES_REQUEST, fetchAllHomes)]);
 }

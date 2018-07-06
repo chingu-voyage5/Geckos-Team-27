@@ -46,6 +46,12 @@ hr {
   flex-direction: row;
 }
 
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .unallow-link:hover {
   cursor: not-allowed;
 }

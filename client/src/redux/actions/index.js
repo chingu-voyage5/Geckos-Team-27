@@ -1,8 +1,14 @@
-import { FETCH_DEFAULT } from "./types";
+import {
+  FETCH_DEFAULT,
+  FETCH_ALL_HOMES_REQUEST,
+  FETCH_ALL_HOMES_RESULT
+} from "./types";
+import { createActions } from "redux-actions";
 
-const defaultVar = "hello";
+const homeActions = createActions(
+  {},
+  FETCH_ALL_HOMES_REQUEST,
+  FETCH_ALL_HOMES_RESULT
+);
 
-export const defaultFn = defaultVar => ({
-  type: FETCH_DEFAULT,
-  payload: defaultVar
-});
+export const { fetchAllHomesRequest, fetchAllHomesResult } = homeActions;
