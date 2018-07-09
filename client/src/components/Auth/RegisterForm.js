@@ -5,9 +5,8 @@ import Select from "../UI/Select/Select";
 
 import "./AuthForm.css";
 
-const loginForm = props => (
+const loginForm = () => (
   <div className="AuthModal RegisterModal">
-    <i className="fas fa-times AuthModal-Close" onClick={props.toggle} />
     <p className="text-centered">
       Sign up using <a className="GreenText">Facebook</a> or{" "}
       <a className="GreenText">Google</a>

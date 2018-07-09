@@ -4,9 +4,8 @@ import Button from "../UI/ButtonIconText/ButtonIconText";
 
 import "./AuthForm.css";
 
-const loginForm = props => (
+const loginForm = () => (
   <div className="AuthModal">
-    <i className="fas fa-times AuthModal-Close" onClick={props.toggle} />
     <Button
       text="Log in using Facebook"
       onClick={() => {

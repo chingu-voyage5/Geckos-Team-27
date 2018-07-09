@@ -1,23 +1,26 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./Modal.css";
+import Modal from "react-responsive-modal";
 
-const Modal = ({ children, classNames, open }) => {
-  const modalClasses = "Modal" + (classNames ? ` ${classNames}` : "");
-  return (
-    <div className={open ? `${modalClasses} Open` : `${modalClasses}`}>
-      {children}
-    </div>
-  );
+const styles = {
+  closeButton: {
+    right: "unset"
+  }
 };
+
+const modal = ({ open, onClose, children }) => (
+  <Modal open={open} onClose={onClose} styles={styles}>
+    {children}
+  </Modal>
+);
 
 Modal.propTypes = {
   open: PropTypes.bool.isRequired,
-  classNames: PropTypes.string,
+  onClose: PropTypes.func.isRequired,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node
   ]).isRequired
 };
 
-export default Modal;
+export default modal;
