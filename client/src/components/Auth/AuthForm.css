@@ -43,16 +43,6 @@
   margin: 0 4px;
 }
 
-.AuthModal-Close {
-  border-radius: 100%;
-  padding: 4px 7px;
-  font-size: 1.5rem;
-  /* box-shadow: 0 0 12px rgba(0, 0, 0, 0.4); */
-  margin-bottom: 0.8rem;
-  cursor: pointer;
-  color: #333;
-}
-
 .RegisterModal i {
   margin: 0;
 }
