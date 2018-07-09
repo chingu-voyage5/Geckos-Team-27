@@ -68,7 +68,7 @@ const toolbar = props => {
               </button>
               {on && backdrop("Modal-Backdrop Backdrop-Dark")}
               {on && (
-                <Modal open={on}>
+                <Modal open={on} onClose={toggle}>
                   <RegisterForm toggle={toggle} />
                 </Modal>
               )}
@@ -83,7 +83,7 @@ const toolbar = props => {
               </button>
               {on && backdrop("Modal-Backdrop Backdrop-Dark")}
               {on && (
-                <Modal open={on}>
+                <Modal open={on} onClose={toggle}>
                   <LoginForm toggle={toggle} />
                 </Modal>
               )}
