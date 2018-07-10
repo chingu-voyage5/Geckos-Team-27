@@ -1,49 +1,37 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-const select = ({ first, last, name, months }) => {
+const select = ({ first, last, name, value, onChange }) => {
   let options = [];
-  if (!months) {
-    const [a, b] = first > last ? [first, last] : [last, first];
-    for (let i = a; i >= b; i--) {
-      options.push(
-        <option key={i} name={i}>
-          {i}
-        </option>
-      );
-    }
-    if (last > first) {
-      options.reverse();
-    }
-  } else {
-    const m = [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December"
-    ];
-    options = m.map((month, index) =>
-      options.push(
-        <option key={index} name={month.toLowerCase()}>
-          {month}
-        </option>
-      )
+  const [a, b] = first > last ? [first, last] : [last, first];
+  for (let i = a; i >= b; i--) {
+    options.push(
+      <option key={i} value={i} name={name}>
+        {i}
+      </option>
     );
   }
-
+  if (last > first) {
+    options.reverse();
+  }
   options.unshift(
-    <option key={0} name={name} disabled>
-      {months ? "Month" : name}
+    <option key={0} name={name} value={name}>
+      {name}
     </option>
   );
-  return <select defaultValue={months ? "Month" : name}>{options}</select>;
+  return (
+    <select value={value} onChange={onChange}>
+      {options}
+    </select>
+  );
+};
+
+select.propTypes = {
+  first: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  last: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  name: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired
 };
 
 export default select;
