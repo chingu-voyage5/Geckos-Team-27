@@ -1,9 +1,13 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import Input from "../UI/Input/Input";
 import Button from "../UI/ButtonIconText/ButtonIconText";
 import "./AuthForm.css";
 
 class LoginForm extends Component {
+  static propTypes = {
+    toggleSwap: PropTypes.func.isRequired
+  };
   state = {
     email: "",
     password: ""
