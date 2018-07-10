@@ -4,7 +4,7 @@ import Button from "../UI/ButtonIconText/ButtonIconText";
 
 import "./AuthForm.css";
 
-const loginForm = () => (
+const loginForm = ({ toggleSwap }) => (
   <div className="AuthModal">
     <Button
       text="Log in using Facebook"
@@ -43,7 +43,10 @@ const loginForm = () => (
     </p>
     <hr />
     <p className="text-centered">
-      No account? <a className="GreenText">Register</a>
+      No account?{" "}
+      <a className="GreenText" onClick={toggleSwap}>
+        Register
+      </a>
     </p>
   </div>
 );
