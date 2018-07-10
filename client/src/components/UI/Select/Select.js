@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const select = ({ first, last, name, value, onChange }) => {
   let options = [];
@@ -23,6 +24,14 @@ const select = ({ first, last, name, value, onChange }) => {
       {options}
     </select>
   );
+};
+
+select.propTypes = {
+  first: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  last: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  name: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired
 };
 
 export default select;
