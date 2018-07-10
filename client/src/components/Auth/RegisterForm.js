@@ -26,6 +26,15 @@ class RegisterForm extends Component {
   };
   render() {
     const { toggleSwap } = this.props;
+    const {
+      email,
+      firstName,
+      lastName,
+      password,
+      birthday,
+      birthmonth,
+      birthyear
+    } = this.state;
     return (
       <div className="AuthModal RegisterModal">
         <p className="text-centered">
@@ -33,20 +42,38 @@ class RegisterForm extends Component {
           <a className="GreenText">Google</a>
         </p>
         <hr />
-        <form action="/" method="POST">
-          <Input name="user[email]" placeholder="Email address">
+        <form onSubmit={this.onSubmit}>
+          <Input
+            name="email"
+            type="email"
+            placeholder="Email address"
+            value={email}
+            onChange={this.handleChange}
+          >
             <i className="fas fa-envelope-square Input-Icon" />
           </Input>
-          <Input name="user[firstName]" placeholder="First Name">
-            <i className="far fa-user Input-Icon" />
-          </Input>
-          <Input name="user[lastName]" placeholder="Last Name">
+          <Input
+            name="firstName"
+            placeholder="First Name"
+            value={firstName}
+            onChange={this.handleChange}
+          >
             <i className="far fa-user Input-Icon" />
           </Input>
           <Input
-            name="user[password]"
+            name="lastName"
+            placeholder="Last Name"
+            value={lastName}
+            onChange={this.handleChange}
+          >
+            <i className="far fa-user Input-Icon" />
+          </Input>
+          <Input
+            name="password"
             type="password"
             placeholder="Create a password"
+            value={password}
+            onChange={this.handleChange}
           >
             <i className="fas fa-lock Input-Icon" />
           </Input>
@@ -64,22 +91,22 @@ class RegisterForm extends Component {
               first={1}
               last={31}
               name="Day"
-              value={"add value"}
-              onChange={() => null}
+              value={birthday}
+              onChange={e => this.handleSelect(e)}
             />
             <Select
               first={1}
               last={12}
               name="Months"
-              value={"add value"}
-              onChange={() => null}
+              value={birthmonth}
+              onChange={e => this.handleSelect(e)}
             />
             <Select
               first={2000}
               last={1900}
               name="Year"
-              value={"add value"}
-              onChange={() => null}
+              value={birthyear}
+              onChange={e => this.handleSelect(e)}
             />
           </div>
 
