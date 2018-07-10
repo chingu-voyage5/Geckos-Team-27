@@ -2,12 +2,13 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Input from "../UI/Input/Input";
 import Select from "../UI/Select/Select";
-
+// todo: connect from react-redux & redux action
 import "./AuthForm.css";
 
 class RegisterForm extends Component {
   static propTypes = {
     toggleSwap: PropTypes.func.isRequired
+    // todo: redux action & func
   };
   state = {
     email: "",
@@ -26,6 +27,7 @@ class RegisterForm extends Component {
   };
   onSubmit = e => {
     e.preventDefault();
+    // todo: call redux action
     console.log("user.....", this.state);
   };
   render() {
@@ -143,5 +145,7 @@ class RegisterForm extends Component {
     );
   }
 }
+
+// todo: mapStateToProps & connect()(RegisterForm)
 
 export default RegisterForm;
