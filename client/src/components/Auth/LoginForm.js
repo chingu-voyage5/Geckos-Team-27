@@ -9,11 +9,14 @@ class LoginForm extends Component {
     password: ""
   };
   onChange = e => {
-    console.log("on change");
+    this.setState({ [e.target.name]: e.target.value });
   };
   onSubmit = e => {
     e.preventDefault();
-    console.log("submit");
+    const { email, password } = this.state;
+    const user = { email, password };
+    // todo: call redux action
+    console.log("user...", user);
   };
   render() {
     const { toggleSwap } = this.props;
@@ -39,7 +42,8 @@ class LoginForm extends Component {
         <hr />
         <form onSubmit={this.onSubmit}>
           <Input
-            name="user[email]"
+            name="email"
+            type="email"
             placeholder="email address"
             value={email}
             onChange={this.onChange}
@@ -47,7 +51,7 @@ class LoginForm extends Component {
             <i className="fas fa-envelope-square Input-Icon" />
           </Input>
           <Input
-            name="user[password]"
+            name="password"
             type="password"
             placeholder="Password"
             value={password}
