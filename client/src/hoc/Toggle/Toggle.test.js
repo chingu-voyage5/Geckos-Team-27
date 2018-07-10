@@ -13,15 +13,24 @@ describe("<Toggle /> Render Prop", () => {
     expect(wrapper.instance().getStateAndHelpers()).toEqual({
       on: false,
       toggle: expect.any(Function),
-      backdrop: expect.any(Function)
+      backdrop: expect.any(Function),
+      swap: false,
+      toggleSwap: expect.any(Function)
     });
   });
-  it("toggle on", () => {
+  it("toggle() from false to true", () => {
+    expect(wrapper.state("on")).toBe(false);
     wrapper.instance().toggle();
     expect(wrapper.state("on")).toBe(true);
   });
-  it("toggle off", () => {
+  it("toggleSwap() from false to true", () => {
+    expect(wrapper.state("swap")).toBe(false);
+    wrapper.instance().toggleSwap();
+    expect(wrapper.state("swap")).toBe(true);
+  });
+  it("if swap is true, then toggle() changes swap to false", () => {
+    expect(wrapper.state("swap")).toBe(true);
     wrapper.instance().toggle();
-    expect(wrapper.state("on")).toBe(false);
+    expect(wrapper.state("swap")).toBe(false);
   });
 });
