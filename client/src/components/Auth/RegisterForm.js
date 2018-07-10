@@ -1,10 +1,14 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import Input from "../UI/Input/Input";
 import Select from "../UI/Select/Select";
 
 import "./AuthForm.css";
 
 class RegisterForm extends Component {
+  static propTypes = {
+    toggleSwap: PropTypes.func.isRequired
+  };
   state = {
     email: "",
     firstName: "",
