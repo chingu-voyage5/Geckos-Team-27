@@ -4,8 +4,20 @@ import Button from "../UI/ButtonIconText/ButtonIconText";
 import "./AuthForm.css";
 
 class LoginForm extends Component {
+  state = {
+    email: "",
+    password: ""
+  };
+  onChange = e => {
+    console.log("on change");
+  };
+  onSubmit = e => {
+    e.preventDefault();
+    console.log("submit");
+  };
   render() {
     const { toggleSwap } = this.props;
+    const { email, password } = this.state;
     return (
       <div className="AuthModal">
         <Button
@@ -25,11 +37,22 @@ class LoginForm extends Component {
           btnClass="Form-Button Button-White"
         />
         <hr />
-        <form action="/" method="POST">
-          <Input name="user[email]" placeholder="email address">
+        <form onSubmit={this.onSubmit}>
+          <Input
+            name="user[email]"
+            placeholder="email address"
+            value={email}
+            onChange={this.onChange}
+          >
             <i className="fas fa-envelope-square Input-Icon" />
           </Input>
-          <Input name="user[password]" type="password" placeholder="Password">
+          <Input
+            name="user[password]"
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={this.onChange}
+          >
             <i className="fas fa-lock Input-Icon" />
           </Input>
           <label className="GreenText">
