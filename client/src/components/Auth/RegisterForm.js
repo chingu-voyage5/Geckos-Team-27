@@ -1,11 +1,10 @@
 import React from "react";
 import Input from "../UI/Input/Input";
-// import ButtonIconText from "../UI/ButtonIconText/ButtonIconText";
 import Select from "../UI/Select/Select";
 
 import "./AuthForm.css";
 
-const loginForm = () => (
+const RegisterForm = ({ toggleSwap }) => (
   <div className="AuthModal RegisterModal">
     <p className="text-centered">
       Sign up using <a className="GreenText">Facebook</a> or{" "}
@@ -64,9 +63,12 @@ const loginForm = () => (
     </form>
     <hr />
     <p className="text-centered">
-      Already have an Geckosbnb account? <a className="GreenText">Login</a>
+      Already have an Geckosbnb account?{" "}
+      <a className="GreenText" onClick={toggleSwap}>
+        Login
+      </a>
     </p>
   </div>
 );
 
-export default loginForm;
+export default RegisterForm;

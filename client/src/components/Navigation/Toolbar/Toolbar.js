@@ -7,9 +7,7 @@ import Search from "../Search/Search";
 import HelpSideDrawer from "../NavigationItems/HelpSideDrawer/HelpSideDrawer";
 import NavToggler from "../NavigationItems/NavToggler/NavToggler";
 import Toggle from "../../../hoc/Toggle/Toggle";
-import Modal from "../../UI/Modal/Modal";
-import LoginForm from "../../Auth/LoginForm";
-import RegisterForm from "../../Auth/RegisterForm";
+import GuestLinks from "../GuestLinks/GuestLinks";
 
 //style imports
 import "./Toolbar.css";
@@ -55,41 +53,13 @@ const toolbar = props => {
             </Fragment>
           )}
         </Toggle>
-        {/* if user is authenticated */}
-        {/* <Logout /> */}
-        {/* else */}
-        {/* <Signup /> */}
-        {/* <LogIn /> */}
-        <Toggle>
-          {({ on, toggle, backdrop }) => (
-            <Fragment>
-              <button onClick={toggle} className="NavButton">
-                Sign Up
-              </button>
-              {on && backdrop("Modal-Backdrop Backdrop-Dark")}
-              {on && (
-                <Modal open={on} onClose={toggle}>
-                  <RegisterForm />
-                </Modal>
-              )}
-            </Fragment>
-          )}
-        </Toggle>
-        <Toggle>
-          {({ on, toggle, backdrop }) => (
-            <Fragment>
-              <button onClick={toggle} className="NavButton">
-                Login
-              </button>
-              {on && backdrop("Modal-Backdrop Backdrop-Dark")}
-              {on && (
-                <Modal open={on} onClose={toggle}>
-                  <LoginForm />
-                </Modal>
-              )}
-            </Fragment>
-          )}
-        </Toggle>
+        {/* temporary until props.auth is implemented */}
+        <GuestLinks className="NavButton" />
+        {/* {props.auth.isAuthenticated ? (
+          <button className="NavButton">Logout</button>
+        ) : (
+          <GuestLinks className="NavButton" />
+        )} */}
       </div>
     </nav>
   );
