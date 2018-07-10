@@ -38,9 +38,27 @@ const RegisterForm = ({ toggleSwap }) => (
       </p>
 
       <div className="Birth-Date">
-        <Select first={1} last={30} name="Day" />
-        <Select months />
-        <Select first={2000} last={1900} name="Year" />
+        <Select
+          first={1}
+          last={31}
+          name="Day"
+          value={"add value"}
+          onChange={() => null}
+        />
+        <Select
+          first={1}
+          last={12}
+          name="Months"
+          value={"add value"}
+          onChange={() => null}
+        />
+        <Select
+          first={2000}
+          last={1900}
+          name="Year"
+          value={"add value"}
+          onChange={() => null}
+        />
       </div>
 
       <p>
