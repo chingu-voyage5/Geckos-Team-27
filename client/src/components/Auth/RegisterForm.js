@@ -14,11 +14,11 @@ class RegisterForm extends Component {
     birthmonth: "",
     birthyear: ""
   };
-  handleSelect = e => {
-    console.log("handle select");
+  handleSelect = (e, name) => {
+    this.setState({ [name]: e.target.value });
   };
   handleChange = e => {
-    console.log("handle change");
+    this.setState({ [e.target.name]: e.target.value });
   };
   onSubmit = e => {
     e.preventDefault();
@@ -92,21 +92,21 @@ class RegisterForm extends Component {
               last={31}
               name="Day"
               value={birthday}
-              onChange={e => this.handleSelect(e)}
+              onChange={e => this.handleSelect(e, "birthday")}
             />
             <Select
               first={1}
               last={12}
               name="Months"
               value={birthmonth}
-              onChange={e => this.handleSelect(e)}
+              onChange={e => this.handleSelect(e, "birthmonth")}
             />
             <Select
               first={2000}
               last={1900}
               name="Year"
               value={birthyear}
-              onChange={e => this.handleSelect(e)}
+              onChange={e => this.handleSelect(e, "birthyear")}
             />
           </div>
 
