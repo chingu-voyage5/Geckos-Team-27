@@ -72,9 +72,7 @@ class LoginForm extends Component {
           <button className="Form-Button Button-Red">Log in</button>
         </form>
         <p className="text-centered">
-          <a href="/forgot_password" className="GreenText">
-            Forgot password?
-          </a>
+          <a className="GreenText unallow-link">Forgot password?</a>
         </p>
         <hr />
         <p className="text-centered">
