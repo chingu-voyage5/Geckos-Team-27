@@ -8,18 +8,39 @@ const input = ({
   type,
   placeholder,
   name,
-  children
-}) => (
-  <div className={"Input-Container " + (divClasses ? divClasses : null)}>
+  children,
+  value,
+  message
+}) => {
+  let input = (
     <input
       className={inputClasses || null}
       type={type || "text"}
       placeholder={placeholder || null}
       name={name}
+      defaultValue={value || ""}
     />
-    {children}
-  </div>
-);
+  );
+  if (type === "textarea") {
+    input = (
+      <textarea
+        className={inputClasses || null}
+        placeholder={placeholder || null}
+        name={name}
+        defaultValue={value || ""}
+        cols="30"
+        rows="5"
+      />
+    );
+  }
+  return (
+    <div className={"Input-Container " + (divClasses ? divClasses : null)}>
+      {input}
+      <small>{message}</small>
+      {children}
+    </div>
+  );
+};
 
 input.propTypes = {
   divClasses: PropTypes.string,

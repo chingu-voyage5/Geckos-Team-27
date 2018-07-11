@@ -9,13 +9,17 @@
 }
 
 input[type="text"],
-input[type="password"] {
+input[type="password"],
+input[type="email"],
+textarea {
   padding: 0.75rem;
   border: 1px solid #ccc;
   border-radius: 2px;
   height: 100%;
   width: 100%;
   padding-right: 2.5em;
+  color: #333;
+  font-weight: 400;
 }
 
 .Input-Icon {
@@ -31,4 +35,8 @@ input[type="password"] {
 .Icon-left i {
   left: 0.5em;
   right: unset;
+}
+
+textarea {
+  resize: vertical;
 }
