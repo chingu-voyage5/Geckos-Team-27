@@ -2,13 +2,16 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Input from "../UI/Input/Input";
 import Select from "../UI/Select/Select";
-// todo: connect from react-redux & redux action
+import { connect } from "react-redux";
+import { registerUserRequest } from "../../redux/actions/index";
 import "./AuthForm.css";
+import { isEmpty } from "../../utils";
 
 class RegisterForm extends Component {
   static propTypes = {
-    toggleSwap: PropTypes.func.isRequired
-    // todo: redux action & func
+    toggleSwap: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired,
+    registerUserRequest: PropTypes.func.isRequired
   };
   state = {
     email: "",
@@ -19,6 +22,12 @@ class RegisterForm extends Component {
     birthmonth: "",
     birthyear: ""
   };
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (!isEmpty(nextProps.auth.user)) {
+      nextProps.toggleSwap();
+    }
+    return null;
+  }
   handleSelect = (e, name) => {
     this.setState({ [name]: e.target.value });
   };
@@ -27,8 +36,9 @@ class RegisterForm extends Component {
   };
   onSubmit = e => {
     e.preventDefault();
-    // todo: call redux action
     console.log("user.....", this.state);
+    // call redux action
+    this.props.registerUserRequest(this.state);
   };
   render() {
     const { toggleSwap } = this.props;
@@ -146,6 +156,11 @@ class RegisterForm extends Component {
   }
 }
 
-// todo: mapStateToProps & connect()(RegisterForm)
+const mapStateToProps = state => ({
+  auth: state.auth
+});
 
-export default RegisterForm;
+export default connect(
+  mapStateToProps,
+  { registerUserRequest }
+)(RegisterForm);
