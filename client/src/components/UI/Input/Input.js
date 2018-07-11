@@ -10,7 +10,8 @@ const input = ({
   name,
   children,
   value,
-  message
+  message,
+  onChange
 }) => {
   let input = (
     <input
@@ -19,6 +20,7 @@ const input = ({
       placeholder={placeholder || null}
       name={name}
       defaultValue={value || ""}
+      onChange={onChange}
     />
   );
   if (type === "textarea") {
@@ -30,6 +32,7 @@ const input = ({
         defaultValue={value || ""}
         cols="30"
         rows="5"
+        onChange={onChange}
       />
     );
   }
@@ -48,6 +51,9 @@ input.propTypes = {
   type: PropTypes.string,
   placeholder: PropTypes.string,
   name: PropTypes.string.isRequired,
+  value: PropTypes.string,
+  onChange: PropTypes.func,
+  message: PropTypes.string,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node

@@ -55,4 +55,13 @@ const select = ({ first, last, name, initial, value, type = "num" }) => {
   );
 };
 
+select.propTypes = {
+  first: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  last: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  name: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  value: PropTypes.string,
+  type: PropTypes.string
+
 export default select;

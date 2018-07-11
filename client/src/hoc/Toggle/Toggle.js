@@ -3,10 +3,17 @@ import "./Toggle.css";
 
 class Toggle extends Component {
   state = {
-    on: false
+    on: false,
+    swap: false
   };
   toggle = () => {
     this.setState(({ on }) => ({ on: !on }));
+    if (this.state.swap === true) {
+      this.setState(() => ({ swap: false }));
+    }
+  };
+  toggleSwap = () => {
+    this.setState(({ swap }) => ({ swap: !swap }));
   };
   backdrop = className => (
     <div
@@ -18,7 +25,9 @@ class Toggle extends Component {
     return {
       on: this.state.on,
       toggle: this.toggle,
-      backdrop: this.backdrop
+      backdrop: this.backdrop,
+      swap: this.state.swap,
+      toggleSwap: this.toggleSwap
     };
   };
   render() {
