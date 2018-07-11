@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import PropTypes from "prop-types";
 import Toggle from "../../../hoc/Toggle/Toggle";
 import Modal from "../../UI/Modal/Modal";
 import LoginForm from "../../Auth/LoginForm";
@@ -44,5 +45,11 @@ const GuestLinks = ({ className, signUp = true, login = true }) => (
     )}
   </Fragment>
 );
+
+GuestLinks.propTypes = {
+  className: PropTypes.string,
+  signUp: PropTypes.bool.isRequired,
+  login: PropTypes.bool.isRequired
+};
 
 export default GuestLinks;
