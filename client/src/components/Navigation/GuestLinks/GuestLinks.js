@@ -16,7 +16,7 @@ const GuestLinks = ({ className }) => (
           {on && (
             <Modal open={on} onClose={toggle}>
               {!swap && <RegisterForm toggleSwap={toggleSwap} />}
-              {swap && <LoginForm toggleSwap={toggleSwap} />}
+              {swap && <LoginForm toggleSwap={toggleSwap} toggle={toggle} />}
             </Modal>
           )}
         </Fragment>
@@ -31,7 +31,7 @@ const GuestLinks = ({ className }) => (
           {on && backdrop("Modal-Backdrop Backdrop-Dark")}
           {on && (
             <Modal open={on} onClose={toggle}>
-              {!swap && <LoginForm toggleSwap={toggleSwap} />}
+              {!swap && <LoginForm toggleSwap={toggleSwap} toggle={toggle} />}
               {swap && <RegisterForm toggleSwap={toggleSwap} />}
             </Modal>
           )}
