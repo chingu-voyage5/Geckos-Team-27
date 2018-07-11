@@ -5,7 +5,6 @@ import Select from "../UI/Select/Select";
 import { connect } from "react-redux";
 import { registerUserRequest } from "../../redux/actions/index";
 import "./AuthForm.css";
-import { isEmpty } from "../../utils";
 
 class RegisterForm extends Component {
   static propTypes = {
@@ -22,12 +21,6 @@ class RegisterForm extends Component {
     birthmonth: "",
     birthyear: ""
   };
-  static getDerivedStateFromProps(nextProps, prevState) {
-    if (!isEmpty(nextProps.auth.user)) {
-      nextProps.toggleSwap();
-    }
-    return null;
-  }
   handleSelect = (e, name) => {
     this.setState({ [name]: e.target.value });
   };
@@ -36,7 +29,6 @@ class RegisterForm extends Component {
   };
   onSubmit = e => {
     e.preventDefault();
-    console.log("user.....", this.state);
     // call redux action
     this.props.registerUserRequest(this.state);
   };
