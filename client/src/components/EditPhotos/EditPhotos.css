@@ -1,0 +1,49 @@
+.Edit-Photos .Photo-Preview {
+  margin-right: 1rem;
+}
+
+.Edit-Photos .DivWithTitle-Body {
+  display: flex;
+}
+
+.Photo-Preview-Left form label {
+  margin-right: 0.5rem;
+}
+
+.Photo-Preview-Left form input[type="file"] {
+  display: none;
+}
+
+.Select-Image .DivWithTitle-Body {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.Select-Image img {
+  width: 100%;
+  display: block;
+}
+
+.Select-Image input {
+  display: block;
+  margin: 0.5rem auto;
+  transform: scale(1.2);
+  color: red;
+}
+
+.Select-Image label {
+  padding: 0.5rem;
+  flex: 1 1 30%;
+  max-width: 30%;
+}
+
+.Select-Image button {
+  display: block;
+}
+
+@media (max-width: 1000px) {
+  .Edit-Photos .DivWithTitle-Body {
+    flex-direction: column;
+  }
+}
