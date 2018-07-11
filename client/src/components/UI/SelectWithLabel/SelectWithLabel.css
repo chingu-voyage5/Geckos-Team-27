@@ -1,0 +1,23 @@
+.SelectWithLabel {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  padding: 0;
+}
+
+.SelectWithLabel label {
+  flex: 0 0 20%;
+  text-align: end;
+  padding-right: 1rem;
+  font-weight: 400;
+  order: 1;
+}
+
+.SelectWithLabel select {
+  /* padding: 0; */
+  flex: 0 0;
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  order: 2;
+  width: auto;
+}
