@@ -5,7 +5,7 @@ import Modal from "../../UI/Modal/Modal";
 import LoginForm from "../../Auth/LoginForm";
 import RegisterForm from "../../Auth/RegisterForm";
 
-const GuestLinks = ({ className, signUp = true, login = true }) => (
+const GuestLinks = ({ className, signUp, login }) => (
   <Fragment>
     {signUp && (
       <Toggle>
@@ -50,6 +50,11 @@ GuestLinks.propTypes = {
   className: PropTypes.string,
   signUp: PropTypes.bool.isRequired,
   login: PropTypes.bool.isRequired
+};
+
+GuestLinks.defaultProps = {
+  signUp: true,
+  login: true
 };
 
 export default GuestLinks;
