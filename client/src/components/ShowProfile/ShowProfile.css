@@ -1,0 +1,53 @@
+.Show-Profile {
+  display: flex;
+}
+
+.rightSide {
+  flex: 1;
+}
+
+.rightSide h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: 500;
+}
+
+.leftSide {
+  flex: 0 1 250px;
+  margin-right: 1rem;
+}
+
+.Image-Container img {
+  object-fit: cover; /* Do not scale the image */
+  object-position: center; /* Center the image within the element */
+  height: 250px;
+  width: 250px;
+}
+
+.leftSide > div {
+  margin-bottom: 0.75rem;
+}
+
+.intro {
+  padding-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.rightSide small {
+  font-size: 1rem;
+}
+
+@media (max-width: 700px) {
+  .leftSide .Verification {
+    display: none;
+  }
+  .Image-Container img {
+    height: 100%;
+    width: 100%;
+  }
+  .leftSide {
+    flex: 0 0 20%;
+  }
+}
