@@ -14,7 +14,7 @@ const loginForm = props => (
     </p>
     <hr />
     <form action="/" method="POST">
-      <Input name="user[email]" placeholder="Email address">
+      <Input name="user[email]" type="email" placeholder="Email address">
         <i className="fas fa-envelope-square Input-Icon" />
       </Input>
       <Input name="user[firstName]" placeholder="First Name">
@@ -40,9 +40,9 @@ const loginForm = props => (
       </p>
 
       <div className="Birth-Date">
-        <Select first={1} last={30} name="Day" />
-        <Select months />
-        <Select first={2000} last={1900} name="Year" />
+        <Select first={1} last={30} name="birthday" initial="Day" />
+        <Select type="months" name="birthmonth" initial="Month" />
+        <Select first={2000} last={1900} name="birthyear" initial="Year" />
       </div>
 
       <p>
