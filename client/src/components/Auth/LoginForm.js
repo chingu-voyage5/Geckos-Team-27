@@ -18,15 +18,6 @@ class LoginForm extends Component {
     email: "",
     password: ""
   };
-  static getDerivedStateFromProps = (nextProps, prevState) => {
-    if (nextProps.auth.isAuthenticated) {
-      // toggle off modal
-      nextProps.toggle();
-      // go to dashboard
-      window.location = "/dashboard";
-    }
-    return null;
-  };
   onChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
@@ -36,6 +27,8 @@ class LoginForm extends Component {
     const user = { email, password };
     // call redux action
     this.props.loginUserRequest(user);
+    // go to dashboard
+    this.props.history.push("/dashboard");
   };
   render() {
     const { toggleSwap } = this.props;

@@ -5,7 +5,6 @@ import Select from "../UI/Select/Select";
 import { connect } from "react-redux";
 import { registerUserRequest } from "../../redux/actions/index";
 import "./AuthForm.css";
-import { isEmpty } from "../../utils";
 
 class RegisterForm extends Component {
   static propTypes = {
@@ -22,12 +21,6 @@ class RegisterForm extends Component {
     birthmonth: "",
     birthyear: ""
   };
-  static getDerivedStateFromProps(nextProps, prevState) {
-    if (!isEmpty(nextProps.auth.user)) {
-      nextProps.toggleSwap();
-    }
-    return null;
-  }
   handleSelect = (e, name) => {
     this.setState({ [name]: e.target.value });
   };
@@ -36,7 +29,6 @@ class RegisterForm extends Component {
   };
   onSubmit = e => {
     e.preventDefault();
-    console.log("user.....", this.state);
     // call redux action
     this.props.registerUserRequest(this.state);
   };
@@ -101,11 +93,30 @@ class RegisterForm extends Component {
               your birthday.
             </small>
           </p>
-      <div className="Birth-Date">
-        <Select first={1} last={30} name="birthday" initial="Day" onChange={e => this.handleSelect(e, "birthday")} />
-        <Select type="months" name="birthmonth" initial="Month" onChange={e => this.handleSelect(e, "birthmonth")} />
-        <Select first={2000} last={1900} name="birthyear" initial="Year" onChange={e => this.handleSelect(e, "birthyear")} />
-      </div>
+
+          <div className="Birth-Date">
+            <Select
+              first={1}
+              last={31}
+              name="Day"
+              value={birthday}
+              onChange={e => this.handleSelect(e, "birthday")}
+            />
+            <Select
+              first={1}
+              last={12}
+              name="Months"
+              value={birthmonth}
+              onChange={e => this.handleSelect(e, "birthmonth")}
+            />
+            <Select
+              first={2000}
+              last={1900}
+              name="Year"
+              value={birthyear}
+              onChange={e => this.handleSelect(e, "birthyear")}
+            />
+          </div>
 
           <p>
             <small>
