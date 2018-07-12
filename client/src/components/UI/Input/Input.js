@@ -8,11 +8,12 @@ const input = ({
   type,
   placeholder,
   name,
+  children,
   value,
-  onChange,
-  children
-}) => (
-  <div className={"Input-Container " + (divClasses ? divClasses : null)}>
+  message,
+  onChange
+}) => {
+  let input = (
     <input
       className={inputClasses || null}
       type={type || "text"}
@@ -21,9 +22,28 @@ const input = ({
       value={value}
       onChange={onChange}
     />
-    {children}
-  </div>
-);
+  );
+  if (type === "textarea") {
+    input = (
+      <textarea
+        className={inputClasses || null}
+        placeholder={placeholder || null}
+        name={name}
+        defaultValue={value || ""}
+        cols="30"
+        rows="5"
+        onChange={onChange}
+      />
+    );
+  }
+  return (
+    <div className={"Input-Container " + (divClasses ? divClasses : "")}>
+      {input}
+      {message && <small>{message}</small>}
+      {children}
+    </div>
+  );
+};
 
 input.propTypes = {
   divClasses: PropTypes.string,
@@ -33,6 +53,7 @@ input.propTypes = {
   name: PropTypes.string.isRequired,
   value: PropTypes.string,
   onChange: PropTypes.func,
+  message: PropTypes.string,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node

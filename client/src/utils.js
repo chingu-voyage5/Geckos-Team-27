@@ -6,3 +6,4 @@ export const apiPost = (url, data) =>
 export const apiGet = url => axios.get(url).then(res => res.data);
 
 export const isEmpty = obj => Object.keys(obj).length === 0;
+export const capitalize = text => text[0].toUpperCase() + text.slice(1);

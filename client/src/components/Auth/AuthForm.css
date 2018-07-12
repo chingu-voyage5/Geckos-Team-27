@@ -25,14 +25,6 @@
   color: #333;
 }
 
-.Birth-Date select {
-  padding: 0.8rem 1.5rem;
-  flex: 0 0 calc(33% - 0.25rem);
-  width: 33%;
-  border: 1px solid #ccc;
-  margin-bottom: 0.5rem;
-}
-
 .Birth-Date {
   display: flex;
   justify-content: space-between;

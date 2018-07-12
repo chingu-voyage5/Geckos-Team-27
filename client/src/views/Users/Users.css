@@ -1,0 +1,10 @@
+.Users {
+  display: flex;
+  padding-top: 1rem;
+}
+
+@media (max-width: 700px) {
+  .Users {
+    flex-direction: column;
+  }
+}

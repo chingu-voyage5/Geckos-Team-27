@@ -1,0 +1,16 @@
+.InputWithLabel {
+  display: flex;
+  align-items: baseline;
+  padding: 0;
+}
+
+.InputWithLabel label {
+  flex: 0 0 20%;
+  text-align: end;
+  padding-right: 1rem;
+  font-weight: 400;
+}
+
+.InputWithLabel > div input {
+  margin-bottom: 0.75rem;
+}

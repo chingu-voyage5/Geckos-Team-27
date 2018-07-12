@@ -1,0 +1,16 @@
+.DivWithTitle {
+  margin-bottom: 1rem;
+  border: 1px solid #dce0e0;
+  width: 100%;
+}
+
+.DivWithTitle > #DivWithTitle-Title {
+  background-color: #edefed;
+  border-bottom: 1px solid #dce0e0;
+  font-weight: 400;
+  padding: 0.5rem 1rem;
+}
+
+.DivWithTitle-Body {
+  padding: 1rem;
+}

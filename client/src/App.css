@@ -7,13 +7,22 @@ html {
 
 * {
   font-family: "Montserrat", sans-serif;
-  font-weight: 500;
-  /* font-size: 1.1rem; */
   box-sizing: border-box;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0.75rem 0;
+  margin-top: 0;
+  color: #444;
+}
+
 .container {
-  width: 80%;
+  width: 96%;
+  max-width: 1000px;
   display: inline-block;
   margin: 0 auto;
 }
@@ -22,6 +31,7 @@ p,
 small {
   color: #333;
   margin: 0.75rem 0;
+  font-weight: 400;
 }
 
 small {
@@ -39,6 +49,15 @@ a:hover {
 hr {
   margin: 1rem 0;
   border-top: 1px solid #bbb;
+}
+
+select {
+  padding: 0.8rem 0.5rem;
+  flex: 0 0 31%;
+  border-radius: 2px;
+  border: 1px solid #ccc;
+  margin-bottom: 0.5rem;
+  font-weight: 400;
 }
 
 .flex-row {
@@ -66,6 +85,10 @@ a.Button-Blue {
   color: white;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 button.Button-White,
 a.Button-White {
   background-color: #fff;
@@ -91,4 +114,13 @@ label {
   margin-bottom: 1rem;
   cursor: pointer;
   font-size: 0.85em;
+}
+
+.Form-Btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: #fff;
+  outline: none;
+  border: 1px solid #aaa;
+  border-radius: 3px;
 }

@@ -1,0 +1,43 @@
+.DashboardNav {
+  flex: 0 1 250px;
+  margin-right: 1.5rem;
+}
+
+.DashboardNav a:link,
+.DashboardNav a:focus,
+.DashboardNav a:visited {
+  color: #555;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.DashboardNav a:hover {
+  text-decoration: none;
+  color: #aaa;
+}
+
+.DashboardNav .Dashboard-Link.DashLinkActive,
+.DashboardNav .Dashboard-Link.DashLinkActive:hover {
+  font-weight: 700;
+  color: #333;
+}
+
+.DashboardNav .Show-Link {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  color: #555;
+  border-radius: 5px;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.DashboardNav .Show-Link:hover {
+  border-color: #aaa;
+  color: #555;
+}
+
+@media (max-width: 1000px) {
+  .DashboardNav {
+    flex: 0 1 auto;
+  }
+}
