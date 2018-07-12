@@ -27,7 +27,7 @@ class Dashboard extends Component {
   }
   render() {
     return (
-      <div className="container Users">
+      <div className="db-container">
         {this.props.location.pathname.match(/\w+/gi)[1] !== "show" ? (
           <UsersNav userId={this.state.canEdit} />
         ) : null}
