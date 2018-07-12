@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Switch, Route, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
+import AuthRoute from "./hoc/AuthRoute/AuthRoute";
 import Layout from "./hoc/Layout/Layout";
 import Home from "./views/Home/Home";
 import Users from "./views/Users/Users";
@@ -12,7 +13,7 @@ class App extends Component {
       <Layout>
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/users" component={Users} />
+          <AuthRoute path="/users" {...this.props} component={Users} />
         </Switch>
       </Layout>
     );
