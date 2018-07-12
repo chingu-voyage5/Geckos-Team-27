@@ -2,14 +2,14 @@ import React, { Component } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import axios from "axios";
 
-import "./Users.css";
+import "./Dashboard.css";
 
 import UsersNav from "../../components/Navigation/UsersNav/UsersNav";
 import EditProfile from "../../components/EditProfile/EditProfile";
 import EditPhotos from "../../components/EditPhotos/EditPhotos";
 import ShowProfile from "../../components/ShowProfile/ShowProfile";
 
-class Users extends Component {
+class Dashboard extends Component {
   state = {
     canEdit: "5b26b59189ef39209c7365c2", //replace with logged in user's id
     data: null //data from axios
@@ -52,4 +52,4 @@ class Users extends Component {
   }
 }
 
-export default Users;
+export default Dashboard;

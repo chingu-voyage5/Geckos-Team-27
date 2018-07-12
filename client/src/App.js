@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import AuthRoute from "./hoc/AuthRoute/AuthRoute";
 import Layout from "./hoc/Layout/Layout";
 import Home from "./views/Home/Home";
-import Users from "./views/Users/Users";
+import Dashboard from "./views/Dashboard/Dashboard";
 import "./App.css";
 
 class App extends Component {
@@ -13,7 +13,7 @@ class App extends Component {
       <Layout>
         <Switch>
           <Route path="/" exact component={Home} />
-          <AuthRoute path="/users" {...this.props} component={Users} />
+          <AuthRoute path="/dashboard" {...this.props} component={Dashboard} />
         </Switch>
       </Layout>
     );
