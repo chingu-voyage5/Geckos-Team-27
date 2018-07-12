@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./Search.css";
 import { withRouter } from "react-router-dom";
+import { queryToLocation } from "../../../utils";
 
 import Input from "../../UI/Input/Input";
 
@@ -19,7 +20,7 @@ class Search extends Component {
   componentDidMount() {
     let placeholder = 'Try "Athens"';
     if (this.props.location.search) {
-      placeholder = this.props.location.search.replace("?query=", "");
+      placeholder = queryToLocation(this.props.location.search);
     }
     document.querySelector(".Search .Search-Bar").placeholder = placeholder;
   }
