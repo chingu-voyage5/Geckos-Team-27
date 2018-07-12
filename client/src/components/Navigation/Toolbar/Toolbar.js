@@ -1,24 +1,21 @@
-//libraries etc imports
 import React, { Fragment } from "react";
 import { withRouter } from "react-router-dom";
-//component imports
+import { connect } from "react-redux";
+import { isEmpty } from "../../../utils";
+import { logoutUserRequest } from "../../../redux/actions/index";
 import HostDropdownMenu from "../NavigationItems/HostDropdownMenu/HostDropdownMenu";
 import Search from "../Search/Search";
 import HelpSideDrawer from "../NavigationItems/HelpSideDrawer/HelpSideDrawer";
 import NavToggler from "../NavigationItems/NavToggler/NavToggler";
 import Toggle from "../../../hoc/Toggle/Toggle";
 import GuestLinks from "../GuestLinks/GuestLinks";
-
-//style imports
 import "./Toolbar.css";
 
 const toolbar = props => {
-  //pass if the user is authenticated as a prop
   let search = <Search />;
   if (props.location.pathname === "/") {
     search = null;
   }
-
   return (
     <nav className="Toolbar">
       <div className="Toolbar-Left">
@@ -53,16 +50,44 @@ const toolbar = props => {
             </Fragment>
           )}
         </Toggle>
-        {/* temporary until props.auth is implemented */}
-        <GuestLinks className="NavButton" />
-        {/* {props.auth.isAuthenticated ? (
-          <button className="NavButton">Logout</button>
-        ) : (
-          <GuestLinks className="NavButton" />
-        )} */}
+        {/* not registered or logged in. */}
+        {!props.auth.isAuthenticated &&
+          isEmpty(props.auth.user) && <GuestLinks className="NavButton" />}
+        {/* // user registered, only display login link */}
+        {!isEmpty(props.auth.user) &&
+          !props.auth.isAuthenticated && (
+            <GuestLinks className="NavButton" signUp={false} />
+          )}
+        {/* user logged in. display logout & settings btn to '/dashboard' */}
+        {props.auth.isAuthenticated && (
+          <Fragment>
+            <button
+              onClick={() => props.history.push("/dashboard")}
+              className="NavButton"
+            >
+              Settings
+            </button>
+            <button
+              className="NavButton"
+              onClick={() => {
+                props.history.push("/");
+                return props.logoutUserRequest();
+              }}
+            >
+              Logout
+            </button>
+          </Fragment>
+        )}
       </div>
     </nav>
   );
 };
 
-export default withRouter(toolbar);
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
+export default connect(
+  mapStateToProps,
+  { logoutUserRequest }
+)(withRouter(toolbar));
