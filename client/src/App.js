@@ -8,6 +8,7 @@ import "./App.css";
 import Layout from "./hoc/Layout/Layout";
 import Home from "./views/Home/Home";
 import Users from "./views/Users/Users";
+import Search from "./views/Search/Search";
 
 class App extends Component {
   render() {
@@ -16,6 +17,7 @@ class App extends Component {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/users" component={Users} />
+          <Route path="/search" component={Search} />
         </Switch>
       </Layout>
     );
