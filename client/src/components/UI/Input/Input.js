@@ -19,7 +19,7 @@ const input = ({
       type={type || "text"}
       placeholder={placeholder || null}
       name={name}
-      defaultValue={value || ""}
+      value={value}
       onChange={onChange}
     />
   );
@@ -37,9 +37,9 @@ const input = ({
     );
   }
   return (
-    <div className={"Input-Container " + (divClasses ? divClasses : null)}>
+    <div className={"Input-Container " + (divClasses ? divClasses : "")}>
       {input}
-      <small>{message}</small>
+      {message && <small>{message}</small>}
       {children}
     </div>
   );
