@@ -8,20 +8,20 @@ const DashboardNav = props => (
     <NavLink
       className="Dashboard-Link"
       activeClassName="DashLinkActive"
-      to={"/users/edit/" + props.userId}
+      to={"/dashboard/edit/" + props.userId}
     >
       Edit Profile
     </NavLink>
     <NavLink
       className="Dashboard-Link"
       activeClassName="DashLinkActive"
-      to={"/users/photos/" + props.userId}
+      to={"/dashboard/photos/" + props.userId}
     >
       Photos
     </NavLink>
     <NavLink
       className="Dashboard-Link Show-Link"
-      to={"/users/show/" + props.userId}
+      to={"/dashboard/show/" + props.userId}
     >
       Show Profile
     </NavLink>
