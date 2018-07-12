@@ -1,9 +1,13 @@
 import React, { Component } from "react";
 
-class Home extends Component {
+class Search extends Component {
   render() {
-    return <h1>This is the search page!</h1>;
+    return (
+      //filter bar
+      //search results
+      <h1>This is the search page!</h1>
+    );
   }
 }
 
-export default Home;
+export default Search;
