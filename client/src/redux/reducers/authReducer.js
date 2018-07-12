@@ -20,9 +20,13 @@ const authReducer = handleActions(
     LOGIN_USER_RESULT: {
       next: (state, action) => ({
         ...state,
-        isAuthenticated: action.payload
+        isAuthenticated: true,
+        user: action.payload
       }),
-      throw: (state, action) => ({ ...state, err: action.payload.message })
+      throw: (state, action) => ({
+        ...state,
+        err: action.payload.message
+      })
     },
     LOGOUT_USER_RESULT: {
       next: (state, action) => ({ ...state, isAuthenticated: false, user: {} }),
