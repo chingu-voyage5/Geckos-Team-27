@@ -1,7 +1,15 @@
 import React from "react";
-import { capitalize } from "../../../utils";
+import PropTypes from "prop-types";
 
-const select = ({ first, last, name, initial, value, type = "num" }) => {
+const select = ({
+  first,
+  last,
+  name,
+  initial,
+  type = "num",
+  value,
+  onChange
+}) => {
   let options = [];
   if (type === "months") {
     const m = [
@@ -44,24 +52,25 @@ const select = ({ first, last, name, initial, value, type = "num" }) => {
     }
   }
   options.unshift(
-    <option key={0} name={initial} disabled>
-      {initial}
+    <option key={0} name={initial || name}>
+      {initial || name}
     </option>
   );
   return (
-    <select defaultValue={capitalize(value || initial) || name} name={name}>
+    <select name={name} value={value} onChange={onChange}>
       {options}
     </select>
   );
 };
 
 select.propTypes = {
-  first: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-  last: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  first: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  last: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   name: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
-  value: PropTypes.string,
-  type: PropTypes.string
+  initial: PropTypes.string,
+  type: PropTypes.string,
+  onChange: PropTypes.func,
+  value: PropTypes.string
+};
 
 export default select;
