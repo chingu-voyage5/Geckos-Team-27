@@ -4,13 +4,20 @@ import "./Toggle.css";
 class Toggle extends Component {
   state = {
     on: false,
-    swap: false
+    swap: false,
+    active: null
   };
   toggle = () => {
     this.setState(({ on }) => ({ on: !on }));
     if (this.state.swap === true) {
       this.setState(() => ({ swap: false }));
     }
+  };
+  toggleActive = activeStr => {
+    if (activeStr === undefined || activeStr === "") {
+      console.log("pass a string to change fn");
+    }
+    this.setState(() => ({ active: activeStr }));
   };
   toggleSwap = () => {
     this.setState(({ swap }) => ({ swap: !swap }));
@@ -27,7 +34,9 @@ class Toggle extends Component {
       toggle: this.toggle,
       backdrop: this.backdrop,
       swap: this.state.swap,
-      toggleSwap: this.toggleSwap
+      toggleSwap: this.toggleSwap,
+      active: this.state.active,
+      toggleActive: this.toggleActive
     };
   };
   render() {
