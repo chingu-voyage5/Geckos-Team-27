@@ -12,6 +12,15 @@ import GuestLinks from "../GuestLinks/GuestLinks";
 import "./Toolbar.css";
 
 class Toolbar extends Component {
+  componentDidUpdate(prevProps, prevState) {
+    if (
+      prevProps.auth.isAuthenticated === false &&
+      this.props.auth.isAuthenticated === true
+    ) {
+      // user logged in so go to dashboard
+      this.props.history.push("/dashboard");
+    }
+  }
   render() {
     const { location, history, auth, logoutUserRequest } = this.props;
     let search = <Search />;
