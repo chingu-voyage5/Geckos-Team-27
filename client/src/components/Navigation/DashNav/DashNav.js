@@ -1,9 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-import "./UsersNav.css";
+import "./DashNav.css";
 
-const DashboardNav = props => (
+const DashNav = props => (
   <div className="DashboardNav">
     <NavLink
       className="Dashboard-Link"
@@ -28,4 +28,4 @@ const DashboardNav = props => (
   </div>
 );
 
-export default DashboardNav;
+export default DashNav;

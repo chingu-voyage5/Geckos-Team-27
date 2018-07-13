@@ -1,7 +1,7 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import { connect } from "react-redux";
-import UsersNav from "../../components/Navigation/UsersNav/UsersNav";
+import DashNav from "../../components/Navigation/DashNav/DashNav";
 import EditProfile from "../../components/EditProfile/EditProfile";
 import EditPhotos from "../../components/EditPhotos/EditPhotos";
 import ShowProfile from "../../components/ShowProfile/ShowProfile";
@@ -12,7 +12,7 @@ const Dashboard = props => {
   console.log("dash props", props);
   return (
     <div className="db-container">
-      <UsersNav userId={user._id} />
+      <DashNav userId={user._id} />
       <Switch>
         <Route
           path="/dashboard/show/:id"
