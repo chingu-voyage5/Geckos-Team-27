@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import Input from "../UI/Input/Input";
@@ -27,8 +26,6 @@ class LoginForm extends Component {
     const user = { email, password };
     // call redux action
     this.props.loginUserRequest(user);
-    // go to dashboard
-    this.props.history.push("/dashboard");
   };
   render() {
     const { toggleSwap } = this.props;
@@ -100,4 +97,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { loginUserRequest }
-)(withRouter(LoginForm));
+)(LoginForm);
