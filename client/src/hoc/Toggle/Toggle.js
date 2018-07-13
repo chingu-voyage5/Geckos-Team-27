@@ -16,6 +16,7 @@ class Toggle extends Component {
   toggleActive = activeStr => {
     if (activeStr === undefined || activeStr === "") {
       console.log("pass a string to change fn");
+      return;
     }
     this.setState(() => ({ active: activeStr }));
   };
