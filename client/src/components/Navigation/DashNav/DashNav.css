@@ -1,6 +1,8 @@
 .DashboardNav {
   flex: 0 1 250px;
   margin-right: 1.5rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .DashboardNav a:link,
