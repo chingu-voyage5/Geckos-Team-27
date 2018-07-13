@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./DashNav.css";
 
 const DashNav = ({ active, onClick }) => (
@@ -31,5 +32,10 @@ const DashNav = ({ active, onClick }) => (
     </a>
   </div>
 );
+
+DashNav.propTypes = {
+  active: PropTypes.oneOfType([null, PropTypes.string]).isRequired,
+  onClick: PropTypes.func.isRequired
+};
 
 export default DashNav;
