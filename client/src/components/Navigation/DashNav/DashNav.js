@@ -16,7 +16,7 @@ const DashNav = ({ active, onClick }) => (
     </a>
     <a
       className={
-        active === "avatar"
+        active === "choose an avatar"
           ? "Dashboard-Link DashLinkActive"
           : "Dashboaard-Link"
       }
