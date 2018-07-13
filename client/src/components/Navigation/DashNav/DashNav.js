@@ -1,30 +1,34 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
-
 import "./DashNav.css";
 
-const DashNav = props => (
+const DashNav = ({ active, onClick }) => (
   <div className="DashboardNav">
-    <NavLink
-      className="Dashboard-Link"
-      activeClassName="DashLinkActive"
-      to={"/dashboard/edit/" + props.userId}
+    <a
+      className={
+        active === "edit profile"
+          ? "Dashboard-Link DashLinkActive"
+          : "Dashboaard-Link"
+      }
+      onClick={() => onClick("edit profile")}
     >
       Edit Profile
-    </NavLink>
-    <NavLink
-      className="Dashboard-Link"
-      activeClassName="DashLinkActive"
-      to={"/dashboard/photos/" + props.userId}
+    </a>
+    <a
+      className={
+        active === "avatar"
+          ? "Dashboard-Link DashLinkActive"
+          : "Dashboaard-Link"
+      }
+      onClick={() => onClick("choose an avatar")}
     >
-      Photos
-    </NavLink>
-    <NavLink
+      Choose An Avatar
+    </a>
+    <a
       className="Dashboard-Link Show-Link"
-      to={"/dashboard/show/" + props.userId}
+      onClick={() => onClick("show profile")}
     >
       Show Profile
-    </NavLink>
+    </a>
   </div>
 );
 
