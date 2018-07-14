@@ -8,8 +8,6 @@ export const apiGet = url => axios.get(url).then(res => res.data);
 export const apiPatch = (url, data) =>
   axios.patch(url, data).then(res => res.data);
 
-export const isEmpty = obj => Object.keys(obj).length === 0;
-
 export const capitalize = text => text[0].toUpperCase() + text.slice(1);
 
 export const formatJoinDate = date => {
@@ -21,3 +19,12 @@ export const formatJoinDate = date => {
     return `${day}-${month}-${year}`;
   }
 };
+
+export const isEmpty = value =>
+  value === undefined ||
+  value === null ||
+  (typeof value === "object" && Object.keys(value).length === 0) ||
+  (typeof value === "string" && value.trim().length === 0);
+
+export const originalValueOrEmptyStr = value =>
+  (value = !isEmpty(value) ? value : "");
