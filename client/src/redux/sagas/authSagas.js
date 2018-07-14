@@ -2,9 +2,10 @@ import { call, put } from "redux-saga/effects";
 import {
   registerUserResult,
   loginUserResult,
-  logoutUserResult
+  logoutUserResult,
+  editUserResult
 } from "../actions/index";
-import { apiPost, apiGet } from "../../utils";
+import { apiPost, apiGet, apiPatch } from "../../utils";
 
 export function* register(action) {
   try {
@@ -30,5 +31,19 @@ export function* logout() {
     yield put(logoutUserResult(logout));
   } catch (error) {
     yield put(logoutUserResult(error));
+  }
+}
+
+export function* editUserProfile(action) {
+  try {
+    const { payload } = action;
+    const editProfile = yield call(
+      apiPatch,
+      `/api/current_user/${payload.id}`,
+      payload.val
+    );
+    yield put(editUserResult(editProfile));
+  } catch (error) {
+    yield put(editUserResult(error));
   }
 }
