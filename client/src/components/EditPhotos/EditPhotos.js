@@ -43,7 +43,7 @@ class EditPhotos extends Component {
       </label>
     ));
     return (
-      <Fragment>
+      <div className="Edit-Photos-Container">
         <Toggle>
           {({ toggle, on }) => (
             <Fragment>
@@ -62,7 +62,7 @@ class EditPhotos extends Component {
             </Fragment>
           )}
         </Toggle>
-      </Fragment>
+      </div>
     );
   }
 }

@@ -1,3 +1,7 @@
+.Edit-Photos-Container {
+  flex: 1 1 500px;
+}
+
 .Edit-Photos .Photo-Preview {
   margin-right: 1rem;
 }
