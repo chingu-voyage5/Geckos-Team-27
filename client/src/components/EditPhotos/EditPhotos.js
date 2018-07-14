@@ -49,7 +49,7 @@ class EditPhotos extends Component {
             <Fragment>
               {on && <h3>You have choosen an avatar!</h3>}
               {!on && (
-                <DivWithTitle title="Profile Photo" classes="Edit-Photos">
+                <DivWithTitle title="Avatar" classes="Edit-Photos">
                   <form
                     className="Select-Image"
                     onSubmit={this.submitHandler(toggle)}
