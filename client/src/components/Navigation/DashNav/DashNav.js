@@ -34,7 +34,7 @@ const DashNav = ({ active, onClick }) => (
 );
 
 DashNav.propTypes = {
-  active: PropTypes.oneOfType([null, PropTypes.string]).isRequired,
+  active: PropTypes.string,
   onClick: PropTypes.func.isRequired
 };
 
