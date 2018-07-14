@@ -34,6 +34,16 @@ const authReducer = handleActions(
         ...state,
         err: "There was an error logging out"
       })
+    },
+    EDIT_USER_RESULT: {
+      next: (state, action) => ({
+        ...state,
+        user: action.payload
+      }),
+      throw: (state, action) => ({
+        ...state,
+        err: action.payload.message
+      })
     }
   },
   initState
