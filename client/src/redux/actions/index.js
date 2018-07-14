@@ -6,7 +6,8 @@ import {
   LOGIN_USER_REQUEST,
   LOGIN_USER_RESULT,
   LOGOUT_USER_REQUEST,
-  LOGOUT_USER_RESULT
+  LOGOUT_USER_RESULT,
+  EDIT_USER_RESULT
 } from "./types";
 import { createActions } from "redux-actions";
 
@@ -20,13 +21,16 @@ export const { fetchAllHomesRequest, fetchAllHomesResult } = homeActions;
 
 // auth
 const authActions = createActions(
-  {},
+  {
+    EDIT_USER_REQUEST: (val, id) => ({ val, id })
+  },
   REGISTER_USER_REQUEST,
   REGISTER_USER_RESULT,
   LOGIN_USER_REQUEST,
   LOGIN_USER_RESULT,
   LOGOUT_USER_REQUEST,
-  LOGOUT_USER_RESULT
+  LOGOUT_USER_RESULT,
+  EDIT_USER_RESULT
 );
 
 export const {
@@ -35,5 +39,7 @@ export const {
   loginUserRequest,
   loginUserResult,
   logoutUserRequest,
-  logoutUserResult
+  logoutUserResult,
+  editUserRequest,
+  editUserResult
 } = authActions;
