@@ -41,5 +41,6 @@
 @media (max-width: 1000px) {
   .DashboardNav {
     flex: 0 1 auto;
+    padding-bottom: 30px;
   }
 }
