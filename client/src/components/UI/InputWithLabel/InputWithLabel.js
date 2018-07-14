@@ -1,20 +1,38 @@
 import React from "react";
-
+import PropTypes from "prop-types";
 import Input from "../Input/Input";
-
 import "./InputWithLabel.css";
 
-const inputWithLabel = props => (
+const inputWithLabel = ({
+  name,
+  label,
+  type,
+  value,
+  message,
+  placeholder,
+  onChange
+}) => (
   <div className="InputWithLabel">
-    <label htmlFor={props.name}>{props.label}</label>
+    <label htmlFor={name}>{label}</label>
     <Input
-      name={props.name}
-      type={props.type}
-      value={props.value}
-      message={props.message}
-      placeholder={props.placeholder}
+      name={name}
+      type={type}
+      value={value}
+      message={message}
+      placeholder={placeholder}
+      onChange={onChange}
     />
   </div>
 );
+
+inputWithLabel.propTypes = {
+  name: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  type: PropTypes.string,
+  value: PropTypes.string,
+  message: PropTypes.string,
+  placeholder: PropTypes.string,
+  onChange: PropTypes.func.isRequired
+};
 
 export default inputWithLabel;
