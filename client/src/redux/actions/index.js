@@ -1,6 +1,8 @@
 import {
   FETCH_ALL_HOMES_REQUEST,
   FETCH_ALL_HOMES_RESULT,
+  FETCH_HOME_REQUEST,
+  FETCH_HOME_RESULT,
   REGISTER_USER_REQUEST,
   REGISTER_USER_RESULT,
   LOGIN_USER_REQUEST,
@@ -14,10 +16,17 @@ import { createActions } from "redux-actions";
 const homeActions = createActions(
   {},
   FETCH_ALL_HOMES_REQUEST,
-  FETCH_ALL_HOMES_RESULT
+  FETCH_ALL_HOMES_RESULT,
+  FETCH_HOME_REQUEST,
+  FETCH_HOME_RESULT
 );
 
-export const { fetchAllHomesRequest, fetchAllHomesResult } = homeActions;
+export const {
+  fetchAllHomesRequest,
+  fetchAllHomesResult,
+  fetchHomeRequest,
+  fetchHomeResult
+} = homeActions;
 
 // auth
 const authActions = createActions(
