@@ -1,7 +1,8 @@
 import { handleActions } from "redux-actions";
 
 const initState = {
-  homes: {}
+  homes: {},
+  home: {}
 };
 
 const homeReducer = handleActions(
@@ -10,6 +11,13 @@ const homeReducer = handleActions(
       next: (state, action) => ({
         ...state,
         homes: action.payload
+      }),
+      throw: (state, action) => ({ ...state, err: action.payload.message })
+    },
+    FETCH_HOME_RESULT: {
+      next: (state, action) => ({
+        ...state,
+        home: action.payload
       }),
       throw: (state, action) => ({ ...state, err: action.payload.message })
     }
