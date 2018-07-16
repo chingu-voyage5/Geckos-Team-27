@@ -6,7 +6,8 @@ import "./Carousel.css";
 
 class Carousel extends Component {
   static propTypes = {
-    listings: PropTypes.array.isRequired
+    listings: PropTypes.array.isRequired,
+    title: PropTypes.string.isRequired
   };
   state = {
     clickCounter: 0,
@@ -22,7 +23,7 @@ class Carousel extends Component {
   }
   // refactor cwrp, use new replacement lifecycle method
   componentWillReceiveProps(nextProps) {
-    if (this.props.listingData !== nextProps.listingData) {
+    if (this.props.listings !== nextProps.listings) {
       this.leftArrowDOM.classList.add("hidden");
       this.rightArrowDOM.classList.remove("hidden");
       this.thisCarousel.style.transform = "translateX(0%)";
@@ -74,8 +75,12 @@ class Carousel extends Component {
   };
 
   render() {
+    const { title } = this.props;
     return (
       <div className="carousel-container">
+        <div className="carousel-banner">
+          <h3>{title !== "" && title}</h3>
+        </div>
         <Arrow direction="left" onClick={() => this.handleArrow("left")} />
         <div className="carousel-wrap">
           <div className="carousel">{this.state.listings}</div>
@@ -85,5 +90,9 @@ class Carousel extends Component {
     );
   }
 }
+
+Carousel.defaultProps = {
+  title: ""
+};
 
 export default Carousel;
