@@ -18,6 +18,15 @@
   transition-duration: 0.5s;
 }
 
+.carousel-banner h3 {
+  color: #484848;
+  font-size: 28px;
+  letter-spacing: -0.6px;
+  margin: 0;
+  margin-bottom: 8px;
+  padding: 2px 0;
+}
+
 @media (max-width: 768px) {
   .carousel-wrap {
     overflow-x: scroll;
