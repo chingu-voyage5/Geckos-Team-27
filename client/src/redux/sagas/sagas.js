@@ -1,6 +1,6 @@
 import { takeLatest, all } from "redux-saga/effects";
 import { fetchAllHomes, fetchHome } from "./homeSagas";
-import { register, login, logout, editUserProfile } from "./authSagas";
+import { register, login, logout, editUserProfile } from "./auth/authSagas";
 import {
   FETCH_ALL_HOMES_REQUEST,
   FETCH_HOME_REQUEST,
