@@ -4,8 +4,8 @@ import {
   loginUserResult,
   logoutUserResult,
   editUserResult
-} from "../actions/index";
-import { apiPost, apiGet, apiPatch } from "../../utils";
+} from "../../actions/index";
+import { apiPost, apiGet, apiPatch } from "../../../utils";
 
 export function* register(action) {
   try {
