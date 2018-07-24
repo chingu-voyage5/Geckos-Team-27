@@ -1,0 +1,11 @@
+.Filters-Controls {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  align-items: middle;
+}
+
+.Filters-Controls a:hover {
+  cursor: pointer;
+}
