@@ -1,0 +1,53 @@
+.Review-Header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.Review-Header h2,
+.Review-Table h4 {
+  margin: unset;
+  color: unset;
+}
+
+.Review-Header span {
+  display: flex;
+  padding-left: 5px;
+}
+
+.Review-Table {
+  display: flex;
+  flex-direction: row;
+}
+
+.Review-Table-Group {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 50%;
+  padding: 0 8px;
+}
+
+.Review-Table-item {
+  justify-content: space-between;
+  padding-bottom: 8px;
+}
+
+@media (max-width: 350px) {
+  .Review-Header {
+    display: flex;
+    flex-direction: column;
+    align-items: unset;
+  }
+}
+
+@media (max-width: 768px) {
+  .Review-Table {
+    display: flex;
+    flex-direction: column;
+  }
+  .Review-Table-Group {
+    width: unset;
+    padding: unset;
+  }
+}
