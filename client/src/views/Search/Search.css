@@ -1,0 +1,18 @@
+.Listings {
+  padding-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media (max-width: 375px) {
+  .Listings {
+    justify-content: unset;
+  }
+}
+
+@media (min-width: 1400px) {
+  .Listings {
+    justify-content: unset;
+  }
+}
