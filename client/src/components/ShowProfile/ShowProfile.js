@@ -1,9 +1,8 @@
 import React from "react";
-
-import "./ShowProfile.css";
-
 import DivWithTitle from "../UI/DivWithTitle/DivWithTitle";
 import Loader from "../UI/Loader/Loader";
+import { formatJoinDate } from "../.././utils";
+import "./ShowProfile.css";
 
 const showProfile = props => {
   if (!props.data) {
@@ -15,7 +14,7 @@ const showProfile = props => {
         <div className="Image-Container">
           <img
             src={props.data.image || "http://via.placeholder.com/250x250"}
-            alt={props.data._id + " Image"}
+            alt={`${props.data.firsName} ${props.data.lastName}`}
           />
         </div>
         <DivWithTitle title="Verified info" classes="Verification">
@@ -26,7 +25,7 @@ const showProfile = props => {
         <h1>Hey, I'm {props.data.firstName}!</h1>
         <h4>
           {props.data.city || "We don't know your location yet!"} · Joined{" "}
-          {props.data.joindate}
+          {formatJoinDate(props.data.joindate)}
         </h4>
         <div className="intro">
           <p>{props.data.intro}</p>

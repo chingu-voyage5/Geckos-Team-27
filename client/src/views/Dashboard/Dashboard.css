@@ -1,0 +1,13 @@
+.db-container {
+  width: 96%;
+  max-width: 1000px;
+  display: flex;
+  padding-top: 2rem;
+  margin: 0 auto;
+}
+
+@media (max-width: 700px) {
+  .db-container {
+    flex-direction: column;
+  }
+}

@@ -1,5 +1,5 @@
 import { call, put } from "redux-saga/effects";
-import { fetchAllHomesResult } from "../actions/index";
+import { fetchAllHomesResult, fetchHomeResult } from "../actions/index";
 import { apiGet } from "../../utils";
 
 export function* fetchAllHomes(action) {
@@ -8,5 +8,14 @@ export function* fetchAllHomes(action) {
     yield put(fetchAllHomesResult(homes));
   } catch (error) {
     yield put(fetchAllHomesResult(error));
+  }
+}
+
+export function* fetchHome(action) {
+  try {
+    const home = yield call(apiGet, `/api/homes/${action.payload}`);
+    yield put(fetchHomeResult(home));
+  } catch (error) {
+    yield put(fetchHomeResult(error));
   }
 }

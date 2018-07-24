@@ -1,0 +1,13 @@
+.icon-text {
+  padding-bottom: 1.2rem;
+}
+
+.icon-text .bold-icon-name {
+  font-weight: 500;
+  padding-left: 8px;
+}
+
+.icon-text .crossout-icon-name {
+  color: #8e8e8e;
+  text-decoration: line-through;
+}

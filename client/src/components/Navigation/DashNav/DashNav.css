@@ -1,6 +1,8 @@
 .DashboardNav {
   flex: 0 1 250px;
   margin-right: 1.5rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .DashboardNav a:link,
@@ -39,5 +41,6 @@
 @media (max-width: 1000px) {
   .DashboardNav {
     flex: 0 1 auto;
+    padding-bottom: 30px;
   }
 }

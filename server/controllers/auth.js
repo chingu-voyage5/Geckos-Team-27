@@ -54,8 +54,7 @@ const login = (req, res) => {
         if (err) {
           return res.status(401).json(err);
         }
-        const isAuthenticated = true;
-        return res.json(isAuthenticated);
+        return res.json(user);
       });
     } else {
       res.status(401).json(info);

@@ -15,7 +15,9 @@ describe("<Toggle /> Render Prop", () => {
       toggle: expect.any(Function),
       backdrop: expect.any(Function),
       swap: false,
-      toggleSwap: expect.any(Function)
+      toggleSwap: expect.any(Function),
+      active: null,
+      toggleActive: expect.any(Function)
     });
   });
   it("toggle() from false to true", () => {
@@ -32,5 +34,22 @@ describe("<Toggle /> Render Prop", () => {
     expect(wrapper.state("swap")).toBe(true);
     wrapper.instance().toggle();
     expect(wrapper.state("swap")).toBe(false);
+  });
+  it("initial state of active is null", () => {
+    expect(wrapper.state("active")).toBe(null);
+  });
+  it("active stays null if undefined or empty string is passed to toggleActive()", () => {
+    expect(wrapper.state("active")).toBe(null);
+    wrapper.instance().toggleActive(undefined);
+    expect(wrapper.state("active")).toBe(null);
+    wrapper.instance().toggleActive("");
+    expect(wrapper.state("active")).toBe(null);
+  });
+  it("active changes state to string passed to toggleActive()", () => {
+    expect(wrapper.state("active")).toBe(null);
+    wrapper.instance().toggleActive("ex str");
+    expect(wrapper.state("active")).toBe("ex str");
+    wrapper.instance().toggleActive("this thing");
+    expect(wrapper.state("active")).toBe("this thing");
   });
 });

@@ -13,7 +13,7 @@ class Listing extends Component {
     return (
       <div className="listing">
         <div className="listing-img-wrap">
-          <Link to={`/${listingData._id}`} className="listing-link">
+          <Link to={`/homes/${listingData._id}`} className="listing-link">
             <img
               src={
                 // placeholder is temporary
@@ -24,7 +24,7 @@ class Listing extends Component {
             />
           </Link>
         </div>
-        <Link to={`/${listingData.id}`} className="listing-link">
+        <Link to={`/homes/${listingData._id}`} className="listing-link">
           <div className="listing-text">
             <div className="listing-text-overview">
               {listingData.information.boundary.toUpperCase()} •{" "}
