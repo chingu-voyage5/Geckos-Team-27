@@ -1,0 +1,18 @@
+.Guests {
+  display: flex;
+  justify-content: space-between;
+  width: 90vw;
+  max-width: 360px;
+  padding: 0.5rem 1rem;
+  align-items: middle;
+}
+
+.Guests-Controls * {
+  margin-left: 0.75rem;
+}
+
+.Guests-Controls span {
+  min-width: 1rem;
+  display: inline-block;
+  text-align: center;
+}
