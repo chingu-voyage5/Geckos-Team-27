@@ -1,0 +1,27 @@
+.HomeTypes label {
+  padding: 0 1.5rem;
+  color: #333;
+  display: flex;
+  margin-bottom: 0;
+  padding: 0.25rem 1rem;
+  max-width: 400px;
+}
+
+.HomeTypes input {
+  margin-right: 0.5rem;
+  transform: scale(1.25) translateY(50%);
+  flex: 0 0;
+}
+
+.HomeTypes p {
+  font-size: 1.2em;
+  margin: 0.25rem 0;
+}
+
+.HomeTypes small {
+  font-size: 0.95em;
+}
+
+.HomeTypes .HomeTypes-Text {
+  flex: 1 0;
+}
