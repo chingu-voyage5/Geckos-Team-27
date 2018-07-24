@@ -1,0 +1,85 @@
+.Home-Overview {
+  line-height: 1.6;
+}
+
+.Home-Overview-Title > h1 {
+  margin: 0;
+}
+
+.Home-Overview h4 {
+  display: block;
+  margin-top: 1.33em;
+  margin-bottom: 1.33em;
+  font-weight: bold;
+}
+
+.Home-Overview-Subtitle {
+  display: flex;
+  color: #8e8e8e;
+}
+
+.Home-Overview-Iconpreview {
+  padding: 1.5rem 0;
+}
+.Home-Overview-Iconpreview > i {
+  padding-right: 0.5rem;
+}
+
+.Home-Overview-Iconpreview-item {
+  padding-right: 1rem;
+}
+
+.Home-Overview-link {
+  margin-right: 1rem;
+  color: #227b7f;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.Home-Overview-Pricing-disclaimer {
+  padding: 1rem 0 0 0;
+  font-size: 0.9rem;
+}
+
+.Home-Overview-Safety {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.Home-Overview-Safety-item {
+  flex: 1 0 50%;
+  padding: 0 0 0.5rem 0;
+}
+
+.Home-Overview-Sleeping {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.Home-Overview-Sleeping-item {
+  padding: 0 2rem 2rem 0;
+}
+
+.divide {
+  margin: 1rem 0;
+  border-bottom: 1px solid #c1c1c1;
+}
+
+.small-divide {
+  margin: 1rem 0;
+  width: 20%;
+  border-bottom: 1px solid #c1c1c1;
+}
+
+.crossout {
+  text-decoration: line-through;
+  color: #8e8e8e;
+}
+
+.Home-Overview-Amenities-left {
+  flex: 1 0 50%;
+}
+
+.Home-Overview-Amenities-right {
+  flex: 1 0 50%;
+}
