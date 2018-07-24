@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
-import IconText from "../../UI/IconText/IconText";
+import IconText from "../../../UI/IconText/IconText";
 
 const Amenities = ({ amenities, familyAmenities }) => (
   <Fragment>
