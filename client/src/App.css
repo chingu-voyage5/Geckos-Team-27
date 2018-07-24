@@ -105,6 +105,19 @@ a.Button-Red {
   color: #008489;
 }
 
+button.GreenBackground {
+  background-color: #008489;
+  color: #fff;
+}
+
+.GrayText {
+  color: gray;
+}
+
+.SemiboldText {
+  font-weight: 500;
+}
+
 .text-centered {
   text-align: center;
 }
@@ -123,4 +136,8 @@ label {
   outline: none;
   border: 1px solid #aaa;
   border-radius: 3px;
+}
+
+.message {
+  display: block;
 }

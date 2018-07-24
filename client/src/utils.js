@@ -9,6 +9,11 @@ export const apiPatch = (url, data) =>
   axios.patch(url, data).then(res => res.data);
 
 export const capitalize = text => text[0].toUpperCase() + text.slice(1);
+export const queryToLocation = url =>
+  url
+    .replace("%20", " ")
+    .match(/(\?query=([a-zA-Z ]+))/gi)[0]
+    .replace("?query=", "");
 
 export const formatJoinDate = date => {
   const year = date.slice(-4);
