@@ -2,11 +2,16 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import ReactStars from "react-stars";
+import { isEmpty } from "../../../utils";
 import "./Listing.css";
 
 class Listing extends Component {
   static propTypes = {
     listingData: PropTypes.object.isRequired
+  };
+  sourceImg = imageArrStr => {
+    const images = imageArrStr[0].split(",");
+    return images[0];
   };
   render() {
     const { listingData } = this.props;
@@ -16,8 +21,9 @@ class Listing extends Component {
           <Link to={`/homes/${listingData._id}`} className="listing-link">
             <img
               src={
-                // placeholder is temporary
-                listingData.images[0] || "http://via.placeholder.com/250x250"
+                !isEmpty(listingData.images)
+                  ? this.sourceImg(listingData.images) //images is an array
+                  : "http://via.placeholder.com/250x250"
               }
               className="listing-img"
               alt="listing description"
