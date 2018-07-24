@@ -1,0 +1,9 @@
+.Filters .Filters-Dropdown.Price {
+  padding: 1rem 1.5rem;
+  width: 360px;
+  max-width: 90vw;
+}
+
+.Slider-Track {
+  background: red;
+}
