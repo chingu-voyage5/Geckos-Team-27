@@ -1,9 +1,10 @@
 import React, { Component, Fragment } from "react";
 import { queryToLocation } from "../../utils";
 import { connect } from "react-redux";
-
-import Listings from "../../components/Listings/Listings";
 import Filters from "../../components/Filters/Filters";
+import Loader from "../../components/UI/Loader/Loader";
+import Listing from "../../components/UI/Listing/Listing";
+import "./Search.css";
 
 class Search extends Component {
   state = {
@@ -99,7 +100,22 @@ class Search extends Component {
     }
   }
 
+  renderListings = homes => {
+    let listings = <Loader />;
+    if (homes !== null) {
+      if (homes.length === 0) {
+        listings = <h1>No results</h1>;
+      } else {
+        listings = Object.values(homes).map((listing, idx) => (
+          <Listing listingData={listing} key={`listing-${idx}`} />
+        ));
+      }
+    }
+    return listings;
+  };
+
   render() {
+    const { filteredHomes } = this.state;
     return (
       <Fragment>
         <Filters
@@ -109,7 +125,7 @@ class Search extends Component {
           apply={this.filterHomes}
           filters={this.state.filters}
         />
-        <Listings data={this.state.filteredHomes} />
+        <div className="Listings">{this.renderListings(filteredHomes)}</div>
       </Fragment>
     );
   }
