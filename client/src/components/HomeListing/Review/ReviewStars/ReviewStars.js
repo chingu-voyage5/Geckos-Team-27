@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import PropTypes from "prop-types";
 import ReactStars from "react-stars";
 import "./ReviewStars.css";
 
@@ -101,5 +102,10 @@ const ReviewStars = ({ reviewAvg, reviews }) => (
     </div>
   </Fragment>
 );
+
+ReviewStars.propTypes = {
+  reviewAvg: PropTypes.object.isRequired,
+  reviews: PropTypes.array.isRequired
+};
 
 export default ReviewStars;
