@@ -92,9 +92,6 @@ class Search extends Component {
   resetFilters = type => {
     const newFilters = { ...this.state.filters };
     newFilters[type] = returnFilters(type);
-    console.log("filters cleared");
-    console.log("old filters", this.state.filters);
-    console.log("new filters", newFilters);
     this.setState({ filters: newFilters }, this.filterHomes);
   };
 
