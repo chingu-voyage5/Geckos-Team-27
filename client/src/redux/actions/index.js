@@ -9,7 +9,9 @@ import {
   LOGIN_USER_RESULT,
   LOGOUT_USER_REQUEST,
   LOGOUT_USER_RESULT,
-  EDIT_USER_RESULT
+  EDIT_USER_RESULT,
+  GET_USER_REQUEST,
+  GET_USER_RESULT
 } from "./types";
 import { createActions } from "redux-actions";
 
@@ -52,3 +54,8 @@ export const {
   editUserRequest,
   editUserResult
 } = authActions;
+
+// user profile
+const userActions = createActions({}, GET_USER_REQUEST, GET_USER_RESULT);
+
+export const { getUserRequest, getUserResult } = userActions;
