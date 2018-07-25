@@ -1,0 +1,109 @@
+.Booking-Container {
+  width: 400px;
+  border: 1px solid lightgrey;
+  margin: 15px;
+}
+.Booking-Content {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  background-color: #ffffff;
+  border-top: 1px solid lightgrey;
+}
+.Booking-Header {
+  width: 100%;
+  border-bottom: 1px solid lightgrey;
+  padding: 20px 0;
+  margin: 10px 20px;
+}
+
+.Booking-Header h2 {
+  font-size: 1.3em;
+  font-weight: bold;
+  margin: 0px;
+}
+.Booking-Header h2 span {
+  font-size: 0.8em;
+  font-weight: normal;
+  margin: 0px 5px;
+}
+
+.Booking-Header .Booking-Reviews > span {
+  padding-left: 5px;
+}
+
+.Booking-Input {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 10px 20px;
+}
+
+/* .Booking-Input-Date-Guests {
+} */
+
+.Booking-Calendar {
+  margin: 15px 0;
+}
+
+.Booking-Input .inputTitle {
+  margin: 0px;
+  font-size: 0.75em;
+  font-weight: 600;
+  padding: 7px 0;
+}
+
+.Booking-Input .inputSection {
+  display: flex;
+  justify-content: space-around;
+  font-size: 1.2em;
+  width: 359px;
+  border: 1px solid lightgrey;
+  padding: 10px;
+  margin: 0px;
+}
+.Booking-Input .inputSection i {
+  font-size: 1.5em;
+  margin-top: 2px;
+}
+
+.Booking-Guest {
+  margin: 15px 0;
+}
+
+.Booking-Guest .guestAmount {
+  display: block;
+}
+
+.Booking-Request-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1;
+  padding: 15px 0;
+}
+
+.Book-Request-container {
+  width: 100%;
+  text-align: center;
+}
+
+.book-request-btn {
+  width: 90%;
+  margin: 10px 0;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.1em;
+  color: white;
+  background-color: #ff5a5f;
+  padding: 10px 0px;
+  border: 1px solid #ff5a5f;
+  border-radius: 3px;
+}
+
+.Booking-Request-footer {
+  text-align: center;
+  font-size: 0.75em;
+  font-weight: bold;
+}
