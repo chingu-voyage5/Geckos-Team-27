@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import ReactStars from "react-stars";
 import ButtonIconText from "../../UI/ButtonIconText/ButtonIconText";
 import "./Booking.css";
@@ -57,5 +58,9 @@ const Booking = ({ home }) => (
     </div>
   </div>
 );
+
+Booking.propTypes = {
+  home: PropTypes.object.isRequired
+};
 
 export default Booking;
