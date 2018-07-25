@@ -68,7 +68,7 @@ const guests = props => (
     <FilterControls
       apply={props.apply}
       toggle={props.toggle}
-      reset={props.reset}
+      reset={() => props.reset("guests")}
     />
   </div>
 );

@@ -23,7 +23,7 @@ class price extends React.Component {
         <FilterControls
           apply={this.props.apply}
           toggle={this.props.toggle}
-          reset={this.props.reset}
+          reset={this.props.toggle}
         />
       </div>
     );
