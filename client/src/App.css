@@ -71,6 +71,13 @@ select {
   justify-content: center;
 }
 
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+.bold-text {
+  font-weight: 600;
+}
 .unallow-link:hover {
   cursor: not-allowed;
 }
