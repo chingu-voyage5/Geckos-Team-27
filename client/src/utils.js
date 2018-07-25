@@ -33,3 +33,23 @@ export const isEmpty = value =>
 
 export const originalValueOrEmptyStr = value =>
   (value = !isEmpty(value) ? value : "");
+
+export const returnFilters = type => {
+  const initFilters = {
+    guests: {
+      adults: 1,
+      children: 0,
+      infants: 0
+    },
+    homeType: {
+      entirePlace: null,
+      privateRoom: null,
+      sharedRoom: null
+    },
+    price: {
+      min: 9,
+      max: 500
+    }
+  };
+  return type ? initFilters[type] : initFilters;
+};

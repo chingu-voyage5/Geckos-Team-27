@@ -5,6 +5,7 @@ import Filters from "../../components/Filters/Filters";
 import Loader from "../../components/UI/Loader/Loader";
 import Listing from "../../components/UI/Listing/Listing";
 import "./Search.css";
+import { returnFilters } from "../../utils";
 
 class Search extends Component {
   state = {
@@ -25,8 +26,7 @@ class Search extends Component {
       price: {
         min: 9,
         max: 500
-      },
-      dates: {}
+      }
     },
     location: null,
     showMap: false
@@ -89,6 +89,12 @@ class Search extends Component {
     this.setState({ filteredHomes, location });
   };
 
+  resetFilters = type => {
+    const newFilters = { ...this.state.filters };
+    newFilters[type] = returnFilters(type);
+    this.setState({ filters: newFilters }, this.filterHomes);
+  };
+
   componentDidMount() {
     console.log(this.props);
     this.filterHomes();
@@ -123,6 +129,7 @@ class Search extends Component {
           homeTypeToggler={this.homeTypeToggler}
           rangeController={this.rangeController}
           apply={this.filterHomes}
+          reset={this.resetFilters}
           filters={this.state.filters}
         />
         <div className="Listings">{this.renderListings(filteredHomes)}</div>

@@ -25,7 +25,7 @@ const price = props => {
       <FilterControls
         apply={props.apply}
         toggle={props.toggle}
-        reset={props.reset}
+        reset={() => props.reset("price")}
       />
     </div>
   );

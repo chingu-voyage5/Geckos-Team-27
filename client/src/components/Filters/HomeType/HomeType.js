@@ -43,7 +43,7 @@ const homeType = props => {
       <FilterControls
         apply={props.apply}
         toggle={props.toggle}
-        reset={props.reset}
+        reset={() => props.reset("homeType")}
       />
     </div>
   );
