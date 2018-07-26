@@ -21,9 +21,9 @@ class price extends React.Component {
           numberOfCalendars={2}
         />
         <FilterControls
-          apply={this.props.apply}
+          apply={() => {}}
           toggle={this.props.toggle}
-          reset={this.props.toggle}
+          reset={() => {}}
         />
       </div>
     );
