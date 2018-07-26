@@ -3,6 +3,8 @@ import ReactDOM from "react-dom";
 import GoogleMapReact from "google-map-react";
 import { apiKey } from "../../key";
 
+import "./Map.css";
+
 class Map extends Component {
   static defaultProps = {
     center: {
