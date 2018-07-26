@@ -1,0 +1,9 @@
+.Map {
+  height: 100%;
+}
+
+@media (max-width: 1000px) {
+  .Map {
+    display: none;
+  }
+}
