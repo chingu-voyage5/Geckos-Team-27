@@ -6,6 +6,8 @@ import Loader from "../../components/UI/Loader/Loader";
 import Listing from "../../components/UI/Listing/Listing";
 import "./Search.css";
 import { returnFilters } from "../../utils";
+import axios from "axios";
+import { apiKey } from "../../key";
 
 class Search extends Component {
   state = {
@@ -29,7 +31,8 @@ class Search extends Component {
       }
     },
     location: null,
-    showMap: false
+    showMap: false,
+    mapCenter: null
   };
 
   guestController = (operation, guestType) => {
@@ -67,13 +70,11 @@ class Search extends Component {
     const data = Object.values(this.props.homes);
     const filters = this.state.filters;
     const location = queryToLocation(this.props.location.search);
-    console.log(data);
     let filteredHomes = data.filter(
       home =>
         home.location.city.toLowerCase().includes(location.toLowerCase()) ||
         home.location.state.toLowerCase().includes(location.toLowerCase())
     ); // filter for location
-    console.log(filteredHomes);
 
     filteredHomes = filteredHomes.filter(
       home =>
@@ -86,7 +87,14 @@ class Search extends Component {
         home.information.price.weekday <= filters.price.max &&
         home.information.price.weekday >= filters.price.min
     ); //filter for price
-    this.setState({ filteredHomes, location });
+    axios
+      .get(
+        `https://maps.googleapis.com/maps/api/geocode/json?address=${location}&key=${apiKey}`
+      )
+      .then(res => {
+        const mapCenter = res.data.results[0].geometry.location;
+        this.setState({ filteredHomes, location, mapCenter });
+      }); //get new map center
   };
 
   resetFilters = type => {
@@ -119,6 +127,9 @@ class Search extends Component {
     }
     return listings;
   };
+  toggleMap = () => {
+    this.setState(() => ({ showMap: !this.state.showMap }));
+  };
 
   render() {
     const { filteredHomes } = this.state;
@@ -131,8 +142,15 @@ class Search extends Component {
           apply={this.filterHomes}
           reset={this.resetFilters}
           filters={this.state.filters}
+          mapCenter={this.state.mapCenter}
+          showMap={this.state.showMap}
+          toggleMap={this.toggleMap}
         />
-        <div className="Listings">{this.renderListings(filteredHomes)}</div>
+        <div className="Listings">
+          <div className="Listings-Results">
+            {this.renderListings(filteredHomes)}
+          </div>
+        </div>
       </Fragment>
     );
   }

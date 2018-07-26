@@ -1,18 +1,26 @@
 .Listings {
   padding-top: 1rem;
   display: flex;
+}
+
+.Listings > div {
+  flex: 1 1 50%;
+}
+
+.Listings-Results {
+  display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
 @media (max-width: 375px) {
-  .Listings {
+  .Listings-Results {
     justify-content: unset;
   }
 }
 
 @media (min-width: 1400px) {
-  .Listings {
+  .Listings-Results {
     justify-content: unset;
   }
 }
