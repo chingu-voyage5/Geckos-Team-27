@@ -10,10 +10,11 @@
 .Listings-Results {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  /* justify-content: center; */
+  justify-content: space-between;
 }
 
-@media (max-width: 375px) {
+/* @media (max-width: 375px) {
   .Listings-Results {
     justify-content: unset;
   }
@@ -23,4 +24,4 @@
   .Listings-Results {
     justify-content: unset;
   }
-}
+} */
