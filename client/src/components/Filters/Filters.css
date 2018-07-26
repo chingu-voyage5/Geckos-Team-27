@@ -72,3 +72,26 @@
   background: #fff;
   border: 1px solid #aaa;
 }
+
+.Map-Toggle {
+  display: inline-block;
+  float: right;
+}
+
+.Map-Toggle small {
+  margin-right: 16px;
+}
+
+.Map-Toggle div {
+  text-align: center;
+}
+
+.Map-Toggle i {
+  font-size: 0.75em;
+}
+
+@media (max-width: 1000px) {
+  .Map-Toggle {
+    display: none;
+  }
+}
