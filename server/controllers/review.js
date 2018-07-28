@@ -26,13 +26,14 @@ const newReview = async (req, res) => {
   review.reviewerId = user_id(req);
   review.reviewdate = formatDate(new Date());
   const newReview = await review.save();
-  const reviewer = await User.findById(review.reviewerId).then(user => {
+  // host of home recieves a review
+  const reviewee = await User.findById(review.hostId).then(user => {
     // add new review to end of array
     user.reviews = [...user.reviews, newReview];
     return user.save();
   });
-  // receiver of review
-  const reviewee = await Home.findById(newReview.houseId).then(home => {
+  // home receives review
+  const home = await Home.findById(newReview.houseId).then(home => {
     home.reviews = [...home.reviews, newReview];
     return home.save();
   });
