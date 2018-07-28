@@ -2,6 +2,7 @@ import { takeLatest, all } from "redux-saga/effects";
 import { fetchAllHomes, fetchHome } from "./homeSagas";
 import { register, login, logout, editUserProfile } from "./auth/authSagas";
 import { getUserProfile } from "./userSagas";
+import { fetchAllReviews } from "./reviewSagas";
 import {
   FETCH_ALL_HOMES_REQUEST,
   FETCH_HOME_REQUEST,
@@ -9,7 +10,8 @@ import {
   LOGIN_USER_REQUEST,
   LOGOUT_USER_REQUEST,
   EDIT_USER_REQUEST,
-  GET_USER_REQUEST
+  GET_USER_REQUEST,
+  FETCH_REVIEWS_REQUEST
 } from "../actions/types";
 
 export default function* rootSaga() {
@@ -20,6 +22,7 @@ export default function* rootSaga() {
     yield takeLatest(LOGIN_USER_REQUEST, login),
     yield takeLatest(LOGOUT_USER_REQUEST, logout),
     yield takeLatest(EDIT_USER_REQUEST, editUserProfile),
-    yield takeLatest(GET_USER_REQUEST, getUserProfile)
+    yield takeLatest(GET_USER_REQUEST, getUserProfile),
+    yield takeLatest(FETCH_REVIEWS_REQUEST, fetchAllReviews)
   ]);
 }
