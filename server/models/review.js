@@ -24,7 +24,8 @@ const reviewSchema = new Schema({
   lastName: String,
   city: String,
   state: String,
-  country: String
+  country: String,
+  image: String
 });
 
 const Review = mongoose.model("reviews", reviewSchema);
