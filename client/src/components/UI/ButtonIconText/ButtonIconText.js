@@ -1,9 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
+import "./.ButtonIconText.css";
 
 const ButtonIconText = ({ container, btnClass, onClick, icon, text }) => (
   <div className={container}>
-    <button className={btnClass} onClick={onClick}>
+    <button
+      type="button"
+      className={`btn-icon-text ${btnClass}`}
+      onClick={onClick}
+    >
       <span>
         <div>
           <div>
