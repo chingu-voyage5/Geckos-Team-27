@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import "./Review.css";
 
 const Review = ({ review }) => (
-  <div className="indreview">
+  <div>
     <div className="review-header">
       <Link to={`/users/${review.reviewerId}`}>
         <img
