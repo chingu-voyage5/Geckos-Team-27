@@ -15,7 +15,6 @@ const Footer = () => (
           {!on && (
             <ButtonIconText
               container="ft-tgg"
-              btnClass="ft-tgg-btn"
               onClick={toggle}
               text="Terms, Privacy, Currency & More"
               icon="fas fa-globe"
