@@ -15,3 +15,6 @@ export const EDIT_USER_RESULT = "EDIT_USER_RESULT";
 // user profile
 export const GET_USER_REQUEST = "GET_USER_REQUEST";
 export const GET_USER_RESULT = "GET_USER_RESULT";
+// review
+export const FETCH_REVIEWS_REQUEST = "FETCH_REVIEWS_REQUEST";
+export const FETCH_REVIEWS_RESULT = "FETCH_REVIEWS_RESULT";
