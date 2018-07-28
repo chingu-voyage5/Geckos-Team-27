@@ -11,7 +11,9 @@ import {
   LOGOUT_USER_RESULT,
   EDIT_USER_RESULT,
   GET_USER_REQUEST,
-  GET_USER_RESULT
+  GET_USER_RESULT,
+  FETCH_REVIEWS_REQUEST,
+  FETCH_REVIEWS_RESULT
 } from "./types";
 import { createActions } from "redux-actions";
 
@@ -59,3 +61,12 @@ export const {
 const userActions = createActions({}, GET_USER_REQUEST, GET_USER_RESULT);
 
 export const { getUserRequest, getUserResult } = userActions;
+
+// reviews
+const reviewActions = createActions(
+  {},
+  FETCH_REVIEWS_REQUEST,
+  FETCH_REVIEWS_RESULT
+);
+
+export const { fetchReviewsRequest, fetchReviewsResult } = reviewActions;
