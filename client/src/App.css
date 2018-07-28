@@ -148,3 +148,16 @@ label {
 .message {
   display: block;
 }
+
+.btn-grey-outline {
+  margin: 1rem;
+  padding: 0.6rem 1.4rem;
+  border: 2px solid #c1c1c1;
+  border-radius: 6px;
+  outline: none;
+  background-color: #fff;
+  font-weight: 600;
+  font-size: 0.8em;
+  color: #414141;
+  cursor: pointer;
+}
