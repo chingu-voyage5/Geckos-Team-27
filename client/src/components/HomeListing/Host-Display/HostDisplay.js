@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import ButtonIconText from "../../UI/ButtonIconText/ButtonIconText";
 import VerifiedIcon from "../../UI/Verified-icon/VerifiedIcon";
 import "./HostDisplay.css";
 
@@ -16,21 +15,15 @@ const HostDisplay = ({ user }) => (
         </div>
         <div className="Host-Display-iconbar">
           <div className="icon-set">
-            <ButtonIconText
-              btnClass="btn-yellow"
-              text={user.reviews.length.toString()}
-              icon=""
-              onClick={() => {}}
-            />
+            <button className="btn-yellow">
+              {user.reviews.length.toString()}
+            </button>
             <span className="icon-label">Reviews</span>
           </div>
           <div className="icon-set">
-            <ButtonIconText
-              btnClass="btn-yellow"
-              text={user.references.length.toString()}
-              icon=""
-              onClick={() => {}}
-            />
+            <button className="btn-yellow">
+              {user.references.length.toString()}
+            </button>
             <span className="icon-label">References</span>
           </div>
           {user.verified.id && (
@@ -47,12 +40,7 @@ const HostDisplay = ({ user }) => (
     </div>
     <div className="Host-Display-intro">{user.intro}</div>
     <Link to={`/users/${user.id}`}>
-      <ButtonIconText
-        btnClass="accent-outline"
-        text="Contact Host"
-        icon=""
-        onClick={() => {}}
-      />
+      <button className="accent-outline">Contact Host</button>
     </Link>
     <ul>
       <li>
