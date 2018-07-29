@@ -6,6 +6,7 @@ import Layout from "./hoc/Layout/Layout";
 import Home from "./views/Home/Home";
 import Search from "./views/Search/Search";
 import Dashboard from "./views/Dashboard/Dashboard";
+import HomeListing from "./views/HomeListing/HomeListing";
 import "./App.css";
 
 class App extends Component {
@@ -16,6 +17,7 @@ class App extends Component {
           <Route path="/" exact component={Home} />
           <Route path="/search" component={Search} />
           <AuthRoute path="/dashboard" {...this.props} component={Dashboard} />
+          <Route path="/homes/:home" component={HomeListing} />
         </Switch>
       </Layout>
     );
