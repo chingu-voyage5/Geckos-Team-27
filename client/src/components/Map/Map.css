@@ -1,3 +1,6 @@
+.Map {
+  margin-left: 1rem;
+}
 @media (max-width: 1000px) {
   .Map {
     display: none;
