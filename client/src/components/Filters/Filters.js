@@ -7,9 +7,7 @@ import Guests from "./Guests/Guests";
 import HomeType from "./HomeType/HomeType";
 import Price from "./Price/Price";
 import Dates from "./Dates/Dates";
-import ToggleSwitch from "react-toggle-switch";
 import "./ToggleSwitch.css";
-import Map from "../../components/Map/Map";
 
 const filters = props => {
   return (
@@ -115,17 +113,6 @@ const filters = props => {
           </Fragment>
         )}
       </Toggle>
-
-      <div className="Map-Toggle">
-        <small>Show map</small>
-        <Fragment>
-          <ToggleSwitch onClick={props.toggleMap} on={props.showMap}>
-            <i className={"fas " + (props.showMap ? "fa-check" : "fa-times")} />
-          </ToggleSwitch>
-
-          {props.showMap && <Map center={props.mapCenter} />}
-        </Fragment>
-      </div>
     </div>
   );
 };
