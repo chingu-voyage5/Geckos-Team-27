@@ -3,15 +3,12 @@
   display: flex;
 }
 
-.Listings > div {
-  flex: 1 1 50%;
-}
-
 .Listings-Results {
   display: flex;
   flex-wrap: wrap;
   /* justify-content: center; */
   justify-content: space-between;
+  flex: 1 0 50%;
 }
 
 /* @media (max-width: 375px) {

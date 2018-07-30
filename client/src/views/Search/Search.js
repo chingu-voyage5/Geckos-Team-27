@@ -8,6 +8,8 @@ import "./Search.css";
 import { returnFilters } from "../../utils";
 import axios from "axios";
 import { apiKey } from "../../key";
+import Map from "../../components/Map/Map";
+import Marker from "../../components/UI/Marker/Marker";
 
 class Search extends Component {
   state = {
@@ -19,8 +21,6 @@ class Search extends Component {
         infants: 0
       },
       homeType: {
-        //initial value is null, if the user changes it
-        //it becomes true/false
         entirePlace: null,
         privateRoom: null,
         sharedRoom: null
@@ -37,7 +37,6 @@ class Search extends Component {
 
   guestController = (operation, guestType) => {
     const newFilters = { ...this.state.filters };
-
     if (operation === "inc") {
       newFilters.guests[guestType]++;
     } else if (operation === "dec") {
@@ -48,7 +47,6 @@ class Search extends Component {
         newFilters.guests[guestType]--;
       }
     }
-
     this.setState({ filters: newFilters });
   };
 
@@ -114,25 +112,47 @@ class Search extends Component {
     }
   }
 
+  getMarkers = homes => {
+    return homes.map((home, index) => {
+      const { lat, lng } = home.location;
+      if (!lat || !lng) return null;
+      return (
+        <Marker
+          price={home.information.price.weekday}
+          key={`marker-${index}`}
+          lat={lat}
+          lng={lng}
+        />
+      );
+    });
+  };
+
   renderListings = homes => {
     let listings = <Loader />;
     if (homes !== null) {
       if (homes.length === 0) {
         listings = <h1>No results</h1>;
       } else {
-        listings = Object.values(homes).map((listing, idx) => (
-          <Listing listingData={listing} key={`listing-${idx}`} />
-        ));
+        listings = Object.values(homes).map((listing, idx) => {
+          return <Listing listingData={listing} key={`listing-${idx}`} />;
+        });
       }
     }
     return listings;
   };
+
   toggleMap = () => {
     this.setState(() => ({ showMap: !this.state.showMap }));
   };
 
   render() {
     const { filteredHomes } = this.state;
+
+    let markers = null;
+    if (filteredHomes !== null) {
+      markers = this.getMarkers(filteredHomes);
+    }
+    console.log(markers);
     return (
       <Fragment>
         <Filters
@@ -142,7 +162,6 @@ class Search extends Component {
           apply={this.filterHomes}
           reset={this.resetFilters}
           filters={this.state.filters}
-          mapCenter={this.state.mapCenter}
           showMap={this.state.showMap}
           toggleMap={this.toggleMap}
         />
@@ -150,6 +169,14 @@ class Search extends Component {
           <div className="Listings-Results">
             {this.renderListings(filteredHomes)}
           </div>
+          <Map
+            center={this.state.mapCenter}
+            showMap={this.state.showMap}
+            toggleMap={this.toggleMap}
+            el={document.getElementsByClassName("Filters")[0]}
+          >
+            {markers}
+          </Map>
         </div>
       </Fragment>
     );
