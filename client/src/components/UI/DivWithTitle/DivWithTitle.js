@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./DivWithTitle.css";
 
 const divWithTitle = props => (
@@ -9,5 +10,15 @@ const divWithTitle = props => (
     </div>
   </div>
 );
+
+divWithTitle.propTypes = {
+  classes: PropTypes.string,
+  title: PropTypes.string.isRequired,
+  childClass: PropTypes.string,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ])
+};
 
 export default divWithTitle;
