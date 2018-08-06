@@ -1,0 +1,64 @@
+.Verified-User-body {
+  font-size: 13px;
+  padding: 20px;
+  font-weight: 500;
+}
+.Verified-User-body-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 18px;
+}
+.Verified-User-body-list > li {
+  margin-bottom: 12px;
+}
+.Verified-User-body-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.Verified-User-body-info--check {
+  fill: none;
+  stroke: #414141;
+  stroke-miterlimit: 10;
+  height: 22px;
+  width: 22px;
+}
+.Verified-User-body--learnmore {
+  color: #227b7f;
+  text-decoration: none;
+}
+
+.About-Me-container {
+  margin-bottom: 10px;
+}
+.About-Me-title {
+  font-weight: 700;
+}
+
+.Profile-Homes-Listing {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  height: 200px;
+  width: 100%;
+  overflow: hidden;
+  object-fit: cover;
+  object-position: center;
+  margin: 1rem 0;
+}
+.Profile-Homes-Listing--link img {
+  width: auto;
+  height: 200px;
+  overflow: hidden;
+  object-fit: cover;
+}
+
+.Profile-Homes-Listing--link h4 {
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  color: #ffffff;
+  text-align: center;
+  text-shadow: 1px 1px #414141;
+}
