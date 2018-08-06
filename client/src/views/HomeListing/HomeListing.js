@@ -16,6 +16,7 @@ import Toggle from "../../hoc/Toggle/Toggle";
 import HeroImg from "../../components/HomeListing/Hero-Img/HeroImg";
 import Album from "../../components/HomeListing/Album/Album";
 import "./HomeListing.css";
+import { isEmpty } from "../../utils";
 
 class HomeListing extends Component {
   static propTypes = {
@@ -56,6 +57,9 @@ class HomeListing extends Component {
       reviews: { reviews }
     } = this.props;
     const { carouselListings } = this.state;
+    if (isEmpty(home) || isEmpty(reviews) || isEmpty(user)) {
+      return null;
+    }
     return (
       <div className="flex-column">
         <Toggle>
