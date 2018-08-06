@@ -2,12 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./DivWithTitle.css";
 
-const divWithTitle = props => (
-  <div className={"DivWithTitle " + props.classes}>
-    <div id="DivWithTitle-Title">{props.title}</div>
-    <div className={`DivWithTitle-Body ${props.childClass}`}>
-      {props.children}
-    </div>
+const divWithTitle = ({ classes, title, childClass, children }) => (
+  <div className={"DivWithTitle " + classes}>
+    <div id="DivWithTitle-Title">{title}</div>
+    <div className={`DivWithTitle-Body ${childClass}`}>{children}</div>
   </div>
 );
 
