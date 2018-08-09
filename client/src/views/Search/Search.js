@@ -1,10 +1,12 @@
 import React, { Component, Fragment } from "react";
+import ReactDOM from "react-dom";
 import axios from "axios";
 import { connect } from "react-redux";
 import Filters from "../../components/Filters/Filters";
 import Loader from "../../components/UI/Loader/Loader";
 import Listing from "../../components/UI/Listing/Listing";
 import Map from "../../components/Map/Map";
+import ToggleMap from "../../components/Map/ToggleMap";
 import Marker from "../../components/UI/Marker/Marker";
 import { queryToLocation, returnFilters } from "../../utils";
 import { apiKey } from "../../key";
@@ -85,19 +87,7 @@ class Search extends Component {
         home.information.price.weekday <= filters.price.max &&
         home.information.price.weekday >= filters.price.min
     ); //filter for price
-    axios
-      .get(
-        `https://maps.googleapis.com/maps/api/geocode/json?address=${location}&key=${apiKey}`
-      )
-      .then(res => {
-        const error = res.data.error_message;
-        if (error) {
-          this.setState({ filteredHomes, error_message: error });
-        } else {
-          const mapCenter = res.data.results[0].geometry.location;
-          this.setState({ filteredHomes, location, mapCenter });
-        }
-      }); //get new map center
+    this.setState({ filteredHomes });
   };
 
   resetFilters = type => {
@@ -115,6 +105,8 @@ class Search extends Component {
       queryToLocation(this.props.location.search)
     ) {
       this.filterHomes();
+      const { showMap } = this.state;
+      showMap ? this.getMap() : this.clearMap();
     }
   }
 
@@ -147,8 +139,35 @@ class Search extends Component {
     return listings;
   };
 
-  toggleMap = () => {
-    this.setState(() => ({ showMap: !this.state.showMap }));
+  toggleMap = async () => {
+    await this.setState(() => ({ showMap: !this.state.showMap }));
+    const { showMap } = this.state;
+    showMap ? this.getMap() : this.clearMap();
+  };
+
+  clearMap = () => {
+    this.setState({
+      location: null,
+      mapCenter: null,
+      error_message: null
+    });
+  };
+
+  getMap = () => {
+    const location = queryToLocation(this.props.location.search);
+    axios
+      .get(
+        `https://maps.googleapis.com/maps/api/geocode/json?address=${location}&key=${apiKey}`
+      )
+      .then(res => {
+        const error = res.data.error_message;
+        if (error) {
+          this.setState({ error_message: error });
+        } else {
+          const mapCenter = res.data.results[0].geometry.location;
+          this.setState({ location, mapCenter });
+        }
+      }); //get new map center
   };
 
   render() {
@@ -157,6 +176,7 @@ class Search extends Component {
     if (filteredHomes !== null) {
       markers = this.getMarkers(filteredHomes);
     }
+    const mapBtnPortal = document.getElementsByClassName("Filters")[0];
     return (
       <Fragment>
         <Filters
@@ -173,16 +193,15 @@ class Search extends Component {
           <div className="Listings-Results">
             {this.renderListings(filteredHomes)}
           </div>
-          {!error_message && (
-            <Map
-              center={this.state.mapCenter}
-              showMap={this.state.showMap}
-              toggleMap={this.toggleMap}
-              el={document.getElementsByClassName("Filters")[0]}
-            >
-              {markers}
-            </Map>
-          )}
+          {mapBtnPortal &&
+            ReactDOM.createPortal(
+              <ToggleMap
+                toggleMap={this.toggleMap}
+                showMap={this.state.showMap}
+              />,
+              mapBtnPortal
+            )}
+          {!error_message && <Map center={this.state.mapCenter}>{markers}</Map>}
           {error_message && (
             <div className="half-width">
               <h5 className="flex-center map-error">
