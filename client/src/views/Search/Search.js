@@ -32,7 +32,8 @@ class Search extends Component {
     },
     location: null,
     showMap: false,
-    mapCenter: null
+    mapCenter: null,
+    error_message: null
   };
 
   guestController = (operation, guestType) => {
@@ -90,8 +91,13 @@ class Search extends Component {
         `https://maps.googleapis.com/maps/api/geocode/json?address=${location}&key=${apiKey}`
       )
       .then(res => {
-        const mapCenter = res.data.results[0].geometry.location;
-        this.setState({ filteredHomes, location, mapCenter });
+        const error = res.data.error_message;
+        if (error) {
+          this.setState({ filteredHomes, error_message: error });
+        } else {
+          const mapCenter = res.data.results[0].geometry.location;
+          this.setState({ filteredHomes, location, mapCenter });
+        }
       }); //get new map center
   };
 
@@ -102,12 +108,13 @@ class Search extends Component {
   };
 
   componentDidMount() {
-    console.log(this.props);
     this.filterHomes();
   }
-  componentDidUpdate() {
-    console.log(this.state.filteredHomes);
-    if (this.state.location !== queryToLocation(this.props.location.search)) {
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    if (
+      queryToLocation(prevProps.location.search) !==
+      queryToLocation(this.props.location.search)
+    ) {
       this.filterHomes();
     }
   }
@@ -146,13 +153,11 @@ class Search extends Component {
   };
 
   render() {
-    const { filteredHomes } = this.state;
-
+    const { filteredHomes, error_message } = this.state;
     let markers = null;
     if (filteredHomes !== null) {
       markers = this.getMarkers(filteredHomes);
     }
-    console.log(markers);
     return (
       <Fragment>
         <Filters
@@ -169,14 +174,23 @@ class Search extends Component {
           <div className="Listings-Results">
             {this.renderListings(filteredHomes)}
           </div>
-          <Map
-            center={this.state.mapCenter}
-            showMap={this.state.showMap}
-            toggleMap={this.toggleMap}
-            el={document.getElementsByClassName("Filters")[0]}
-          >
-            {markers}
-          </Map>
+          {!error_message && (
+            <Map
+              center={this.state.mapCenter}
+              showMap={this.state.showMap}
+              toggleMap={this.toggleMap}
+              el={document.getElementsByClassName("Filters")[0]}
+            >
+              {markers}
+            </Map>
+          )}
+          {error_message && (
+            <div className="half-width">
+              <h5 className="flex-center map-error">
+                There is an issue with google maps
+              </h5>
+            </div>
+          )}
         </div>
       </Fragment>
     );
