@@ -1,11 +1,7 @@
-import React, { Component, Fragment } from "react";
-import ReactDOM from "react-dom";
+import React, { Component } from "react";
 import GoogleMapReact from "google-map-react";
 import { apiKey } from "../../key";
-
 import "./Map.css";
-
-import ToggleSwitch from "react-toggle-switch";
 
 class Map extends Component {
   static defaultProps = {
@@ -17,20 +13,6 @@ class Map extends Component {
   };
 
   render() {
-    const toggle = (
-      <div key="map-toggle" className="Map-Toggle">
-        <small>Show map</small>
-        <Fragment>
-          <ToggleSwitch onClick={this.props.toggleMap} on={this.props.showMap}>
-            <i
-              className={
-                "fas " + (this.props.showMap ? "fa-check" : "fa-times")
-              }
-            />
-          </ToggleSwitch>
-        </Fragment>
-      </div>
-    );
     const map = (
       <div key="map" className="Map" style={{ height: "85vh", width: "50%" }}>
         <GoogleMapReact
@@ -45,10 +27,7 @@ class Map extends Component {
         </GoogleMapReact>
       </div>
     );
-    return [
-      this.props.el && ReactDOM.createPortal(toggle, this.props.el),
-      this.props.showMap && map
-    ];
+    return [this.props.showMap && map];
   }
 }
 
