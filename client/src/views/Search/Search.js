@@ -1,15 +1,14 @@
 import React, { Component, Fragment } from "react";
-import { queryToLocation } from "../../utils";
+import axios from "axios";
 import { connect } from "react-redux";
 import Filters from "../../components/Filters/Filters";
 import Loader from "../../components/UI/Loader/Loader";
 import Listing from "../../components/UI/Listing/Listing";
-import "./Search.css";
-import { returnFilters } from "../../utils";
-import axios from "axios";
-import { apiKey } from "../../key";
 import Map from "../../components/Map/Map";
 import Marker from "../../components/UI/Marker/Marker";
+import { queryToLocation, returnFilters } from "../../utils";
+import { apiKey } from "../../key";
+import "./Search.css";
 
 class Search extends Component {
   state = {
