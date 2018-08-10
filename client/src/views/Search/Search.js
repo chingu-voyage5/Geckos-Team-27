@@ -31,7 +31,6 @@ class Search extends Component {
         max: 500
       }
     },
-    location: null,
     showMap: false,
     mapCenter: null,
     error_message: null
