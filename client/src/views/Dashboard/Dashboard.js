@@ -17,7 +17,7 @@ const Dashboard = props => {
             <DashNav active={active} onClick={toggleActive} />
             {active === "edit profile" && <EditProfile data={user} />}
             {active === "choose an avatar" && <EditPhotos data={user} />}
-            {active === "show profile" && <ShowProfile data={user} />}
+            {active === "show profile" && <ShowProfile user={user} />}
           </Fragment>
         )}
       </Toggle>
