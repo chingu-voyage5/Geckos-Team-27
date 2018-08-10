@@ -1,0 +1,8 @@
+.Marker {
+  transform-origin: bottom center;
+  transform: translateX(-50%) translateY(-100%) scale(0.8);
+}
+
+.Marker g:hover {
+  fill: blue;
+}

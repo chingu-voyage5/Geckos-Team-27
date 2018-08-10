@@ -1,18 +1,33 @@
 .Listings {
   padding-top: 1rem;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
 }
 
-@media (max-width: 375px) {
-  .Listings {
+.Listings-Results {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  flex: 1 0 50%;
+}
+
+.map-error {
+  height: 100%;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.half-width {
+  width: 50%;
+}
+
+/* @media (max-width: 375px) {
+  .Listings-Results {
     justify-content: unset;
   }
 }
 
 @media (min-width: 1400px) {
-  .Listings {
+  .Listings-Results {
     justify-content: unset;
   }
-}
+} */
