@@ -106,7 +106,9 @@ class Search extends Component {
     ) {
       this.filterHomes();
       const { showMap } = this.state;
-      showMap ? this.getMap() : this.clearMap();
+      if (showMap) {
+        this.getMap();
+      }
     }
   }
 
