@@ -4,8 +4,7 @@ import ProfileOverview from "./ProfileOverview/ProfileOverview";
 import { formatJoinDate } from "../.././utils";
 import "./ShowProfile.css";
 
-const showProfile = ({ data }) => {
-  const user = data;
+const showProfile = ({ user }) => {
   if (!user) {
     return <Loader />;
   }
