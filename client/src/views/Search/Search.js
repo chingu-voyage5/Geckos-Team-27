@@ -7,10 +7,9 @@ import Loader from "../../components/UI/Loader/Loader";
 import Listing from "../../components/UI/Listing/Listing";
 import Map from "../../components/Map/Map";
 import ToggleMap from "../../components/Map/ToggleMap";
-import Marker from "../../components/UI/Marker/Marker";
 import { queryToLocation, returnFilters } from "../../utils";
-import { apiKey } from "../../key";
 import "./Search.css";
+import { mapboxKey } from "../../key";
 
 class Search extends Component {
   state = {
@@ -34,7 +33,7 @@ class Search extends Component {
     location: null,
     showMap: false,
     mapCenter: null,
-    error_message: null
+    hover: null
   };
 
   guestController = (operation, guestType) => {
@@ -106,26 +105,12 @@ class Search extends Component {
     ) {
       this.filterHomes();
       const { showMap } = this.state;
+
       if (showMap) {
         this.getMap();
       }
     }
   }
-
-  getMarkers = homes => {
-    return homes.map((home, index) => {
-      const { lat, lng } = home.location;
-      if (!lat || !lng) return null;
-      return (
-        <Marker
-          price={home.information.price.weekday}
-          key={`marker-${index}`}
-          lat={lat}
-          lng={lng}
-        />
-      );
-    });
-  };
 
   renderListings = homes => {
     let listings = <Loader />;
@@ -134,7 +119,14 @@ class Search extends Component {
         listings = <h1>No results</h1>;
       } else {
         listings = Object.values(homes).map((listing, idx) => {
-          return <Listing listingData={listing} key={`listing-${idx}`} />;
+          return (
+            <Listing
+              mouseIn={() => this.setState(() => ({ hover: idx }))}
+              mouseOut={() => this.setState(() => ({ hover: null }))}
+              listingData={listing}
+              key={`listing-${idx}`}
+            />
+          );
         });
       }
     }
@@ -159,25 +151,19 @@ class Search extends Component {
     const location = queryToLocation(this.props.location.search);
     axios
       .get(
-        `https://maps.googleapis.com/maps/api/geocode/json?address=${location}&key=${apiKey}`
+        `https://api.mapbox.com/geocoding/v5/mapbox.places/${location}.json?access_token=${mapboxKey}`
       )
       .then(res => {
-        const error = res.data.error_message;
-        if (error) {
-          this.setState({ error_message: error });
-        } else {
-          const mapCenter = res.data.results[0].geometry.location;
-          this.setState({ location, mapCenter });
-        }
+        const mapCenter = {
+          lng: res.data.features[0].center[0],
+          lat: res.data.features[0].center[1]
+        };
+        this.setState({ mapCenter });
       }); //get new map center
   };
 
   render() {
-    const { filteredHomes, error_message } = this.state;
-    let markers = null;
-    if (filteredHomes !== null) {
-      markers = this.getMarkers(filteredHomes);
-    }
+    const { filteredHomes, showMap, mapCenter } = this.state;
     const mapBtnPortal = document.getElementsByClassName("Filters")[0];
     return (
       <Fragment>
@@ -203,14 +189,15 @@ class Search extends Component {
               />,
               mapBtnPortal
             )}
-          {!error_message && <Map center={this.state.mapCenter}>{markers}</Map>}
-          {error_message && (
-            <div className="half-width">
-              <h5 className="flex-center map-error">
-                There is an issue with google maps
-              </h5>
-            </div>
-          )}
+
+          {showMap &&
+            mapCenter && (
+              <Map
+                newCenter={mapCenter}
+                hover={this.state.hover}
+                filteredHomes={this.state.filteredHomes}
+              />
+            )}
         </div>
       </Fragment>
     );
