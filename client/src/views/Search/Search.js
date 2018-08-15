@@ -107,7 +107,7 @@ class Search extends Component {
       const { showMap } = this.state;
 
       if (showMap) {
-        this.getMap();
+        this.getMapCenter();
       }
     }
   }
@@ -136,18 +136,17 @@ class Search extends Component {
   toggleMap = async () => {
     await this.setState(() => ({ showMap: !this.state.showMap }));
     const { showMap } = this.state;
-    showMap ? this.getMap() : this.clearMap();
+    showMap ? this.getMapCenter() : this.clearMap();
   };
 
   clearMap = () => {
     this.setState({
       location: null,
-      mapCenter: null,
-      error_message: null
+      mapCenter: null
     });
   };
 
-  getMap = () => {
+  getMapCenter = () => {
     const location = queryToLocation(this.props.location.search);
     axios
       .get(
