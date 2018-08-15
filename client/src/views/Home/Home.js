@@ -29,18 +29,12 @@ class Home extends Component {
   };
   render() {
     const { listings } = this.state;
-    const { err } = this.props.homes;
     return (
       <Fragment>
         <Header />
         {listings.length > 0 && (
           <div className="flex-center">
             <Carousel listings={listings} />
-          </div>
-        )}
-        {err && (
-          <div className="flex-center">
-            <h2>{err}</h2>
           </div>
         )}
       </Fragment>
