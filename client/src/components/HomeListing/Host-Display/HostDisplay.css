@@ -13,34 +13,6 @@
 .Host-Display-joindate {
   font-size: 0.9rem;
 }
-.Host-Display-iconbar {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  padding: 1rem 0;
-}
-.Host-Display-iconbar .icon-set {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-  margin: 0.75rem;
-}
-.Host-Display-iconbar .icon-set .icon-label {
-  margin-left: 0.5rem;
-}
-
-.Host-Display-iconbar .btn-yellow {
-  min-width: 30px;
-  padding: 6px 8px;
-  border: none;
-  border-radius: 8px;
-  outline: none;
-  background: linear-gradient(140deg, #ffcb4d 50%, #ffb400 50%, #ffb400 100%);
-  color: #ffffff;
-  font-size: 1.2rem;
-  font-weight: bold;
-}
 .Host-Display-avatar-wrapper img {
   width: 100px;
   height: 100px;
