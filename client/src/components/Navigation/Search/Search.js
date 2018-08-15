@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import "./Search.css";
 import { withRouter } from "react-router-dom";
-import { queryToLocation } from "../../../utils";
-
 import Input from "../../UI/Input/Input";
+import { queryToLocation } from "../../../utils";
+import "./Search.css";
 
 class Search extends Component {
   searchHandler = event => {
@@ -14,11 +13,10 @@ class Search extends Component {
         ? "?query=" + event.target.search.value
         : null
     });
-    console.log(event.target.search.value);
   };
 
   componentDidMount() {
-    let placeholder = 'Try "Athens"';
+    let placeholder = 'Try "Athens" or "Miami"';
     if (this.props.location.search) {
       placeholder = queryToLocation(this.props.location.search);
     }
