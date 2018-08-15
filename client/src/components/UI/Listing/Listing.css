@@ -59,6 +59,10 @@
   line-height: 20px;
 }
 
+.listing-wrapper {
+  width: 100%;
+}
+
 .listing-text-reviews {
   margin-top: 2px;
 }

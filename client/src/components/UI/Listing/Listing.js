@@ -18,6 +18,7 @@ class Listing extends Component {
     return (
       <div className="listing">
         <div
+          className="listing-wrapper"
           onMouseEnter={this.props.mouseIn || null}
           onMouseLeave={this.props.mouseOut || null}
         >
