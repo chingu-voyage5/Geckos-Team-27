@@ -20,8 +20,7 @@ const marker = props => (
         x="50%"
         y="50%"
         textAnchor="middle"
-        fill="black"
-        fontSize="22"
+        fontSize="24"
         dy="0.1em"
         fontWeight="500"
       >

@@ -1,8 +1,16 @@
 .Marker {
   transform-origin: bottom center;
-  transform: translateX(-50%) translateY(-100%) scale(0.8);
+  transform: scale(0.75);
 }
 
-.Marker g:hover {
-  fill: blue;
+.hovered {
+  z-index: 10;
+}
+
+.hovered svg g path {
+  fill: #008489;
+}
+
+.hovered svg g text {
+  fill: #fff;
 }
