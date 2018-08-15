@@ -1,0 +1,26 @@
+.MarkerSummary-Container {
+  width: 250px;
+  z-index: 11;
+}
+
+.MarkerSummary-Container .mapboxgl-popup-content {
+  padding: 0;
+}
+
+.MarkerSummary-Container * {
+  font-weight: 700;
+  width: 100%;
+}
+
+.MarkerSummary-Content {
+  padding: 0 0.75rem;
+  font-size: 1.1em;
+}
+
+.MarkerSummary-Content * {
+  margin-bottom: 0.1rem;
+}
+
+.MarkerSummary-Content h4 {
+  font-weight: 400;
+}
