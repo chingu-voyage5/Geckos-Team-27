@@ -22,15 +22,13 @@ const ProfileOverview = ({ user, homes }) => {
   return (
     <Fragment>
       {verifiedList}
-      {user.school ||
-        user.work ||
-        (user.languages !== undefined && (
-          <DivWithTitle title="About Me" classes="Verification">
-            {user.school && makeAboutMe("Schools", user.school)}
-            {user.work && makeAboutMe("Work", user.work)}
-            {user.languages && makeAboutMe("Languages", user.languages)}
-          </DivWithTitle>
-        ))}
+      {(user.school || user.work || user.languages !== undefined) && (
+        <DivWithTitle title="About Me" classes="Verification">
+          {user.school && makeAboutMe("Schools", user.school)}
+          {user.work && makeAboutMe("Work", user.work)}
+          {user.languages && makeAboutMe("Languages", user.languages)}
+        </DivWithTitle>
+      )}
       {user.homes.map(key => {
         let image = homes.homes[key].images[0].split(",")[0];
         let city = homes.homes[key].location.city;
