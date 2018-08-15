@@ -7,33 +7,30 @@ import "./ProfileOverview.css";
 
 const ProfileOverview = ({ user, homes }) => {
   const { verified } = user;
-  let verifiedList;
-  if (
-    verified.id ||
-    verified.info ||
-    verified.email ||
-    verified.phone ||
-    verified.workemail
-  ) {
-    verifiedList = isVerified(user);
+  let verifiedList = null;
+  if (verified !== undefined) {
+    if (
+      verified.id ||
+      verified.info ||
+      verified.email ||
+      verified.phone ||
+      verified.workemail
+    ) {
+      verifiedList = isVerified(user);
+    }
   }
   return (
     <Fragment>
-      <DivWithTitle
-        title="Verified info"
-        classes="Verification"
-        childClass="Verified-User-body"
-      >
-        <ul className="Verified-User-body-list">{verifiedList}</ul>
-        <a className="Verified-User-body--learnmore unallow-link">
-          Learn more »
-        </a>
-      </DivWithTitle>
-      <DivWithTitle title="About Me" classes="Verification">
-        {user.school && makeAboutMe("Schools", user.school)}
-        {user.work && makeAboutMe("Work", user.work)}
-        {user.languages && makeAboutMe("Languages", user.languages)}
-      </DivWithTitle>
+      {verifiedList}
+      {user.school ||
+        user.work ||
+        (user.languages !== undefined && (
+          <DivWithTitle title="About Me" classes="Verification">
+            {user.school && makeAboutMe("Schools", user.school)}
+            {user.work && makeAboutMe("Work", user.work)}
+            {user.languages && makeAboutMe("Languages", user.languages)}
+          </DivWithTitle>
+        ))}
       {user.homes.map(key => {
         let image = homes.homes[key].images[0].split(",")[0];
         let city = homes.homes[key].location.city;
@@ -86,7 +83,16 @@ function isVerified(profile) {
       );
     }
   }
-  return verifiedList;
+  return (
+    <DivWithTitle
+      title="Verified info"
+      classes="Verification"
+      childClass="Verified-User-body"
+    >
+      <ul className="Verified-User-body-list">{verifiedList}</ul>
+      <a className="Verified-User-body--learnmore unallow-link">Learn more »</a>
+    </DivWithTitle>
+  );
 }
 
 function makeAboutMe(title, info) {
