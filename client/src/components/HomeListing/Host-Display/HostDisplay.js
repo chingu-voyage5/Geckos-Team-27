@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import VerifiedIcon from "../../UI/Verified-icon/VerifiedIcon";
+import HostIcon from "../../UI/HostIcon/HostIcon";
 import "./HostDisplay.css";
 
 const HostDisplay = ({ user }) => (
@@ -13,26 +13,7 @@ const HostDisplay = ({ user }) => (
           {`${user.city}, ${user.state} `}
           - Joined July 2018
         </div>
-        <div className="Host-Display-iconbar">
-          <div className="icon-set">
-            <button className="btn-yellow">
-              {user.reviews.length.toString()}
-            </button>
-            <span className="icon-label">Reviews</span>
-          </div>
-          <div className="icon-set">
-            <button className="btn-yellow">
-              {user.references.length.toString()}
-            </button>
-            <span className="icon-label">References</span>
-          </div>
-          {user.verified.id && (
-            <div className="icon-set">
-              <VerifiedIcon />
-              <span className="icon-label">Verified</span>
-            </div>
-          )}
-        </div>
+        <HostIcon user={user} />
       </div>
       <Link to={`/users/${user.id}`} className="Host-Display-avatar-wrapper">
         <img src={user.image} alt={`${user.firstName} ${user.lastName}`} />
