@@ -3,6 +3,10 @@
 .Filters {
   padding: 1rem;
   border-bottom: 1px solid #dedede;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background-color: #fff;
 }
 
 .Filters-Category-Button {
