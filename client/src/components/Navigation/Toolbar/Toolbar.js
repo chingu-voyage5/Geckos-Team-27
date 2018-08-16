@@ -10,6 +10,8 @@ import NavToggler from "../NavigationItems/NavToggler/NavToggler";
 import Toggle from "../../../hoc/Toggle/Toggle";
 import GuestLinks from "../GuestLinks/GuestLinks";
 import "./Toolbar.css";
+import GeckosLogo from "../../../assets/images/geckos-logo.png";
+import { Link } from "react-router-dom";
 
 class Toolbar extends Component {
   componentDidUpdate(prevProps, prevState) {
@@ -30,10 +32,9 @@ class Toolbar extends Component {
     return (
       <nav className="Toolbar">
         <div className="Toolbar-Left">
-          {/* Logo */}
-          <a style={{ textDecoration: "none", color: "red" }} href="/">
-            Logo
-          </a>
+          <Link to="/">
+            <img className="Toolbar-Logo" src={GeckosLogo} alt="Geckos Logo" />
+          </Link>
           {/* Search bar */}
           {search}
         </div>
