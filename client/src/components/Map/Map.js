@@ -5,6 +5,7 @@ import "./Map.css";
 import ReactDOMServer from "react-dom/server";
 import CustomMarker from "../UI/Marker/Marker";
 import MarkerSummary from "../UI/Marker/MarkerSummary/MarkerSummary";
+import DOMPurify from "dompurify";
 
 mapboxgl.accessToken = mapboxKey;
 
@@ -41,11 +42,13 @@ class Map extends Component {
       if (!lat || !lng) return null;
       const el = document.createElement("div");
 
-      el.innerHTML = ReactDOMServer.renderToString(
-        <CustomMarker
-          hover={this.props.hover === index}
-          price={home.information.price.weekday}
-        />
+      el.innerHTML = DOMPurify.sanitize(
+        ReactDOMServer.renderToString(
+          <CustomMarker
+            hover={this.props.hover === index}
+            price={home.information.price.weekday}
+          />
+        )
       );
       markers.push(
         new mapboxgl.Marker({ element: el, anchor: "center" })
@@ -58,7 +61,9 @@ class Map extends Component {
               anchor: "bottom",
               className: "MarkerSummary-Container"
             }).setHTML(
-              ReactDOMServer.renderToString(<MarkerSummary home={home} />)
+              DOMPurify.sanitize(
+                ReactDOMServer.renderToString(<MarkerSummary home={home} />)
+              )
             )
           )
       );
