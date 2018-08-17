@@ -8,20 +8,27 @@ import Search from "./views/Search/Search";
 import Dashboard from "./views/Dashboard/Dashboard";
 import HomeListing from "./views/HomeListing/HomeListing";
 import Profile from "./views/Profile/Profile";
+import ScrollTop from "./hoc/Scroll-Top/ScrollTop";
 import "./App.css";
 
 class App extends Component {
   render() {
     return (
-      <Layout>
-        <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/search" component={Search} />
-          <AuthRoute path="/dashboard" {...this.props} component={Dashboard} />
-          <Route path="/homes/:home" component={HomeListing} />
-          <Route path="/users/:user" component={Profile} />
-        </Switch>
-      </Layout>
+      <ScrollTop>
+        <Layout>
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/search" component={Search} />
+            <AuthRoute
+              path="/dashboard"
+              {...this.props}
+              component={Dashboard}
+            />
+            <Route path="/homes/:home" component={HomeListing} />
+            <Route path="/users/:user" component={Profile} />
+          </Switch>
+        </Layout>
+      </ScrollTop>
     );
   }
 }
