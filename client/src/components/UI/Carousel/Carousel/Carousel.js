@@ -33,6 +33,7 @@ class Carousel extends Component {
     const collection = listings.map((listing, index) => (
       <Listing listingData={listing} key={index} />
     ));
+    this.leftArrowDOM.classList.add("hidden");
     this.setState({
       clickCounter: 0,
       currentPosition: 0,
