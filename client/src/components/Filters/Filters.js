@@ -7,6 +7,7 @@ import Guests from "./Guests/Guests";
 import HomeType from "./HomeType/HomeType";
 import Price from "./Price/Price";
 import Dates from "./Dates/Dates";
+import "./ToggleSwitch.css";
 
 const filters = props => {
   return (

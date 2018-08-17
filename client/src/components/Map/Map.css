@@ -1,0 +1,9 @@
+.Map {
+  margin-left: 1rem;
+  position: sticky;
+}
+@media (max-width: 1000px) {
+  .Map {
+    display: none;
+  }
+}

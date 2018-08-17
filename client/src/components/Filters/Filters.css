@@ -3,6 +3,10 @@
 .Filters {
   padding: 1rem;
   border-bottom: 1px solid #dedede;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background-color: #fff;
 }
 
 .Filters-Category-Button {
@@ -71,4 +75,26 @@
   list-style-type: none;
   background: #fff;
   border: 1px solid #aaa;
+}
+
+.Map-Toggle {
+  float: right;
+}
+
+.Map-Toggle small {
+  margin-right: 16px;
+}
+
+.Map-Toggle div {
+  text-align: center;
+}
+
+.Map-Toggle i {
+  font-size: 0.75em;
+}
+
+@media (max-width: 1000px) {
+  .Map-Toggle {
+    display: none;
+  }
 }

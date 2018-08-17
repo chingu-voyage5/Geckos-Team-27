@@ -99,7 +99,9 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(
-  mapStateToProps,
-  { logoutUserRequest }
-)(withRouter(Toolbar));
+export default withRouter(
+  connect(
+    mapStateToProps,
+    { logoutUserRequest }
+  )(Toolbar)
+);

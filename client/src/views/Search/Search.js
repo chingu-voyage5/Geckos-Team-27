@@ -1,11 +1,15 @@
 import React, { Component, Fragment } from "react";
-import { queryToLocation } from "../../utils";
+import ReactDOM from "react-dom";
+import axios from "axios";
 import { connect } from "react-redux";
 import Filters from "../../components/Filters/Filters";
 import Loader from "../../components/UI/Loader/Loader";
 import Listing from "../../components/UI/Listing/Listing";
+import Map from "../../components/Map/Map";
+import ToggleMap from "../../components/Map/ToggleMap";
+import { queryToLocation, returnFilters } from "../../utils";
 import "./Search.css";
-import { returnFilters } from "../../utils";
+import { mapboxKey } from "../../key";
 
 class Search extends Component {
   state = {
@@ -17,8 +21,6 @@ class Search extends Component {
         infants: 0
       },
       homeType: {
-        //initial value is null, if the user changes it
-        //it becomes true/false
         entirePlace: null,
         privateRoom: null,
         sharedRoom: null
@@ -29,12 +31,13 @@ class Search extends Component {
       }
     },
     location: null,
-    showMap: false
+    showMap: false,
+    mapCenter: null,
+    hover: null
   };
 
   guestController = (operation, guestType) => {
     const newFilters = { ...this.state.filters };
-
     if (operation === "inc") {
       newFilters.guests[guestType]++;
     } else if (operation === "dec") {
@@ -45,7 +48,6 @@ class Search extends Component {
         newFilters.guests[guestType]--;
       }
     }
-
     this.setState({ filters: newFilters });
   };
 
@@ -67,13 +69,11 @@ class Search extends Component {
     const data = Object.values(this.props.homes);
     const filters = this.state.filters;
     const location = queryToLocation(this.props.location.search);
-    console.log(data);
     let filteredHomes = data.filter(
       home =>
         home.location.city.toLowerCase().includes(location.toLowerCase()) ||
         home.location.state.toLowerCase().includes(location.toLowerCase())
     ); // filter for location
-    console.log(filteredHomes);
 
     filteredHomes = filteredHomes.filter(
       home =>
@@ -86,7 +86,7 @@ class Search extends Component {
         home.information.price.weekday <= filters.price.max &&
         home.information.price.weekday >= filters.price.min
     ); //filter for price
-    this.setState({ filteredHomes, location });
+    this.setState({ filteredHomes });
   };
 
   resetFilters = type => {
@@ -96,13 +96,19 @@ class Search extends Component {
   };
 
   componentDidMount() {
-    console.log(this.props);
     this.filterHomes();
   }
-  componentDidUpdate() {
-    console.log(this.state.filteredHomes);
-    if (this.state.location !== queryToLocation(this.props.location.search)) {
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    if (
+      queryToLocation(prevProps.location.search) !==
+      queryToLocation(this.props.location.search)
+    ) {
       this.filterHomes();
+      const { showMap } = this.state;
+
+      if (showMap) {
+        this.getMapCenter();
+      }
     }
   }
 
@@ -112,16 +118,52 @@ class Search extends Component {
       if (homes.length === 0) {
         listings = <h1>No results</h1>;
       } else {
-        listings = Object.values(homes).map((listing, idx) => (
-          <Listing listingData={listing} key={`listing-${idx}`} />
-        ));
+        listings = Object.values(homes).map((listing, idx) => {
+          return (
+            <Listing
+              mouseIn={() => this.setState(() => ({ hover: idx }))}
+              mouseOut={() => this.setState(() => ({ hover: null }))}
+              listingData={listing}
+              key={`listing-${idx}`}
+            />
+          );
+        });
       }
     }
     return listings;
   };
 
+  toggleMap = async () => {
+    await this.setState(() => ({ showMap: !this.state.showMap }));
+    const { showMap } = this.state;
+    showMap ? this.getMapCenter() : this.clearMap();
+  };
+
+  clearMap = () => {
+    this.setState({
+      location: null,
+      mapCenter: null
+    });
+  };
+
+  getMapCenter = () => {
+    const location = queryToLocation(this.props.location.search);
+    axios
+      .get(
+        `https://api.mapbox.com/geocoding/v5/mapbox.places/${location}.json?access_token=${mapboxKey}`
+      )
+      .then(res => {
+        const mapCenter = {
+          lng: res.data.features[0].center[0],
+          lat: res.data.features[0].center[1]
+        };
+        this.setState({ mapCenter });
+      }); //get new map center
+  };
+
   render() {
-    const { filteredHomes } = this.state;
+    const { filteredHomes, showMap, mapCenter } = this.state;
+    const mapBtnPortal = document.getElementsByClassName("Filters")[0];
     return (
       <Fragment>
         <Filters
@@ -131,8 +173,31 @@ class Search extends Component {
           apply={this.filterHomes}
           reset={this.resetFilters}
           filters={this.state.filters}
+          showMap={this.state.showMap}
+          toggleMap={this.toggleMap}
         />
-        <div className="Listings">{this.renderListings(filteredHomes)}</div>
+        <div className="Listings">
+          <div className="Listings-Results">
+            {this.renderListings(filteredHomes)}
+          </div>
+          {mapBtnPortal &&
+            ReactDOM.createPortal(
+              <ToggleMap
+                toggleMap={this.toggleMap}
+                showMap={this.state.showMap}
+              />,
+              mapBtnPortal
+            )}
+
+          {showMap &&
+            mapCenter && (
+              <Map
+                newCenter={mapCenter}
+                hover={this.state.hover}
+                filteredHomes={this.state.filteredHomes}
+              />
+            )}
+        </div>
       </Fragment>
     );
   }

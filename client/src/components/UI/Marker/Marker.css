@@ -1,0 +1,16 @@
+.Marker {
+  transform-origin: bottom center;
+  transform: scale(0.75);
+}
+
+.hovered {
+  z-index: 10;
+}
+
+.hovered svg g path {
+  fill: #008489;
+}
+
+.hovered svg g text {
+  fill: #fff;
+}
