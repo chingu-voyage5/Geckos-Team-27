@@ -21,13 +21,11 @@ class Carousel extends Component {
     this.thisCarousel = document.getElementsByClassName("carousel")[0];
     this.buildListings();
   }
-  // refactor cwrp, use new replacement lifecycle method
-  componentWillReceiveProps(nextProps) {
-    if (this.props.listings !== nextProps.listings) {
+  componentDidUpdate(prevProps, prevState) {
+    if (this.props.listings !== prevProps.listings) {
       this.leftArrowDOM.classList.add("hidden");
       this.rightArrowDOM.classList.remove("hidden");
       this.thisCarousel.style.transform = "translateX(0%)";
-      this.buildCarouselData(nextProps);
     }
   }
   buildListings = (props = this.props) => {
