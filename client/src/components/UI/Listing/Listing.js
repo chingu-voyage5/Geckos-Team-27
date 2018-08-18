@@ -19,8 +19,8 @@ class Listing extends Component {
       <div className="listing">
         <div
           className="listing-wrapper"
-          onMouseEnter={this.props.mouseIn || null}
-          onMouseLeave={this.props.mouseOut || null}
+          onMouseOver={this.props.mouseIn || null}
+          onMouseOut={this.props.mouseOut || null}
         >
           <div className="listing-img-wrap">
             <Link to={`/homes/${listingData._id}`} className="listing-link">
